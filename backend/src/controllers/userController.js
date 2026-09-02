@@ -150,15 +150,27 @@ export const UserChangePhoto = async (req, res, next) => {
       await cloudinary.uploader.destroy(currentUser.photo.publicID);
     }
 
-    const b64 = Buffer.from(dp.buffer).toString("base64");
-    const dataURI = `data:${dp.mimetype};base64,${b64}`;
-
-    const result = await cloudinary.uploader.upload(dataURI, {
-      folder: "HealthNexus/User",
-      width: 500,
-      height: 500,
-      crop: "fill",
+    const uploadPromise = new Promise((resolve, reject) => {
+      const stream = cloudinary.uploader.upload_stream(
+        {
+          folder: "HealthNexus/User",
+          width: 500,
+          height: 500,
+          crop: "fill",
+        },
+        (error, result) => {
+          if (error) {
+            console.error("Cloudinary upload error:", error);
+            reject(error);
+          } else {
+            resolve(result);
+          }
+        }
+      );
+      stream.end(dp.buffer);
     });
+
+    const result = await uploadPromise;
 
     currentUser.photo.url = result.secure_url;
     currentUser.photo.publicID = result.public_id;
@@ -170,6 +182,7 @@ export const UserChangePhoto = async (req, res, next) => {
       data: currentUser,
     });
   } catch (error) {
+    console.error("UserChangePhoto Error:", error);
     next(error);
   }
 };
