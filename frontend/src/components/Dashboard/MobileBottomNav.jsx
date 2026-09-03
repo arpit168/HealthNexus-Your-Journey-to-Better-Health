@@ -78,7 +78,7 @@ const MobileBottomNav = () => {
             <button
               key={item.id}
               onClick={() => navigate(item.path)}
-              className="flex flex-col items-center justify-center py-1 w-full space-y-0.5"
+              className="flex flex-col items-center justify-center "
             >
               <div
                 className={`p-1.5 rounded-xl transition-all duration-300 ${
