@@ -22,7 +22,10 @@ import analyticsRouter from "./src/routers/analyticsRouter.js";
 const app = express();
 
 const allowedOrigins = process.env.CORS_ORIGINS
-  ? process.env.CORS_ORIGINS.split(",").map(o => o.trim())
+  ? process.env.CORS_ORIGINS.split(",").map((o) => {
+      let trimmed = o.trim();
+      return trimmed.startsWith("http") ? trimmed : `https://${trimmed}`;
+    })
   : [
       "http://localhost:5173",
       "https://health-nexus-your-journey-to-better.vercel.app",
@@ -36,7 +39,11 @@ app.use(
   cors({
     origin: (origin, callback) => {
       // Allow non-browser requests (no Origin header) and known frontends.
-      if (!origin || allowedOrigins.includes(origin) || allowedOrigins.includes(origin + "/")) {
+      if (
+        !origin ||
+        allowedOrigins.includes(origin) ||
+        allowedOrigins.includes(origin + "/")
+      ) {
         return callback(null, true);
       }
       // Return false to gracefully fail CORS without throwing a 500 error on preflight
@@ -77,14 +84,15 @@ app.use((err, req, res, next) => {
 });
 
 const port = process.env.PORT || 5000;
-app.listen(port, async () => {
-  console.log("Server started at port:", port);
-  connectDB();
+connectDB().then(() => {
+  app.listen(port, async () => {
+    console.log("Server started at port:", port);
 
-  try {
-    const res = await cloudinary.api.ping();
-    console.log("Cloudinary API is working", res);
-  } catch (error) {
-    console.error("Error Connection Cloudinary API", error);
-  }
+    try {
+      const res = await cloudinary.api.ping();
+      console.log("Cloudinary API is working", res);
+    } catch (error) {
+      console.error("Error Connection Cloudinary API", error);
+    }
+  });
 });

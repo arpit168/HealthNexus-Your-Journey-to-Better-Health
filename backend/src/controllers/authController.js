@@ -16,7 +16,6 @@ const refreshCookieOptions = {
 // ----------------UserRegister-----------------
 export const UserRegister = async (req, res, next) => {
   try {
-    console.log(req.body);
     //accept data from Frontend
     const {
       fullName,
@@ -38,8 +37,6 @@ export const UserRegister = async (req, res, next) => {
       return next(error);
     }
 
-    console.log({ fullName, email, password });
-
     //Check for duplaicate user before registration
     const existingUser = await User.findOne({ email });
     if (existingUser) {
@@ -53,8 +50,6 @@ export const UserRegister = async (req, res, next) => {
     //encrypt the password
     const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(password, salt);
-
-    console.log("Password Hashing Done. hashPassword = ", hashPassword);
 
     const photoURL = `https://placehold.co/600x400?text=${fullName.charAt(0).toUpperCase()}`;
     const photo = {
@@ -87,7 +82,6 @@ export const UserRegister = async (req, res, next) => {
     });
 
     // send response to Frontend
-    console.log(newUser);
     res.status(201).json({ message: "Registration Successfull" });
     //End
   } catch (error) {
@@ -97,10 +91,11 @@ export const UserRegister = async (req, res, next) => {
 
 export const refresh = async (req, res) => {
   try {
-    const token = req.cookies.refreshToken;
+    const token = req.cookies.refreshToken || req.headers["x-refresh-token"];
 
     if (!token) {
-      return res.status(401).json({ message: "No refresh token" });
+      // Return 200 with no accessToken so frontend handles it gracefully without throwing a red console error
+      return res.status(200).json({ message: "No refresh token" });
     }
 
     const decoded = jwt.verify(token, process.env.REFRESH_SECRET);
@@ -108,7 +103,7 @@ export const refresh = async (req, res) => {
     const user = await User.findById(decoded.id).select("-password");
 
     if (!user) {
-      return res.status(401).json({ message: "User not found" });
+      return res.status(200).json({ message: "User not found" });
     }
 
     const newAccessToken = jwt.sign(
@@ -117,12 +112,22 @@ export const refresh = async (req, res) => {
       { expiresIn: "10m" },
     );
 
+    // Generate a new refresh token for token rotation (rolling sessions)
+    const newRefreshToken = jwt.sign(
+      { id: user._id },
+      process.env.REFRESH_SECRET,
+      { expiresIn: "7d" }
+    );
+
+    res.cookie("refreshToken", newRefreshToken, refreshCookieOptions);
+
     res.status(200).json({
       accessToken: newAccessToken,
+      refreshToken: newRefreshToken,
       user, // ⭐ MOST IMPORTANT LINE
     });
   } catch (err) {
-    res.status(401).json({ message: "Invalid refresh token" });
+    res.status(200).json({ message: "Invalid refresh token" });
   }
 };
 
@@ -131,7 +136,6 @@ export const UserLogin = async (req, res, next) => {
   try {
     const { email, password } = req.body;
 
-    console.log("email " + email, "Password " + password);
     if (!email || !password) {
       const error = new Error("All fields required");
       error.statusCode = 400;
@@ -145,7 +149,6 @@ export const UserLogin = async (req, res, next) => {
       error.statusCode = 401;
       return next(error);
     }
-    console.log("Hi Im " + existingUser);
 
     const isVerified = await bcrypt.compare(password, existingUser.password);
 
@@ -182,6 +185,7 @@ export const UserLogin = async (req, res, next) => {
     res.status(200).json({
       message: "Login Successful",
       accessToken,
+      refreshToken, // Added for cross-origin localStorage fallback
       user: existingUser,
     });
   } catch (error) {
@@ -231,13 +235,10 @@ export const UserGenOTP = async (req, res, next) => {
     }
 
     const otp = Math.floor(Math.random() * 1000000).toString();
-    console.log(typeof otp);
 
     //encrypt the otp
     const salt = await bcrypt.genSalt(10);
     const hashOTP = await bcrypt.hash(otp, salt);
-
-    console.log(hashOTP);
 
     await OTP.create({
       email,
@@ -340,7 +341,6 @@ export const deleteAccount = async (req, res, next) => {
 
     // Pehle check karo user exists karta hai?
     const existingUser = await User.findById(userId);
-    console.log("Existing user:", existingUser); // 👈 Should show user data
 
     if (!existingUser) {
       return res.status(404).json({ message: "User not found" });
