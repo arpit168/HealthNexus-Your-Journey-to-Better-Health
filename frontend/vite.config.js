@@ -7,8 +7,10 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
   const apiUrl = env.VITE_API_URL || "http://127.0.0.1:4500";
 
+  const isTest = process.env.NODE_ENV === "test" || mode === "test";
+
   return {
-    plugins: [react(), tailwindcss()],
+    plugins: [react(), !isTest && tailwindcss()].filter(Boolean),
     test: {
       environment: "jsdom",
       globals: true,

@@ -21,7 +21,6 @@ import toast from "react-hot-toast";
 import profileService from "../../Services/profileService";
 import PhotoUpload from "./Profile/PhotoUpload";
 
-
 const Profile = () => {
   const [activeTab, setActiveTab] = useState("overview");
   const [userData, setUserData] = useState(null);
@@ -214,7 +213,7 @@ const Profile = () => {
       if (userData?._id) {
         formData.append("id", userData._id);
       }
-      
+
       const response = await profileService.changePhoto(formData);
       if (response.data) {
         setUserData(response.data);
@@ -312,8 +311,10 @@ const Profile = () => {
                   <div className="bg-white rounded-xl shadow-lg p-6">
                     {/* Profile Picture */}
                     <div className="flex flex-col items-center mb-6">
-                      <PhotoUpload 
-                        currentPhoto={userData?.photo?.url || userData?.profilePicture}
+                      <PhotoUpload
+                        currentPhoto={
+                          userData?.photo?.url || userData?.profilePicture
+                        }
                         onPhotoUpdate={handlePhotoUpdate}
                         onPhotoRemove={handlePhotoRemove}
                       />

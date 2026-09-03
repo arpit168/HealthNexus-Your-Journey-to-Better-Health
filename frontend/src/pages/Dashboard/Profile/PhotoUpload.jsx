@@ -12,7 +12,9 @@ const PhotoUpload = ({ currentPhoto, onPhotoUpdate, onPhotoRemove }) => {
   const startCamera = async () => {
     try {
       if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-        toast.error("Camera access is blocked by your browser. This usually happens if you're not using HTTPS or localhost.");
+        toast.error(
+          "Camera access is blocked by your browser. This usually happens if you're not using HTTPS or localhost.",
+        );
         return;
       }
       const stream = await navigator.mediaDevices.getUserMedia({ video: true });
@@ -20,8 +22,13 @@ const PhotoUpload = ({ currentPhoto, onPhotoUpdate, onPhotoRemove }) => {
       setShowCamera(true);
       setShowOptions(false);
     } catch (err) {
-      if (err.name === "NotAllowedError" || err.name === "PermissionDeniedError") {
-        toast.error("Camera permission denied. Please allow camera access in your browser settings.");
+      if (
+        err.name === "NotAllowedError" ||
+        err.name === "PermissionDeniedError"
+      ) {
+        toast.error(
+          "Camera permission denied. Please allow camera access in your browser settings.",
+        );
       } else {
         toast.error("Unable to access camera. Please check permissions.");
       }
@@ -50,7 +57,9 @@ const PhotoUpload = ({ currentPhoto, onPhotoUpdate, onPhotoRemove }) => {
       const ctx = canvas.getContext("2d");
       ctx.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
       canvas.toBlob((blob) => {
-        const file = new File([blob], "camera-capture.jpg", { type: "image/jpeg" });
+        const file = new File([blob], "camera-capture.jpg", {
+          type: "image/jpeg",
+        });
         onPhotoUpdate(file);
         stopCamera();
       }, "image/jpeg");
@@ -71,12 +80,16 @@ const PhotoUpload = ({ currentPhoto, onPhotoUpdate, onPhotoRemove }) => {
   return (
     <>
       <div className="relative group flex flex-col items-center">
-        <div 
+        <div
           className="w-32 h-32 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center overflow-hidden border-4 border-white shadow-lg relative cursor-pointer"
           onClick={() => setShowOptions(!showOptions)}
         >
           {currentPhoto ? (
-            <img src={currentPhoto} alt="Profile" className="w-full h-full object-cover" />
+            <img
+              src={currentPhoto}
+              alt="Profile"
+              className="w-full h-full object-cover"
+            />
           ) : (
             <Camera className="w-10 h-10 text-white" />
           )}
@@ -101,7 +114,8 @@ const PhotoUpload = ({ currentPhoto, onPhotoUpdate, onPhotoRemove }) => {
               }}
               className="w-full flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
             >
-              <ImageIcon className="w-4 h-4 text-purple-600" /> Choose from Gallery
+              <ImageIcon className="w-4 h-4 text-purple-600" /> Choose from
+              Gallery
             </button>
             {currentPhoto && (
               <button
@@ -131,19 +145,19 @@ const PhotoUpload = ({ currentPhoto, onPhotoUpdate, onPhotoRemove }) => {
           <div className="bg-white rounded-2xl p-4 max-w-md w-full shadow-2xl">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-bold text-gray-800">Take a Photo</h3>
-              <button 
-                onClick={stopCamera} 
+              <button
+                onClick={stopCamera}
                 className="p-2 hover:bg-gray-100 rounded-full transition-colors text-gray-500 hover:text-gray-800"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
             <div className="relative rounded-xl overflow-hidden bg-black mb-6 aspect-square flex items-center justify-center shadow-inner">
-              <video 
-                ref={videoRef} 
-                autoPlay 
-                playsInline 
-                className="w-full h-full object-cover scale-x-[-1]" 
+              <video
+                ref={videoRef}
+                autoPlay
+                playsInline
+                className="w-full h-full object-cover scale-x-[-1]"
               />
             </div>
             <div className="flex justify-center pb-2">

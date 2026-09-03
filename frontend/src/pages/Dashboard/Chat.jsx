@@ -31,8 +31,9 @@ const Chat = () => {
   const inputRef = useRef(null);
   const navigate = useNavigate();
 
-  // User data (in real app, this would come from context/API)
-  const userData = {
+  // Fallback user data for UI rendering (Stats cards).
+  // The actual AI context is now fetched dynamically in the backend.
+  const [userData, setUserData] = useState({
     name: "John",
     currentWeight: 72,
     goalWeight: 68,
@@ -45,7 +46,7 @@ const Chat = () => {
     protein: { current: 89, target: 150 },
     carbs: { current: 120, target: 250 },
     fat: { current: 35, target: 60 },
-  };
+  });
 
   // Load chat history from backend on mount
   useEffect(() => {
@@ -228,25 +229,8 @@ const Chat = () => {
     setIsTyping(true);
 
     try {
-      const contextualMessage = `
-        User Context:
-        - Current Weight: ${userData.currentWeight}kg
-        - Goal Weight: ${userData.goalWeight}kg
-        - Habit Score: ${userData.habitScore}/100
-        - Today's Calories: ${userData.todayCalories}/${userData.calorieTarget}
-        - Workout Today: ${userData.workoutToday}
-        - Streak: ${userData.streak} days
-        - Protein: ${userData.protein.current}/${userData.protein.target}g
-        - Carbs: ${userData.carbs.current}/${userData.carbs.target}g
-        - Fat: ${userData.fat.current}/${userData.fat.target}g
-
-        User Question: ${userMessage}
-
-        Please provide a helpful fitness response based on this context. Keep it concise and actionable.
-      `;
-
       const { data } = await api.post("/v1/ai/ask-ai", {
-        message: contextualMessage,
+        message: userMessage,
       });
 
       // Determine options based on response content

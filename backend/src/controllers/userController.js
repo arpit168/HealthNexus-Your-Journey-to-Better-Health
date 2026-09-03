@@ -165,7 +165,7 @@ export const UserChangePhoto = async (req, res, next) => {
           } else {
             resolve(result);
           }
-        }
+        },
       );
       stream.end(dp.buffer);
     });
