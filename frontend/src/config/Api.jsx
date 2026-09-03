@@ -1,10 +1,12 @@
 import axios from "axios";
 
 // In development, Vite proxy routes API calls to the backend, so baseURL is "".
-// In production, we use the deployed Render backend URL.
-const baseURL = import.meta.env.PROD 
-  ? "https://healthnexus-your-journey-to-better.onrender.com/api" 
-  : (import.meta.env.VITE_API_URL || "/api");
+// In production, VITE_API_URL is expected (e.g., https://api.yourdomain.com).
+// We ensure it ends with /api if it doesn't already, so routes like /auth match backend expectations.
+const envUrl = import.meta.env.VITE_API_URL;
+const baseURL = envUrl 
+  ? (envUrl.endsWith("/api") || envUrl.endsWith("/api/") ? envUrl : `${envUrl.replace(/\/$/, "")}/api`) 
+  : "/api";
 
 const axiosInstance = axios.create({
   baseURL,
