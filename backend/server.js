@@ -22,7 +22,10 @@ import analyticsRouter from "./src/routers/analyticsRouter.js";
 const app = express();
 
 const allowedOrigins = process.env.CORS_ORIGINS
-  ? process.env.CORS_ORIGINS.split(",").map(o => o.trim())
+  ? process.env.CORS_ORIGINS.split(",").map(o => {
+      let trimmed = o.trim();
+      return trimmed.startsWith("http") ? trimmed : `https://${trimmed}`;
+    })
   : [
       "http://localhost:5173",
       "https://health-nexus-your-journey-to-better.vercel.app",
