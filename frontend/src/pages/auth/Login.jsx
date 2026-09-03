@@ -416,6 +416,7 @@ const Login = () => {
                       value={formData.email}
                       onChange={handleChange}
                       onBlur={handleBlur}
+                      autoComplete="username"
                       className={`w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 border-2 rounded-lg sm:rounded-xl transition-all duration-200 outline-none text-sm sm:text-base
                         ${
                           touched.email && errors.email
@@ -457,6 +458,7 @@ const Login = () => {
                       value={formData.password}
                       onChange={handleChange}
                       onBlur={handleBlur}
+                      autoComplete="current-password"
                       className={`w-full pl-9 sm:pl-10 pr-9 sm:pr-12 py-2.5 sm:py-3 border-2 rounded-lg sm:rounded-xl transition-all duration-200 outline-none text-sm sm:text-base
                         ${
                           touched.password && errors.password

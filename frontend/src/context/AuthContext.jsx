@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
 
   // 🔁 REFRESH TOKEN FUNCTION
   const refreshAuth = useCallback(async (isRetry = false) => {
-    if (refreshAttempted.current && !isRetry) return;
+    if (refreshAttempted.current && !isRetry) return null;
 
     try {
       refreshAttempted.current = true;
@@ -46,14 +46,19 @@ export const AuthProvider = ({ children }) => {
         setAccessToken(res.data.accessToken);
         setUser(res.data.user || null);
         setIsAuthenticated(true);
+        window.__accessToken = res.data.accessToken;
 
         if (import.meta.env.DEV) {
           console.log("✅ Session refreshed successfully");
         }
+        return res.data.accessToken;
       } else {
         setUser(null);
         setAccessToken(null);
         setIsAuthenticated(false);
+        window.__accessToken = null;
+        if (isRetry) throw new Error("No access token in response");
+        return null;
       }
     } catch (err) {
       const status = err.response?.status;
@@ -66,7 +71,6 @@ export const AuthProvider = ({ children }) => {
         console.error("Refresh request timeout");
         setError("Connection timeout. Please check your network.");
       } else {
-        // 500, proxy errors, network errors — treat silently on first load
         if (import.meta.env.DEV) {
           console.warn("Could not refresh session:", err.message);
         }
@@ -75,6 +79,10 @@ export const AuthProvider = ({ children }) => {
       setUser(null);
       setAccessToken(null);
       setIsAuthenticated(false);
+      window.__accessToken = null;
+
+      if (isRetry) throw err;
+      return null;
     } finally {
       setLoading(false);
     }
@@ -234,8 +242,11 @@ export const AuthProvider = ({ children }) => {
           originalRequest._retry = true;
 
           try {
-            await refreshAuth(true);
-            return axiosInstance(originalRequest);
+            const newToken = await refreshAuth(true);
+            if (newToken) {
+              originalRequest.headers.Authorization = `Bearer ${newToken}`;
+              return axiosInstance(originalRequest);
+            }
           } catch (refreshError) {
             logout();
             return Promise.reject(refreshError);

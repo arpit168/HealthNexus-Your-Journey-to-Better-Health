@@ -1,4 +1,4 @@
-﻿// Register.jsx
+// Register.jsx
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
@@ -440,6 +440,7 @@ const Register = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         placeholder="john@example.com"
+                        autoComplete="username"
                         className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-all"
                       />
                     </div>
@@ -469,6 +470,7 @@ const Register = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         placeholder="••••••••"
+                        autoComplete="new-password"
                         className="w-full pl-10 pr-10 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-all"
                       />
                       <button
@@ -544,6 +546,7 @@ const Register = () => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         placeholder="••••••••"
+                        autoComplete="new-password"
                         className="w-full pl-10 pr-10 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-white/40 transition-all"
                       />
                       <button
