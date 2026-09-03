@@ -50,6 +50,8 @@ app.use(
       return callback(null, false);
     },
     credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization", "x-refresh-token"],
+    exposedHeaders: ["x-refresh-token"]
   }),
 );
 app.use(express.json());

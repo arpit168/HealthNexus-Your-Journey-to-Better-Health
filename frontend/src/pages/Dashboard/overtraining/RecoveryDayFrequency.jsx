@@ -163,7 +163,7 @@ const RecoveryDayFrequency = () => {
       <div
         className={`bg-linear-to-br ${complianceLevel} rounded-2xl shadow-lg p-8 text-white`}
       >
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
           <div>
             <p className="text-sm font-semibold opacity-90">
               Recovery Compliance
@@ -180,7 +180,7 @@ const RecoveryDayFrequency = () => {
         {/* Compliance Progress Bar */}
         <div className="w-full bg-white/20 rounded-full h-3 overflow-hidden">
           <div
-            className="bg-white h-full rounded-full transition-all duration-500"
+            className="bg-white  h-full rounded-full transition-all duration-500"
             style={{ width: `${Math.min(stats.compliance, 100)}%` }}
           />
         </div>
@@ -196,31 +196,31 @@ const RecoveryDayFrequency = () => {
 
       {/* Key Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-green-600">
-          <p className="text-sm font-semibold text-gray-600">Current Streak</p>
+        <div className="bg-white  rounded-xl shadow-md p-6 border-l-4 border-green-600">
+          <p className="text-sm font-semibold text-gray-600 ">Current Streak</p>
           <p className="text-4xl font-bold text-green-600 mt-2">
             {stats.streak}
           </p>
-          <p className="text-xs text-gray-500 mt-2">
+          <p className="text-xs text-gray-500  mt-2">
             Consecutive recovery days
           </p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-blue-600">
-          <p className="text-sm font-semibold text-gray-600">
+        <div className="bg-white  rounded-xl shadow-md p-6 border-l-4 border-blue-600">
+          <p className="text-sm font-semibold text-gray-600 ">
             Target vs Actual
           </p>
           <p className="text-lg font-bold text-blue-600 mt-2">
             {stats.totalRecoveryDays}/{stats.recommended} days
           </p>
-          <p className="text-xs text-gray-500 mt-2">30-day period</p>
+          <p className="text-xs text-gray-500  mt-2">30-day period</p>
         </div>
       </div>
 
       {/* Distribution Chart */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white rounded-2xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-900 mb-4">
+        <div className="bg-white  rounded-2xl shadow-lg p-6">
+          <h3 className="text-xl font-bold text-gray-900  mb-4">
             Training vs Recovery Split
           </h3>
           <ResponsiveContainer width="100%" height={300}>
@@ -244,12 +244,12 @@ const RecoveryDayFrequency = () => {
           </ResponsiveContainer>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-900 mb-4">
+        <div className="bg-white  rounded-2xl shadow-lg p-6">
+          <h3 className="text-xl font-bold text-gray-900  mb-4">
             Recommendations
           </h3>
           <div className="space-y-4">
-            <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+            <div className="bg-blue-50  rounded-lg p-4 border border-blue-200">
               <p className="font-semibold text-blue-900">
                 ✅ Ideal Recovery Frequency
               </p>
@@ -259,7 +259,7 @@ const RecoveryDayFrequency = () => {
             </div>
 
             <div
-              className={`${stats.compliance >= 75 ? "bg-green-50 border-green-200" : "bg-orange-50 border-orange-200"} rounded-lg p-4 border`}
+              className={`${stats.compliance >= 75 ? "bg-green-50  border-green-200" : "bg-orange-50 border-orange-200"} rounded-lg p-4 border`}
             >
               <p
                 className={`font-semibold ${stats.compliance >= 75 ? "text-green-900" : "text-orange-900"}`}
@@ -283,8 +283,8 @@ const RecoveryDayFrequency = () => {
       </div>
 
       {/* Weekly Breakdown */}
-      <div className="bg-white rounded-2xl shadow-lg p-6">
-        <h3 className="text-xl font-bold text-gray-900 mb-4">
+      <div className="bg-white  rounded-2xl shadow-lg p-6">
+        <h3 className="text-xl font-bold text-gray-900  mb-4">
           Weekly Breakdown
         </h3>
         <ResponsiveContainer width="100%" height={300}>
@@ -321,15 +321,15 @@ const RecoveryDayFrequency = () => {
       </div>
 
       {/* Recovery Day Calendar */}
-      <div className="bg-white rounded-2xl shadow-lg p-6">
-        <h3 className="text-xl font-bold text-gray-900 mb-4">
+      <div className="bg-white  rounded-2xl shadow-lg p-6">
+        <h3 className="text-xl font-bold text-gray-900  mb-4">
           📅 Recovery Day Calendar (Last 30 Days)
         </h3>
         <div className="grid grid-cols-7 gap-2">
           {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
             <div
               key={day}
-              className="text-center font-bold text-gray-600 text-sm py-2"
+              className="text-center font-bold text-gray-600  text-sm py-2"
             >
               {day}
             </div>
@@ -340,7 +340,7 @@ const RecoveryDayFrequency = () => {
               className={`aspect-square rounded-lg flex flex-col items-center justify-center text-sm font-semibold transition-all ${
                 day.isRecoveryDay
                   ? "bg-linear-to-br from-green-400 to-emerald-500 text-white shadow-md"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  : "bg-gray-100  text-gray-700  hover:bg-gray-200 "
               }`}
               title={`${day.date}: ${day.activity}`}
             >

@@ -44,12 +44,12 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="min-h-screen flex items-center justify-center bg-gray-50 ">
           <div className="text-center p-8 max-w-md">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+            <h2 className="text-2xl font-bold text-gray-800  mb-4">
               Something went wrong
             </h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600  mb-6">
               We're sorry, but something unexpected happened. Please try
               refreshing the page.
             </p>
@@ -68,13 +68,13 @@ class ErrorBoundary extends React.Component {
 }
 
 const NotFound = () => (
-  <div className="min-h-screen flex items-center justify-center bg-gray-50">
+  <div className="min-h-screen flex items-center justify-center bg-gray-50 ">
     <div className="text-center p-8 max-w-md">
-      <h1 className="text-6xl font-bold text-gray-800 mb-4">404</h1>
-      <h2 className="text-2xl font-semibold text-gray-700 mb-4">
+      <h1 className="text-6xl font-bold text-gray-800  mb-4">404</h1>
+      <h2 className="text-2xl font-semibold text-gray-700  mb-4">
         Page Not Found
       </h2>
-      <p className="text-gray-600 mb-6">
+      <p className="text-gray-600  mb-6">
         The page you're looking for doesn't exist or has been moved.
       </p>
       <button

@@ -17,13 +17,14 @@ import {
   FiLinkedin,
   FiMenu,
   FiX,
-  FiAward,
   FiClock,
   FiCalendar,
   FiDroplet,
   FiWind,
 } from "react-icons/fi";
 import { useAuth } from "../context/AuthContext";
+import ResponsiveSlider from "../components/Common/ResponsiveSlider";
+import ResponsiveCard, { CardContent } from "../components/Common/ResponsiveCard";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -147,18 +148,18 @@ const Home = () => {
 
               {/* Main Heading with Animation */}
               <h1 className="relative">
-                <span className="block text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
+                <span className="block text-[clamp(2.5rem,6vw,4.5rem)] font-bold text-gray-900  leading-tight">
                   Your personal
                 </span>
                 <span className="relative inline-block mt-2">
-                  <span className="text-5xl sm:text-6xl lg:text-7xl font-bold bg-linear-to-r from-emerald-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent animate-linear">
+                  <span className="text-[clamp(2.5rem,6vw,4.5rem)] font-bold bg-linear-to-r from-emerald-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent animate-linear">
                     AI fitness coach
                   </span>
                   <span className="absolute -bottom-2 left-0 w-full h-1 bg-linear-to-r from-emerald-500 via-blue-500 to-indigo-500 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></span>
                 </span>
               </h1>
 
-              <p className="text-xl text-gray-600 max-w-lg leading-relaxed">
+              <p className="text-xl text-gray-600  max-w-lg leading-relaxed">
                 Track workouts, monitor health metrics, and get personalized
                 insights to achieve your fitness goals faster with our
                 intelligent coaching system.
@@ -166,12 +167,12 @@ const Home = () => {
 
               {/* Enhanced CTA Buttons */}
               {isAuthenticated && user ? (
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-wrap gap-4">
                   <button
                     onClick={() => navigate("/dashboard")}
-                    className="group relative px-8 py-4 bg-linear-to-r from-emerald-500 to-blue-500 text-white rounded-xl font-semibold hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                    className="group relative flex-1 min-w-[200px] px-8 py-4 bg-linear-to-r from-emerald-500 to-blue-500 text-white rounded-xl font-semibold hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden"
                   >
-                    <span className="relative z-10 flex items-center">
+                    <span className="relative z-10 flex items-center justify-center whitespace-nowrap">
                       Go to Dashboard
                       <FiArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" />
                     </span>
@@ -179,19 +180,19 @@ const Home = () => {
                   </button>
                   <button
                     onClick={() => navigate("/profile")}
-                    className="group relative px-8 py-4 bg-white text-gray-700 rounded-xl font-semibold border-2 border-gray-200 hover:border-emerald-500 hover:text-emerald-600 transform hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                    className="group relative flex-1 min-w-[200px] px-8 py-4 bg-white  text-gray-700  rounded-xl font-semibold border-2 border-gray-200  hover:border-emerald-500 hover:text-emerald-600 transform hover:-translate-y-1 transition-all duration-300 overflow-hidden"
                   >
-                    <span className="relative z-10">View Profile</span>
+                    <span className="relative z-10 flex items-center justify-center whitespace-nowrap">View Profile</span>
                     <div className="absolute inset-0 bg-linear-to-r from-gray-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </button>
                 </div>
               ) : (
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-wrap gap-4">
                   <button
                     onClick={() => navigate("/register")}
-                    className="group relative px-8 py-4 bg-linear-to-r from-emerald-500 to-blue-500 text-white rounded-xl font-semibold hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                    className="group relative flex-1 min-w-[200px] px-8 py-4 bg-linear-to-r from-emerald-500 to-blue-500 text-white rounded-xl font-semibold hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden"
                   >
-                    <span className="relative z-10 flex items-center">
+                    <span className="relative z-10 flex items-center justify-center whitespace-nowrap">
                       Get Started Free
                       <FiArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" />
                     </span>
@@ -199,9 +200,9 @@ const Home = () => {
                   </button>
                   <button
                     onClick={() => navigate("/login")}
-                    className="group relative px-8 py-4 bg-white text-gray-700 rounded-xl font-semibold border-2 border-gray-200 hover:border-emerald-500 hover:text-emerald-600 transform hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                    className="group relative flex-1 min-w-[200px] px-8 py-4 bg-white  text-gray-700  rounded-xl font-semibold border-2 border-gray-200  hover:border-emerald-500 hover:text-emerald-600 transform hover:-translate-y-1 transition-all duration-300 overflow-hidden"
                   >
-                    <span className="relative z-10">Sign In</span>
+                    <span className="relative z-10 flex items-center justify-center whitespace-nowrap">Sign In</span>
                     <div className="absolute inset-0 bg-linear-to-r from-gray-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </button>
                 </div>
@@ -232,8 +233,8 @@ const Home = () => {
                       <div className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-500 rounded-full border-2 border-white "></div>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500">Active Session</p>
-                      <p className="font-semibold text-gray-900 text-lg">
+                      <p className="text-sm text-gray-500 ">Active Session</p>
+                      <p className="font-semibold text-gray-900  text-lg">
                         Morning Workout
                       </p>
                     </div>
@@ -252,7 +253,7 @@ const Home = () => {
                   {metrics.map((metric, idx) => (
                     <div
                       key={idx}
-                      className={`relative bg-linear-to-br from-gray-50 to-white rounded-2xl p-4 border border-gray-100 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 ${
+                      className={`relative bg-linear-to-br from-gray-50 to-white rounded-2xl p-4 border border-gray-100  hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 ${
                         activeMetric === idx
                           ? "ring-2 ring-emerald-500 ring-opacity-50"
                           : ""
@@ -268,11 +269,11 @@ const Home = () => {
                           {metric.change !== "--" ? metric.change : "steady"}
                         </span>
                       </div>
-                      <p className="text-xs text-gray-500 mb-1">
+                      <p className="text-xs text-gray-500  mb-1">
                         {metric.label}
                       </p>
                       <div className="flex items-end justify-between">
-                        <span className="text-2xl font-bold text-gray-900">
+                        <span className="text-2xl font-bold text-gray-900 ">
                           {metric.value}
                         </span>
                         <span className="text-xs text-gray-400">
@@ -286,7 +287,7 @@ const Home = () => {
                 {/* Enhanced Progress Section */}
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
-                    <span className="text-sm font-medium text-gray-700">
+                    <span className="text-sm font-medium text-gray-700 ">
                       Daily Goal Progress
                     </span>
                     <span className="text-sm font-bold bg-linear-to-r from-emerald-500 to-blue-500 bg-clip-text text-transparent">
@@ -295,17 +296,17 @@ const Home = () => {
                   </div>
 
                   {/* Animated Progress Bar
-                  <div className="relative h-3 bg-gray-100 rounded-full overflow-hidden">
+                  <div className="relative h-3 bg-gray-100  rounded-full overflow-hidden">
                     <div 
                       className="absolute inset-0 bg-linear-to-r from-emerald-500 via-blue-500 to-indigo-500 rounded-full animate-progress"
                       style={{ width: '78%' }}
                     >
-                      <div className="absolute top-0 right-0 w-2 h-full bg-white opacity-30 animate-shimmer"></div>
+                      <div className="absolute top-0 right-0 w-2 h-full bg-white  opacity-30 animate-shimmer"></div>
                     </div>
                   </div> */}
 
                   {/* Milestone Indicators */}
-                  <div className="flex justify-between text-xs text-gray-500">
+                  <div className="flex justify-between text-xs text-gray-500 ">
                     <span className="flex items-center gap-1">
                       <FiAward className="w-3 h-3" /> 0%
                     </span>
@@ -319,24 +320,24 @@ const Home = () => {
                 </div>
 
                 {/* Quick Stats Row */}
-                <div className="mt-6 pt-6 border-t border-gray-100 grid grid-cols-3 gap-4">
+                <div className="mt-6 pt-6 border-t border-gray-100  grid grid-cols-3 gap-4">
                   <div className="text-center group cursor-pointer">
-                    <div className="text-2xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors">
+                    <div className="text-2xl font-bold text-gray-900  group-hover:text-emerald-600 transition-colors">
                       45
                     </div>
-                    <div className="text-xs text-gray-500">Workouts</div>
+                    <div className="text-xs text-gray-500 ">Workouts</div>
                   </div>
                   <div className="text-center group cursor-pointer">
-                    <div className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                    <div className="text-2xl font-bold text-gray-900  group-hover:text-blue-600 transition-colors">
                       12.5
                     </div>
-                    <div className="text-xs text-gray-500">Hours</div>
+                    <div className="text-xs text-gray-500 ">Hours</div>
                   </div>
                   <div className="text-center group cursor-pointer">
-                    <div className="text-2xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors">
+                    <div className="text-2xl font-bold text-gray-900  group-hover:text-purple-600 transition-colors">
                       3.2k
                     </div>
-                    <div className="text-xs text-gray-500">Calories</div>
+                    <div className="text-xs text-gray-500 ">Calories</div>
                   </div>
                 </div>
               </div>
@@ -353,50 +354,54 @@ const Home = () => {
             <span className="text-sm font-semibold text-emerald-600 bg-emerald-50 px-4 py-2 rounded-full">
               WHY CHOOSE US
             </span>
-            <h2 className="text-4xl font-bold text-gray-900 mt-6 mb-4">
+            <h2 className="text-4xl font-bold text-gray-900  mt-6 mb-4">
               Everything you need to
               <span className="bg-linear-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">
                 {" "}
                 reach your goals
               </span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600  max-w-2xl mx-auto">
               Our AI-powered platform provides all the tools you need to track,
               analyze, and improve your fitness journey.
             </p>
           </div>
 
-          {/* Features Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {features.map((feature, idx) => (
-              <div
-                key={idx}
-                className="group relative bg-white rounded-2xl p-6 border border-gray-200 hover:border-transparent hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
-                style={{ animationDelay: `${feature.delay}ms` }}
-              >
-                <div
-                  className={`absolute inset-0 bg-linear-to-br ${feature.linear} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-500`}
-                ></div>
-
-                <div
-                  className={`w-14 h-14 bg-linear-to-br ${feature.linear} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+          {/* Features Slider */}
+          <div className="mt-8">
+            <ResponsiveSlider>
+              {features.map((feature, idx) => (
+                <ResponsiveCard
+                  key={idx}
+                  className="group relative border-gray-200  hover:border-transparent h-full"
+                  delay={idx * 100}
                 >
-                  <div className="text-white">{feature.icon}</div>
-                </div>
-
-                <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-emerald-600 group-hover:to-blue-600 transition-all duration-300">
-                  {feature.title}
-                </h3>
-
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  {feature.description}
-                </p>
-
-                <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <FiArrowRight className="w-5 h-5 text-emerald-500" />
-                </div>
-              </div>
-            ))}
+                  <CardContent>
+                    <div
+                      className={`absolute inset-0 bg-linear-to-br ${feature.linear} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-500`}
+                    ></div>
+  
+                    <div
+                      className={`w-14 h-14 bg-linear-to-br ${feature.linear} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                    >
+                      <div className="text-white">{feature.icon}</div>
+                    </div>
+  
+                    <h3 className="text-lg font-semibold text-gray-900  mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-emerald-600 group-hover:to-blue-600 transition-all duration-300">
+                      {feature.title}
+                    </h3>
+  
+                    <p className="text-sm text-gray-600  leading-relaxed">
+                      {feature.description}
+                    </p>
+  
+                    <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <FiArrowRight className="w-5 h-5 text-emerald-500" />
+                    </div>
+                  </CardContent>
+                </ResponsiveCard>
+              ))}
+            </ResponsiveSlider>
           </div>
         </div>
       </section>

@@ -81,17 +81,17 @@ const DietPlan = ({ plan, dayOffset = 0, onSwap }) => {
 
   return (
     <div className="space-y-6">
-      <div className="bg-white rounded-2xl shadow-lg p-6">
+      <div className="bg-white  rounded-2xl shadow-lg p-6">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
-            <div className="flex items-center gap-2 text-gray-600">
+            <div className="flex items-center gap-2 text-gray-600 ">
               <Calendar className="w-4 h-4" />
               <span className="text-sm">{planDate}</span>
             </div>
-            <h2 className="text-2xl font-bold text-gray-800 mt-1">
+            <h2 className="text-2xl font-bold text-gray-800  mt-1">
               {currentPlan.goal} Plan
             </h2>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-500 ">
               Target {currentPlan.calories} kcal
             </p>
           </div>
@@ -100,7 +100,7 @@ const DietPlan = ({ plan, dayOffset = 0, onSwap }) => {
               <RefreshCw className="w-4 h-4" />
               Regenerate
             </button>
-            <button className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg font-semibold flex items-center gap-2">
+            <button className="px-4 py-2 bg-gray-100  text-gray-700  rounded-lg font-semibold flex items-center gap-2">
               <Printer className="w-4 h-4" />
               Print
             </button>
@@ -110,14 +110,14 @@ const DietPlan = ({ plan, dayOffset = 0, onSwap }) => {
         <div className="mt-6 bg-linear-to-r from-emerald-50 to-green-50 rounded-xl p-4">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm text-gray-600">Planned Calories</p>
+              <p className="text-sm text-gray-600 ">Planned Calories</p>
               <p className="text-2xl font-bold text-emerald-700">
                 {totalCalories} kcal
               </p>
             </div>
             <div className="text-right">
-              <p className="text-sm text-gray-600">Remaining</p>
-              <p className="text-2xl font-bold text-gray-800">
+              <p className="text-sm text-gray-600 ">Remaining</p>
+              <p className="text-2xl font-bold text-gray-800 ">
                 {Math.max(currentPlan.calories - totalCalories, 0)} kcal
               </p>
             </div>
@@ -133,21 +133,21 @@ const DietPlan = ({ plan, dayOffset = 0, onSwap }) => {
       />
 
       {macroTargets && (
-        <div className="bg-white rounded-xl p-4 border border-emerald-200">
-          <p className="text-sm text-gray-600">Daily Macro Targets</p>
+        <div className="bg-white  rounded-xl p-4 border border-emerald-200">
+          <p className="text-sm text-gray-600 ">Daily Macro Targets</p>
           <div className="mt-2 grid grid-cols-3 gap-2 text-sm">
             <div className="bg-emerald-50 rounded-lg p-3">
-              <p className="text-gray-500">Protein</p>
+              <p className="text-gray-500 ">Protein</p>
               <p className="font-bold text-emerald-700">
                 {macroTargets.protein} g
               </p>
             </div>
-            <div className="bg-blue-50 rounded-lg p-3">
-              <p className="text-gray-500">Carbs</p>
+            <div className="bg-blue-50  rounded-lg p-3">
+              <p className="text-gray-500 ">Carbs</p>
               <p className="font-bold text-blue-700">{macroTargets.carbs} g</p>
             </div>
             <div className="bg-amber-50 rounded-lg p-3">
-              <p className="text-gray-500">Fats</p>
+              <p className="text-gray-500 ">Fats</p>
               <p className="font-bold text-amber-700">{macroTargets.fats} g</p>
             </div>
           </div>
@@ -158,14 +158,14 @@ const DietPlan = ({ plan, dayOffset = 0, onSwap }) => {
         {currentPlan.meals.map((meal) => (
           <div
             key={meal.id}
-            className="bg-white rounded-xl border border-gray-200 hover:border-emerald-300 transition-colors p-5"
+            className="bg-white  rounded-xl border border-gray-200  hover:border-emerald-300 transition-colors p-5"
           >
             <div className="flex items-start justify-between">
               <div>
-                <h3 className="text-lg font-semibold text-gray-800">
+                <h3 className="text-lg font-semibold text-gray-800 ">
                   {meal.name}
                 </h3>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-gray-500 ">
                   {meal.time} · {meal.prepTime}
                 </p>
               </div>
@@ -180,22 +180,22 @@ const DietPlan = ({ plan, dayOffset = 0, onSwap }) => {
 
             <div className="mt-4 grid grid-cols-3 gap-2 text-xs">
               <div className="bg-emerald-50 rounded-lg p-2 text-center">
-                <p className="text-gray-500">Protein</p>
+                <p className="text-gray-500 ">Protein</p>
                 <p className="font-bold text-emerald-700">
                   {meal.macros.protein}g
                 </p>
               </div>
-              <div className="bg-blue-50 rounded-lg p-2 text-center">
-                <p className="text-gray-500">Carbs</p>
+              <div className="bg-blue-50  rounded-lg p-2 text-center">
+                <p className="text-gray-500 ">Carbs</p>
                 <p className="font-bold text-blue-700">{meal.macros.carbs}g</p>
               </div>
               <div className="bg-amber-50 rounded-lg p-2 text-center">
-                <p className="text-gray-500">Fats</p>
+                <p className="text-gray-500 ">Fats</p>
                 <p className="font-bold text-amber-700">{meal.macros.fats}g</p>
               </div>
             </div>
 
-            <ul className="mt-4 text-sm text-gray-600 space-y-1">
+            <ul className="mt-4 text-sm text-gray-600  space-y-1">
               {meal.items.map((item) => (
                 <li key={item} className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
@@ -214,12 +214,12 @@ const DietPlan = ({ plan, dayOffset = 0, onSwap }) => {
         ))}
       </div>
 
-      <div className="bg-white rounded-xl p-5 border border-gray-200">
+      <div className="bg-white  rounded-xl p-5 border border-gray-200 ">
         <div className="flex items-center gap-2 mb-3">
           <ShoppingBag className="w-5 h-5 text-emerald-600" />
-          <h3 className="text-lg font-semibold text-gray-800">Shopping List</h3>
+          <h3 className="text-lg font-semibold text-gray-800 ">Shopping List</h3>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm text-gray-600">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm text-gray-600 ">
           {currentPlan.shoppingList.map((item) => (
             <div key={item} className="bg-emerald-50 rounded-lg p-2">
               {item}

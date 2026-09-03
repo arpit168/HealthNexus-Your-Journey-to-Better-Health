@@ -42,25 +42,25 @@ const MacroCalculator = ({
       : calculateMacros(ratios);
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg p-6">
+    <div className="bg-white  rounded-2xl shadow-lg p-6">
       <div className="flex items-center gap-2">
         <Calculator className="w-5 h-5 text-emerald-600" />
-        <h3 className="text-xl font-bold text-gray-800">Macro Calculator</h3>
+        <h3 className="text-xl font-bold text-gray-800 ">Macro Calculator</h3>
       </div>
-      <p className="text-sm text-gray-500 mt-1">
+      <p className="text-sm text-gray-500  mt-1">
         Based on {goal} goal · {weight} kg · {calories} kcal
       </p>
 
-      <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div className="mt-4 flex flex-wrap gap-2">
         {["balanced", "high-protein", "low-carb", "cut", "custom"].map(
           (option) => (
             <button
               key={option}
               onClick={() => setPreset(option)}
-              className={`px-3 py-2 rounded-lg text-sm font-semibold border ${
+              className={`flex-1 min-w-[100px] px-3 py-2 rounded-lg text-sm font-semibold border ${
                 preset === option
                   ? "bg-emerald-600 text-white border-emerald-600"
-                  : "bg-gray-50 text-gray-700 border-gray-200"
+                  : "bg-gray-50  text-gray-700  border-gray-200 "
               }`}
             >
               {option.replace("-", " ")}
@@ -70,12 +70,12 @@ const MacroCalculator = ({
       </div>
 
       {preset === "custom" && (
-        <div className="mt-4 bg-gray-50 rounded-xl p-4">
+        <div className="mt-4 bg-gray-50  rounded-xl p-4">
           <div className="flex items-center gap-2 mb-2">
-            <SlidersHorizontal className="w-4 h-4 text-gray-600" />
-            <p className="text-sm font-semibold text-gray-700">Custom Split</p>
+            <SlidersHorizontal className="w-4 h-4 text-gray-600 " />
+            <p className="text-sm font-semibold text-gray-700 ">Custom Split</p>
           </div>
-          <label className="text-sm text-gray-600">
+          <label className="text-sm text-gray-600 ">
             Protein {proteinPercent}%
           </label>
           <input
@@ -88,7 +88,7 @@ const MacroCalculator = ({
             }
             className="w-full"
           />
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-gray-500 ">
             Carbs {customRatios.carbs}% · Fats {customRatios.fats}%
           </p>
         </div>
@@ -96,17 +96,17 @@ const MacroCalculator = ({
 
       <div className="mt-4 grid grid-cols-3 gap-3">
         <div className="bg-emerald-50 rounded-lg p-3 text-center">
-          <p className="text-xs text-gray-500">Protein</p>
+          <p className="text-xs text-gray-500 ">Protein</p>
           <p className="text-lg font-bold text-emerald-700">
             {target.protein} g
           </p>
         </div>
-        <div className="bg-blue-50 rounded-lg p-3 text-center">
-          <p className="text-xs text-gray-500">Carbs</p>
+        <div className="bg-blue-50  rounded-lg p-3 text-center">
+          <p className="text-xs text-gray-500 ">Carbs</p>
           <p className="text-lg font-bold text-blue-700">{target.carbs} g</p>
         </div>
         <div className="bg-amber-50 rounded-lg p-3 text-center">
-          <p className="text-xs text-gray-500">Fats</p>
+          <p className="text-xs text-gray-500 ">Fats</p>
           <p className="text-lg font-bold text-amber-700">{target.fats} g</p>
         </div>
       </div>

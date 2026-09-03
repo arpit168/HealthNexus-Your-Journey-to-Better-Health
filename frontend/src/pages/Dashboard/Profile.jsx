@@ -20,6 +20,7 @@ import GoalSettings from "./Profile/GoalSettings";
 import toast from "react-hot-toast";
 import profileService from "../../Services/profileService";
 import PhotoUpload from "./Profile/PhotoUpload";
+import ResponsiveSlider from "../../components/Common/ResponsiveSlider";
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState("overview");
@@ -260,16 +261,16 @@ const Profile = () => {
       <div className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
         {/* Header */}
         <div className="mb-6">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">
+          <h1 className="text-3xl font-bold text-gray-800  mb-2">
             Profile Management
           </h1>
-          <p className="text-gray-600">
+          <p className="text-gray-600 ">
             Manage your health profile, goals, and settings
           </p>
         </div>
 
         {/* Tabs Navigation */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 mb-6 overflow-x-auto">
+        <div className="bg-white  rounded-xl shadow-sm border border-gray-200  mb-6 overflow-x-auto">
           <div className="flex space-x-1 p-2">
             {tabs.map((tab) => {
               const Icon = tab.icon;
@@ -282,7 +283,7 @@ const Profile = () => {
                   className={`flex items-center gap-2 px-4 py-3 rounded-lg transition-all whitespace-nowrap ${
                     isActive
                       ? "bg-linear-to-r from-blue-600 to-purple-600 text-white shadow-md"
-                      : "text-gray-600 hover:bg-gray-100"
+                      : "text-gray-600  hover:bg-gray-100 "
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -308,7 +309,7 @@ const Profile = () => {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* Left Column - Basic Info */}
                 <div className="lg:col-span-1">
-                  <div className="bg-white rounded-xl shadow-lg p-6">
+                  <div className="bg-white  rounded-xl shadow-lg p-6">
                     {/* Profile Picture */}
                     <div className="flex flex-col items-center mb-6">
                       <PhotoUpload
@@ -318,41 +319,41 @@ const Profile = () => {
                         onPhotoUpdate={handlePhotoUpdate}
                         onPhotoRemove={handlePhotoRemove}
                       />
-                      <h2 className="text-2xl font-bold text-gray-800 text-center mt-4">
+                      <h2 className="text-2xl font-bold text-gray-800  text-center mt-4">
                         {userData?.fullName || "User Name"}
                       </h2>
-                      <p className="text-gray-500 text-sm mt-1">
+                      <p className="text-gray-500  text-sm mt-1">
                         Member since {getMemberSince()}
                       </p>
                     </div>
 
                     {/* Contact Info */}
                     <div className="space-y-4">
-                      <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                      <div className="flex items-center gap-3 p-3 bg-gray-50  rounded-lg">
                         <Mail className="w-5 h-5 text-blue-600" />
                         <div>
-                          <p className="text-xs text-gray-500">Email</p>
-                          <p className="text-sm font-medium text-gray-800">
+                          <p className="text-xs text-gray-500 ">Email</p>
+                          <p className="text-sm font-medium text-gray-800 ">
                             {userData?.email || "N/A"}
                           </p>
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                      <div className="flex items-center gap-3 p-3 bg-gray-50  rounded-lg">
                         <Calendar className="w-5 h-5 text-purple-600" />
                         <div>
-                          <p className="text-xs text-gray-500">Age</p>
-                          <p className="text-sm font-medium text-gray-800">
+                          <p className="text-xs text-gray-500 ">Age</p>
+                          <p className="text-sm font-medium text-gray-800 ">
                             {userData?.healthData?.profile?.age || "N/A"} years
                           </p>
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                      <div className="flex items-center gap-3 p-3 bg-gray-50  rounded-lg">
                         <User className="w-5 h-5 text-green-600" />
                         <div>
-                          <p className="text-xs text-gray-500">Gender</p>
-                          <p className="text-sm font-medium text-gray-800 capitalize">
+                          <p className="text-xs text-gray-500 ">Gender</p>
+                          <p className="text-sm font-medium text-gray-800  capitalize">
                             {userData?.healthData?.profile?.gender || "N/A"}
                           </p>
                         </div>
@@ -364,116 +365,116 @@ const Profile = () => {
                 {/* Right Column - Stats */}
                 <div className="lg:col-span-2 space-y-6">
                   {/* Health Statistics */}
-                  <div className="bg-white rounded-xl shadow-lg p-6">
-                    <h3 className="text-xl font-bold text-gray-800 mb-4">
+                  <div className="bg-white  rounded-xl shadow-lg p-6">
+                    <h3 className="text-xl font-bold text-gray-800  mb-4">
                       Health Statistics
                     </h3>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                      <div className="p-4 bg-linear-to-br from-blue-50 to-blue-100 rounded-lg">
+                    <ResponsiveSlider>
+                      <div className="p-4 bg-linear-to-br from-blue-50 to-blue-100 rounded-lg min-w-[140px]">
                         <div className="flex items-center gap-2 mb-2">
                           <Ruler className="w-5 h-5 text-blue-600" />
-                          <p className="text-xs text-gray-600">Height</p>
+                          <p className="text-xs text-gray-600 ">Height</p>
                         </div>
-                        <p className="text-2xl font-bold text-gray-800">
+                        <p className="text-2xl font-bold text-gray-800 ">
                           {userData?.healthData?.vitals?.height || "N/A"}
-                          <span className="text-sm text-gray-600 ml-1">cm</span>
+                          <span className="text-sm text-gray-600  ml-1">cm</span>
                         </p>
                       </div>
 
                       <div className="p-4 bg-linear-to-br from-purple-50 to-purple-100 rounded-lg">
                         <div className="flex items-center gap-2 mb-2">
                           <Weight className="w-5 h-5 text-purple-600" />
-                          <p className="text-xs text-gray-600">Weight</p>
+                          <p className="text-xs text-gray-600 ">Weight</p>
                         </div>
-                        <p className="text-2xl font-bold text-gray-800">
+                        <p className="text-2xl font-bold text-gray-800 ">
                           {userData?.healthData?.vitals?.currentWeight || "N/A"}
-                          <span className="text-sm text-gray-600 ml-1">kg</span>
+                          <span className="text-sm text-gray-600  ml-1">kg</span>
                         </p>
                       </div>
 
                       <div className="p-4 bg-linear-to-br from-green-50 to-green-100 rounded-lg">
                         <div className="flex items-center gap-2 mb-2">
                           <Target className="w-5 h-5 text-green-600" />
-                          <p className="text-xs text-gray-600">Goal</p>
+                          <p className="text-xs text-gray-600 ">Goal</p>
                         </div>
-                        <p className="text-2xl font-bold text-gray-800">
+                        <p className="text-2xl font-bold text-gray-800 ">
                           {userData?.healthData?.vitals?.goalWeight || "N/A"}
-                          <span className="text-sm text-gray-600 ml-1">kg</span>
+                          <span className="text-sm text-gray-600  ml-1">kg</span>
                         </p>
                       </div>
 
                       <div className="p-4 bg-linear-to-br from-orange-50 to-orange-100 rounded-lg">
                         <div className="flex items-center gap-2 mb-2">
                           <Activity className="w-5 h-5 text-orange-600" />
-                          <p className="text-xs text-gray-600">BMI</p>
+                          <p className="text-xs text-gray-600 ">BMI</p>
                         </div>
-                        <p className="text-2xl font-bold text-gray-800">
+                        <p className="text-2xl font-bold text-gray-800 ">
                           {calculateBMI()}
                         </p>
                       </div>
-                    </div>
+                    </ResponsiveSlider>
                   </div>
 
                   {/* Fitness Profile */}
-                  <div className="bg-white rounded-xl shadow-lg p-6">
-                    <h3 className="text-xl font-bold text-gray-800 mb-4">
+                  <div className="bg-white  rounded-xl shadow-lg p-6">
+                    <h3 className="text-xl font-bold text-gray-800  mb-4">
                       Fitness Profile
                     </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="p-4 border border-gray-200 rounded-lg">
+                    <ResponsiveSlider>
+                      <div className="p-4 border border-gray-200  rounded-lg min-w-[200px]">
                         <div className="flex items-center gap-2 mb-2">
                           <TrendingUp className="w-5 h-5 text-blue-600" />
-                          <p className="text-sm font-medium text-gray-700">
+                          <p className="text-sm font-medium text-gray-700 ">
                             Activity Level
                           </p>
                         </div>
-                        <p className="text-lg font-semibold text-gray-800 capitalize">
+                        <p className="text-lg font-semibold text-gray-800  capitalize">
                           {userData?.healthData?.profile?.activityLevel ||
                             "Not Set"}
                         </p>
                       </div>
 
-                      <div className="p-4 border border-gray-200 rounded-lg">
+                      <div className="p-4 border border-gray-200  rounded-lg">
                         <div className="flex items-center gap-2 mb-2">
                           <Target className="w-5 h-5 text-purple-600" />
-                          <p className="text-sm font-medium text-gray-700">
+                          <p className="text-sm font-medium text-gray-700 ">
                             Primary Goal
                           </p>
                         </div>
-                        <p className="text-lg font-semibold text-gray-800 capitalize">
+                        <p className="text-lg font-semibold text-gray-800  capitalize">
                           {userData?.healthData?.goals?.primaryGoal ||
                             "Not Set"}
                         </p>
                       </div>
 
-                      <div className="p-4 border border-gray-200 rounded-lg">
+                      <div className="p-4 border border-gray-200  rounded-lg">
                         <div className="flex items-center gap-2 mb-2">
                           <Heart className="w-5 h-5 text-red-600" />
-                          <p className="text-sm font-medium text-gray-700">
+                          <p className="text-sm font-medium text-gray-700 ">
                             Heart Rate
                           </p>
                         </div>
-                        <p className="text-lg font-semibold text-gray-800">
+                        <p className="text-lg font-semibold text-gray-800 ">
                           {userData?.healthData?.vitals?.heartRate || "N/A"}
-                          <span className="text-sm text-gray-600 ml-1">
+                          <span className="text-sm text-gray-600  ml-1">
                             bpm
                           </span>
                         </p>
                       </div>
 
-                      <div className="p-4 border border-gray-200 rounded-lg">
+                      <div className="p-4 border border-gray-200  rounded-lg">
                         <div className="flex items-center gap-2 mb-2">
                           <Activity className="w-5 h-5 text-green-600" />
-                          <p className="text-sm font-medium text-gray-700">
+                          <p className="text-sm font-medium text-gray-700 ">
                             Experience
                           </p>
                         </div>
-                        <p className="text-lg font-semibold text-gray-800 capitalize">
+                        <p className="text-lg font-semibold text-gray-800  capitalize">
                           {userData?.healthData?.goals?.experienceLevel ||
                             "Not Set"}
                         </p>
                       </div>
-                    </div>
+                    </ResponsiveSlider>
                   </div>
                 </div>
               </div>
@@ -488,9 +489,9 @@ const Profile = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
             >
-              <div className="bg-white rounded-xl shadow-lg p-6">
-                <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-gray-800">
+              <div className="bg-white  rounded-xl shadow-lg p-6">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+                  <h2 className="text-2xl font-bold text-gray-800 ">
                     Health Profile
                   </h2>
                   <button
@@ -519,9 +520,9 @@ const Profile = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
             >
-              <div className="bg-white rounded-xl shadow-lg p-6">
-                <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-gray-800">
+              <div className="bg-white  rounded-xl shadow-lg p-6">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+                  <h2 className="text-2xl font-bold text-gray-800 ">
                     Goals & Targets
                   </h2>
                   <button
@@ -554,20 +555,20 @@ const Profile = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
             >
-              <div className="bg-white rounded-xl shadow-lg p-6">
-                <h2 className="text-2xl font-bold text-gray-800 mb-6">
+              <div className="bg-white  rounded-xl shadow-lg p-6">
+                <h2 className="text-2xl font-bold text-gray-800  mb-6">
                   Profile Settings
                 </h2>
 
                 {/* Medical Disclaimer */}
-                <div className="bg-blue-50 border-l-4 border-blue-400 rounded-lg p-4 mb-6">
+                <div className="bg-blue-50  border-l-4 border-blue-400 rounded-lg p-4 mb-6">
                   <div className="flex items-start gap-3">
                     <Shield className="w-5 h-5 text-blue-600 mt-0.5 shrink-0" />
                     <div>
-                      <h4 className="font-semibold text-gray-800 text-sm mb-1">
+                      <h4 className="font-semibold text-gray-800  text-sm mb-1">
                         Medical Disclaimer
                       </h4>
-                      <p className="text-xs text-gray-700">
+                      <p className="text-xs text-gray-700 ">
                         The information provided here is for general guidance
                         only. Always consult with a qualified healthcare
                         professional before starting any new fitness or
@@ -579,33 +580,33 @@ const Profile = () => {
 
                 {/* Account Actions */}
                 <div className="space-y-4">
-                  <div className="border border-gray-200 rounded-lg p-4">
-                    <h3 className="font-semibold text-gray-800 mb-2">
+                  <div className="border border-gray-200  rounded-lg p-4">
+                    <h3 className="font-semibold text-gray-800  mb-2">
                       Data Management
                     </h3>
-                    <p className="text-sm text-gray-600 mb-4">
+                    <p className="text-sm text-gray-600  mb-4">
                       Download or manage your personal health data
                     </p>
                     <div className="flex flex-wrap gap-3">
                       <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm">
                         Download Data
                       </button>
-                      <button className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors text-sm">
+                      <button className="px-4 py-2 border border-gray-300  text-gray-700  rounded-lg hover:bg-gray-50  transition-colors text-sm">
                         Export Profile
                       </button>
                     </div>
                   </div>
 
-                  <div className="border border-gray-200 rounded-lg p-4">
-                    <h3 className="font-semibold text-gray-800 mb-2">
+                  <div className="border border-gray-200  rounded-lg p-4">
+                    <h3 className="font-semibold text-gray-800  mb-2">
                       Privacy Settings
                     </h3>
-                    <p className="text-sm text-gray-600 mb-4">
+                    <p className="text-sm text-gray-600  mb-4">
                       Control your privacy and data sharing preferences
                     </p>
                     <div className="space-y-3">
                       <label className="flex items-center justify-between">
-                        <span className="text-sm text-gray-700">
+                        <span className="text-sm text-gray-700 ">
                           Share progress with trainers
                         </span>
                         <input
@@ -614,7 +615,7 @@ const Profile = () => {
                         />
                       </label>
                       <label className="flex items-center justify-between">
-                        <span className="text-sm text-gray-700">
+                        <span className="text-sm text-gray-700 ">
                           Allow data analytics
                         </span>
                         <input
@@ -626,7 +627,7 @@ const Profile = () => {
                     </div>
                   </div>
 
-                  <div className="border border-red-200 bg-red-50 rounded-lg p-4">
+                  <div className="border border-red-200 bg-red-50  rounded-lg p-4">
                     <h3 className="font-semibold text-red-800 mb-2">
                       Danger Zone
                     </h3>

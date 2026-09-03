@@ -112,7 +112,7 @@ const AdherenceLog = ({ logs = [], onSubmit, date = new Date() }) => {
     <div className="space-y-6">
       {/* Header with Streak */}
       <div className="bg-linear-to-r from-purple-600 to-pink-600 rounded-2xl shadow-lg p-6 text-white">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
             <h2 className="text-3xl font-bold mb-1">Daily Check-In</h2>
             <p className="text-purple-100">
@@ -124,7 +124,7 @@ const AdherenceLog = ({ logs = [], onSubmit, date = new Date() }) => {
               })}
             </p>
           </div>
-          <div className="text-center">
+          <div className="text-center w-full md:w-auto">
             <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4">
               <Flame className="w-8 h-8 mx-auto mb-2" />
               <p className="text-4xl font-bold">{currentStreak}</p>
@@ -136,7 +136,7 @@ const AdherenceLog = ({ logs = [], onSubmit, date = new Date() }) => {
 
       {/* Today's Log */}
       {isLoggedToday ? (
-        <div className="bg-green-50 rounded-2xl border-2 border-green-300 p-6">
+        <div className="bg-green-50  rounded-2xl border-2 border-green-300 p-6">
           <div className="flex items-center gap-3 mb-4">
             <CheckSquare className="w-6 h-6 text-green-600" />
             <h3 className="text-xl font-bold text-green-900">
@@ -146,49 +146,49 @@ const AdherenceLog = ({ logs = [], onSubmit, date = new Date() }) => {
           <div className="space-y-3">
             <div className="flex items-center gap-2">
               <span className="text-green-600">✓</span>
-              <span className="text-gray-700">
+              <span className="text-gray-700 ">
                 Workout:{" "}
                 {existingLog.workoutCompleted ? "Completed" : "Skipped"}
               </span>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-green-600">✓</span>
-              <span className="text-gray-700">
+              <span className="text-gray-700 ">
                 Diet: {existingLog.dietFollowed ? "Followed" : "Not Followed"}
               </span>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-green-600">✓</span>
-              <span className="text-gray-700">
+              <span className="text-gray-700 ">
                 Water Intake:{" "}
                 {existingLog.waterIntake ? "Met Goal" : "Below Goal"}
               </span>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-green-600">✓</span>
-              <span className="text-gray-700">
+              <span className="text-gray-700 ">
                 Sleep Quality: {existingLog.sleepQuality}/5
               </span>
             </div>
             {existingLog.notes && (
-              <div className="mt-4 p-3 bg-white rounded-lg">
-                <p className="text-sm font-semibold text-gray-700 mb-1">
+              <div className="mt-4 p-3 bg-white  rounded-lg">
+                <p className="text-sm font-semibold text-gray-700  mb-1">
                   Notes:
                 </p>
-                <p className="text-gray-600">{existingLog.notes}</p>
+                <p className="text-gray-600 ">{existingLog.notes}</p>
               </div>
             )}
           </div>
         </div>
       ) : (
-        <div className="bg-white rounded-2xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-800 mb-4">
+        <div className="bg-white  rounded-2xl shadow-lg p-6">
+          <h3 className="text-xl font-bold text-gray-800  mb-4">
             Log Today's Adherence
           </h3>
 
           {/* Checklist */}
           <div className="space-y-4 mb-6">
-            <label className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors">
+            <label className="flex items-center gap-3 p-4 bg-gray-50  rounded-lg cursor-pointer hover:bg-gray-100  transition-colors">
               <input
                 type="checkbox"
                 checked={todayLog.workoutCompleted}
@@ -196,14 +196,14 @@ const AdherenceLog = ({ logs = [], onSubmit, date = new Date() }) => {
                 className="w-5 h-5 text-purple-600 rounded focus:ring-purple-500"
               />
               <div className="flex-1">
-                <p className="font-semibold text-gray-800">Workout Completed</p>
-                <p className="text-sm text-gray-600">
+                <p className="font-semibold text-gray-800 ">Workout Completed</p>
+                <p className="text-sm text-gray-600 ">
                   Did you complete your workout today?
                 </p>
               </div>
             </label>
 
-            <label className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors">
+            <label className="flex items-center gap-3 p-4 bg-gray-50  rounded-lg cursor-pointer hover:bg-gray-100  transition-colors">
               <input
                 type="checkbox"
                 checked={todayLog.dietFollowed}
@@ -211,14 +211,14 @@ const AdherenceLog = ({ logs = [], onSubmit, date = new Date() }) => {
                 className="w-5 h-5 text-purple-600 rounded focus:ring-purple-500"
               />
               <div className="flex-1">
-                <p className="font-semibold text-gray-800">Diet Followed</p>
-                <p className="text-sm text-gray-600">
+                <p className="font-semibold text-gray-800 ">Diet Followed</p>
+                <p className="text-sm text-gray-600 ">
                   Did you stick to your meal plan?
                 </p>
               </div>
             </label>
 
-            <label className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors">
+            <label className="flex items-center gap-3 p-4 bg-gray-50  rounded-lg cursor-pointer hover:bg-gray-100  transition-colors">
               <input
                 type="checkbox"
                 checked={todayLog.waterIntake}
@@ -226,8 +226,8 @@ const AdherenceLog = ({ logs = [], onSubmit, date = new Date() }) => {
                 className="w-5 h-5 text-purple-600 rounded focus:ring-purple-500"
               />
               <div className="flex-1">
-                <p className="font-semibold text-gray-800">Water Intake Goal</p>
-                <p className="text-sm text-gray-600">
+                <p className="font-semibold text-gray-800 ">Water Intake Goal</p>
+                <p className="text-sm text-gray-600 ">
                   Did you meet your water intake goal?
                 </p>
               </div>
@@ -236,32 +236,32 @@ const AdherenceLog = ({ logs = [], onSubmit, date = new Date() }) => {
 
           {/* Sleep Quality */}
           <div className="mb-6">
-            <label className="block font-semibold text-gray-800 mb-3">
+            <label className="block font-semibold text-gray-800  mb-3">
               Sleep Quality
             </label>
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               {[1, 2, 3, 4, 5].map((rating) => (
                 <button
                   key={rating}
                   onClick={() => handleSleepChange(rating)}
-                  className={`flex-1 py-3 rounded-lg font-semibold transition-all ${
+                  className={`flex-1 py-3 px-2 rounded-lg font-semibold transition-all ${
                     todayLog.sleepQuality >= rating
                       ? "bg-purple-600 text-white"
-                      : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+                      : "bg-gray-200  text-gray-600  hover:bg-gray-300"
                   }`}
                 >
                   {rating}
                 </button>
               ))}
             </div>
-            <p className="text-sm text-gray-500 mt-2">
+            <p className="text-sm text-gray-500  mt-2">
               1 = Poor, 5 = Excellent
             </p>
           </div>
 
           {/* Notes */}
           <div className="mb-6">
-            <label className="block font-semibold text-gray-800 mb-3">
+            <label className="block font-semibold text-gray-800  mb-3">
               <MessageSquare className="w-5 h-5 inline mr-2" />
               Notes (Optional)
             </label>
@@ -270,7 +270,7 @@ const AdherenceLog = ({ logs = [], onSubmit, date = new Date() }) => {
               onChange={handleNotesChange}
               placeholder="How did you feel today? Any challenges or wins?"
               rows="4"
-              className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-500 focus:outline-none resize-none"
+              className="w-full px-4 py-3 border-2 border-gray-300  rounded-lg focus:border-purple-500 focus:outline-none resize-none"
             />
           </div>
 
@@ -285,18 +285,18 @@ const AdherenceLog = ({ logs = [], onSubmit, date = new Date() }) => {
       )}
 
       {/* Weekly Summary */}
-      <div className="bg-white rounded-2xl shadow-lg p-6">
+      <div className="bg-white  rounded-2xl shadow-lg p-6">
         <div className="flex items-center gap-3 mb-4">
           <Calendar className="w-6 h-6 text-purple-600" />
-          <h3 className="text-xl font-bold text-gray-800">Weekly Summary</h3>
+          <h3 className="text-xl font-bold text-gray-800 ">Weekly Summary</h3>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="bg-purple-50 rounded-xl p-4">
+          <div className="bg-purple-50  rounded-xl p-4">
             <p className="text-purple-600 text-sm font-semibold mb-1">
               Workouts
             </p>
-            <p className="text-3xl font-bold text-gray-800">
+            <p className="text-3xl font-bold text-gray-800 ">
               {weeklyStats.workouts}/7
             </p>
             <div className="mt-2 w-full bg-purple-200 rounded-full h-2">
@@ -307,9 +307,9 @@ const AdherenceLog = ({ logs = [], onSubmit, date = new Date() }) => {
             </div>
           </div>
 
-          <div className="bg-green-50 rounded-xl p-4">
+          <div className="bg-green-50  rounded-xl p-4">
             <p className="text-green-600 text-sm font-semibold mb-1">Diet</p>
-            <p className="text-3xl font-bold text-gray-800">
+            <p className="text-3xl font-bold text-gray-800 ">
               {weeklyStats.diet}/7
             </p>
             <div className="mt-2 w-full bg-green-200 rounded-full h-2">
@@ -320,9 +320,9 @@ const AdherenceLog = ({ logs = [], onSubmit, date = new Date() }) => {
             </div>
           </div>
 
-          <div className="bg-blue-50 rounded-xl p-4">
+          <div className="bg-blue-50  rounded-xl p-4">
             <p className="text-blue-600 text-sm font-semibold mb-1">Water</p>
-            <p className="text-3xl font-bold text-gray-800">
+            <p className="text-3xl font-bold text-gray-800 ">
               {weeklyStats.water}/7
             </p>
             <div className="mt-2 w-full bg-blue-200 rounded-full h-2">
@@ -337,7 +337,7 @@ const AdherenceLog = ({ logs = [], onSubmit, date = new Date() }) => {
             <p className="text-pink-600 text-sm font-semibold mb-1">
               Avg Sleep
             </p>
-            <p className="text-3xl font-bold text-gray-800">
+            <p className="text-3xl font-bold text-gray-800 ">
               {weeklyStats.avgSleep}/5
             </p>
             <div className="mt-2 w-full bg-pink-200 rounded-full h-2">

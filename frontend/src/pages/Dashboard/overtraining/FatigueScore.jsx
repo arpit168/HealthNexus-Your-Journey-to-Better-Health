@@ -144,7 +144,7 @@ const FatigueScore = () => {
       <div
         className={`bg-linear-to-br ${fatigueLevel.color} rounded-2xl shadow-lg p-8 text-white`}
       >
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
           <div>
             <p className="text-sm font-semibold opacity-90">
               Today's Fatigue Score
@@ -158,7 +158,7 @@ const FatigueScore = () => {
         {/* Progress Ring */}
         <div className="w-full bg-white/20 rounded-full h-3 overflow-hidden">
           <div
-            className="bg-white h-full rounded-full transition-all duration-500"
+            className="bg-white  h-full rounded-full transition-all duration-500"
             style={{ width: `${currentFatigue}%` }}
           />
         </div>
@@ -177,7 +177,7 @@ const FatigueScore = () => {
       </button>
 
       {/* Time Range Selector */}
-      <div className="flex gap-2">
+      <div className="flex flex-wrap gap-2">
         {["7days", "14days", "30days"].map((range) => (
           <button
             key={range}
@@ -185,7 +185,7 @@ const FatigueScore = () => {
             className={`flex-1 px-4 py-2 rounded-lg font-semibold transition-all ${
               timeRange === range
                 ? "bg-linear-to-r from-orange-600 to-red-600 text-white"
-                : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                : "bg-gray-100  text-gray-600  hover:bg-gray-200 "
             }`}
           >
             {range === "7days"
@@ -198,8 +198,8 @@ const FatigueScore = () => {
       </div>
 
       {/* Fatigue Trend Chart */}
-      <div className="bg-white rounded-2xl shadow-lg p-6">
-        <h3 className="text-xl font-bold text-gray-900 mb-4">Fatigue Trend</h3>
+      <div className="bg-white  rounded-2xl shadow-lg p-6">
+        <h3 className="text-xl font-bold text-gray-900  mb-4">Fatigue Trend</h3>
         <ResponsiveContainer width="100%" height={350}>
           <LineChart
             data={chartData}
@@ -252,32 +252,32 @@ const FatigueScore = () => {
 
       {/* Statistics Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-white rounded-xl shadow-md p-6">
-          <p className="text-sm font-semibold text-gray-600 mb-2">
+        <div className="bg-white  rounded-xl shadow-md p-6">
+          <p className="text-sm font-semibold text-gray-600  mb-2">
             Average Fatigue
           </p>
           <p className="text-3xl font-bold text-orange-600">{avgFatigue}</p>
-          <p className="text-xs text-gray-500 mt-2">
+          <p className="text-xs text-gray-500  mt-2">
             Last{" "}
             {timeRange === "7days" ? "7" : timeRange === "14days" ? "14" : "30"}{" "}
             days
           </p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-6">
-          <p className="text-sm font-semibold text-gray-600 mb-2">
+        <div className="bg-white  rounded-xl shadow-md p-6">
+          <p className="text-sm font-semibold text-gray-600  mb-2">
             Highest Fatigue
           </p>
           <p className="text-3xl font-bold text-red-600">{maxFatigue}</p>
-          <p className="text-xs text-gray-500 mt-2">Peak fatigue level</p>
+          <p className="text-xs text-gray-500  mt-2">Peak fatigue level</p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-6">
-          <p className="text-sm font-semibold text-gray-600 mb-2">
+        <div className="bg-white  rounded-xl shadow-md p-6">
+          <p className="text-sm font-semibold text-gray-600  mb-2">
             Lowest Fatigue
           </p>
           <p className="text-3xl font-bold text-green-600">{minFatigue}</p>
-          <p className="text-xs text-gray-500 mt-2">Best recovery day</p>
+          <p className="text-xs text-gray-500  mt-2">Best recovery day</p>
         </div>
       </div>
 

@@ -278,22 +278,22 @@ export default function ReportCharts({
         <div className="bg-linear-to-br from-gray-900 to-gray-800 p-6 rounded-lg border border-gray-700 hover:border-blue-500 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20 transform hover:scale-105">
           <p className="text-gray-400 text-sm font-medium">Starting Weight</p>
           <p className="text-white text-3xl font-bold mt-2">78.5 kg</p>
-          <p className="text-gray-500 text-xs mt-2">Initial measurement</p>
+          <p className="text-gray-500  text-xs mt-2">Initial measurement</p>
         </div>
         <div className="bg-linear-to-br from-gray-900 to-gray-800 p-6 rounded-lg border border-gray-700 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20 transform hover:scale-105">
           <p className="text-gray-400 text-sm font-medium">Current Weight</p>
           <p className="text-white text-3xl font-bold mt-2">76.1 kg</p>
-          <p className="text-gray-500 text-xs mt-2">Latest measurement</p>
+          <p className="text-gray-500  text-xs mt-2">Latest measurement</p>
         </div>
         <div className="bg-linear-to-br from-gray-900 to-gray-800 p-6 rounded-lg border border-gray-700 hover:border-green-500 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20 transform hover:scale-105">
           <p className="text-gray-400 text-sm font-medium">Total Change</p>
           <p className="text-green-400 text-3xl font-bold mt-2">-2.4 kg</p>
-          <p className="text-gray-500 text-xs mt-2">Progress achieved</p>
+          <p className="text-gray-500  text-xs mt-2">Progress achieved</p>
         </div>
         <div className="bg-linear-to-br from-gray-900 to-gray-800 p-6 rounded-lg border border-gray-700 hover:border-blue-500 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20 transform hover:scale-105">
           <p className="text-gray-400 text-sm font-medium">Weekly Rate</p>
           <p className="text-blue-400 text-3xl font-bold mt-2">-0.57 kg</p>
-          <p className="text-gray-500 text-xs mt-2">Sustainable pace</p>
+          <p className="text-gray-500  text-xs mt-2">Sustainable pace</p>
         </div>
       </div>
 

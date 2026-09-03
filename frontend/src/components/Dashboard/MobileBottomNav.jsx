@@ -10,6 +10,7 @@ import {
 const MobileBottomNav = () => {
   const navigate = useNavigate();
   const location = useLocation();
+
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -17,10 +18,12 @@ const MobileBottomNav = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // If we scroll down more than 10px, hide. If we scroll up, show.
+      // Hide navigation while scrolling down
       if (currentScrollY > lastScrollY && currentScrollY > 50) {
         setIsVisible(false);
-      } else if (currentScrollY < lastScrollY) {
+      }
+      // Show navigation while scrolling up
+      else if (currentScrollY < lastScrollY) {
         setIsVisible(true);
       }
 
@@ -28,7 +31,10 @@ const MobileBottomNav = () => {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, [lastScrollY]);
 
   const navItems = [
@@ -60,7 +66,8 @@ const MobileBottomNav = () => {
 
   const isActive = (path) => {
     return (
-      location.pathname === path || location.pathname.startsWith(path + "/")
+      location.pathname === path ||
+      location.pathname.startsWith(`${path}/`)
     );
   };
 
@@ -74,11 +81,13 @@ const MobileBottomNav = () => {
         {navItems.map((item) => {
           const Icon = item.icon;
           const active = isActive(item.path);
+
           return (
             <button
               key={item.id}
               onClick={() => navigate(item.path)}
-              className="flex flex-col items-center justify-center "
+              className="flex flex-col items-center justify-center"
+              type="button"
             >
               <div
                 className={`p-1.5 rounded-xl transition-all duration-300 ${
@@ -91,6 +100,7 @@ const MobileBottomNav = () => {
                   }`}
                 />
               </div>
+
               <span
                 className={`text-[10px] font-medium transition-colors duration-300 ${
                   active ? "text-indigo-600" : "text-gray-500"

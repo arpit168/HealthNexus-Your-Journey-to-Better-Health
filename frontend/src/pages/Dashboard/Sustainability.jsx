@@ -38,13 +38,13 @@ const Sustainability = () => {
 
   return (
     <DashboardLayout>
-      <div className="min-h-screen bg-gray-50 p-6">
+      <div className="min-h-screen bg-gray-50  p-6">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold bg-linear-to-r from-green-600 to-teal-600 bg-clip-text text-transparent">
             Sustainability Metrics
           </h1>
-          <p className="text-gray-600 mt-2">
+          <p className="text-gray-600  mt-2">
             Track your long-term consistency, habits integration, and
             sustainable progress
           </p>
@@ -61,7 +61,7 @@ const Sustainability = () => {
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all ${
                   activeTab === tab.id
                     ? "bg-linear-to-r from-green-600 to-teal-600 text-white shadow-lg"
-                    : "bg-white text-gray-700 hover:bg-gray-100"
+                    : "bg-white  text-gray-700  hover:bg-gray-100 "
                 }`}
               >
                 <Icon size={18} />

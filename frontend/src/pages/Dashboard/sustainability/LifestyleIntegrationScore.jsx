@@ -210,39 +210,39 @@ const LifestyleIntegrationScore = () => {
       <div
         className={`bg-linear-to-br from-${status.color}-50 to-${status.color}-100 rounded-xl p-6 border-2 border-${status.color}-200`}
       >
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
-            <h3 className="text-xl font-bold text-gray-800 mb-2">
+            <h3 className="text-lg md:text-xl font-bold text-gray-800  mb-2">
               {status.emoji} Lifestyle Integration Score
             </h3>
-            <p className="text-5xl font-bold text-gray-900">{overallScore}</p>
+            <p className="text-4xl md:text-5xl font-bold text-gray-900 ">{overallScore}</p>
             <p
-              className={`text-lg font-semibold text-${status.color}-700 mt-2`}
+              className={`text-base md:text-lg font-semibold text-${status.color}-700 mt-2`}
             >
               {status.level}
             </p>
-            <p className="text-gray-600 mt-1">{status.description}</p>
+            <p className="text-gray-600  mt-1 text-sm md:text-base">{status.description}</p>
           </div>
-          <div className="text-right">
-            <div className="mb-3">
-              <p className="text-3xl font-bold text-blue-600">
+          <div className="md:text-right w-full md:w-auto flex flex-row md:flex-col justify-between md:justify-start">
+            <div className="mb-0 md:mb-3 text-left md:text-right">
+              <p className="text-2xl md:text-3xl font-bold text-blue-600">
                 {stats.avgMinutes}
               </p>
-              <p className="text-sm text-gray-600">Daily Fitness Minutes</p>
+              <p className="text-xs md:text-sm text-gray-600 ">Daily Fitness Minutes</p>
             </div>
-            <div>
-              <p className="text-2xl font-bold text-green-600">
+            <div className="text-right">
+              <p className="text-xl md:text-2xl font-bold text-green-600">
                 {100 - stats.avgStress}%
               </p>
-              <p className="text-sm text-gray-600">Life Satisfaction</p>
+              <p className="text-xs md:text-sm text-gray-600 ">Life Satisfaction</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Integration Trend */}
-      <div className="bg-white rounded-xl shadow-md p-6">
-        <h4 className="font-bold text-gray-800 mb-4">
+      <div className="bg-white  rounded-xl shadow-md p-6">
+        <h4 className="font-bold text-gray-800  mb-4">
           📈 Integration Progress (60 Days)
         </h4>
         <ResponsiveContainer width="100%" height={300}>
@@ -295,8 +295,8 @@ const LifestyleIntegrationScore = () => {
       </div>
 
       {/* Life Area Scores */}
-      <div className="bg-white rounded-xl shadow-md p-6">
-        <h4 className="font-bold text-gray-800 mb-4">
+      <div className="bg-white  rounded-xl shadow-md p-6">
+        <h4 className="font-bold text-gray-800  mb-4">
           🏡 Integration by Life Area
         </h4>
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
@@ -312,9 +312,9 @@ const LifestyleIntegrationScore = () => {
                     <Icon size={24} style={{ color: area.color }} />
                   </div>
                 </div>
-                <p className="text-2xl font-bold text-gray-800">{area.score}</p>
-                <p className="text-xs text-gray-600">{area.area}</p>
-                <div className="mt-2 w-full bg-gray-200 rounded-full h-2">
+                <p className="text-2xl font-bold text-gray-800 ">{area.score}</p>
+                <p className="text-xs text-gray-600 ">{area.area}</p>
+                <div className="mt-2 w-full bg-gray-200  rounded-full h-2">
                   <div
                     className="h-2 rounded-full transition-all duration-500"
                     style={{
@@ -331,8 +331,8 @@ const LifestyleIntegrationScore = () => {
 
       {/* Distribution Pie Chart & Stats */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white rounded-xl shadow-md p-6">
-          <h4 className="font-bold text-gray-800 mb-4">
+        <div className="bg-white  rounded-xl shadow-md p-6">
+          <h4 className="font-bold text-gray-800  mb-4">
             📊 Integration Distribution
           </h4>
           <ResponsiveContainer width="100%" height={300}>
@@ -360,45 +360,45 @@ const LifestyleIntegrationScore = () => {
 
         {/* Stats Cards */}
         <div className="space-y-4">
-          <div className="bg-white rounded-xl shadow-md p-6">
+          <div className="bg-white  rounded-xl shadow-md p-6">
             <div className="flex items-center gap-3 mb-2">
               <div className="p-2 bg-green-100 rounded-lg">
                 <TrendingUp className="text-green-600" size={24} />
               </div>
               <div>
-                <p className="text-2xl font-bold text-gray-800">
+                <p className="text-2xl font-bold text-gray-800 ">
                   {stats.avgScore}
                 </p>
-                <p className="text-sm text-gray-600">Average Score (30d)</p>
+                <p className="text-sm text-gray-600 ">Average Score (30d)</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-md p-6">
+          <div className="bg-white  rounded-xl shadow-md p-6">
             <div className="flex items-center gap-3 mb-2">
               <div className="p-2 bg-blue-100 rounded-lg">
                 <Coffee className="text-blue-600" size={24} />
               </div>
               <div>
-                <p className="text-2xl font-bold text-gray-800">
+                <p className="text-2xl font-bold text-gray-800 ">
                   {stats.avgMinutes} min
                 </p>
-                <p className="text-sm text-gray-600">Daily Fitness Time</p>
+                <p className="text-sm text-gray-600 ">Daily Fitness Time</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-md p-6">
+          <div className="bg-white  rounded-xl shadow-md p-6">
             <div className="flex items-center gap-3 mb-2">
               <div className="p-2 bg-purple-100 rounded-lg">
                 <Home className="text-purple-600" size={24} />
               </div>
               <div>
-                <p className="text-2xl font-bold text-gray-800">
+                <p className="text-2xl font-bold text-gray-800 ">
                   {stats.trend > 0 ? "+" : ""}
                   {stats.trend}
                 </p>
-                <p className="text-sm text-gray-600">Growth Trend</p>
+                <p className="text-sm text-gray-600 ">Growth Trend</p>
               </div>
             </div>
           </div>
@@ -406,8 +406,8 @@ const LifestyleIntegrationScore = () => {
       </div>
 
       {/* Weekly Pattern */}
-      <div className="bg-white rounded-xl shadow-md p-6">
-        <h4 className="font-bold text-gray-800 mb-4">
+      <div className="bg-white  rounded-xl shadow-md p-6">
+        <h4 className="font-bold text-gray-800  mb-4">
           📅 Weekly Integration Pattern
         </h4>
         <ResponsiveContainer width="100%" height={250}>
@@ -447,7 +447,7 @@ const LifestyleIntegrationScore = () => {
           is integrated, it feels natural, sustainable, and effortless.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-white rounded-lg p-4">
+          <div className="bg-white  rounded-lg p-4">
             <p className="font-semibold text-blue-900 mb-2">
               ❌ Not Integrated
             </p>
@@ -458,7 +458,7 @@ const LifestyleIntegrationScore = () => {
               <li>• Social life conflicts with fitness</li>
             </ul>
           </div>
-          <div className="bg-white rounded-lg p-4">
+          <div className="bg-white  rounded-lg p-4">
             <p className="font-semibold text-blue-900 mb-2">
               ✅ Well Integrated
             </p>
@@ -481,7 +481,7 @@ const LifestyleIntegrationScore = () => {
           {tips.map((tip, idx) => (
             <div
               key={idx}
-              className="flex items-start gap-2 bg-white rounded-lg p-3"
+              className="flex items-start gap-2 bg-white  rounded-lg p-3"
             >
               <span className="text-green-600 font-bold">{idx + 1}.</span>
               <p className="text-sm text-green-800">{tip}</p>
@@ -491,50 +491,50 @@ const LifestyleIntegrationScore = () => {
       </div>
 
       {/* Real Life Examples */}
-      <div className="bg-white rounded-xl shadow-md p-6">
-        <h4 className="font-bold text-gray-800 mb-4">
+      <div className="bg-white  rounded-xl shadow-md p-6">
+        <h4 className="font-bold text-gray-800  mb-4">
           💡 Real-Life Integration Examples
         </h4>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="border-l-4 border-yellow-500 pl-4">
-            <p className="font-semibold text-gray-800 flex items-center gap-2">
+            <p className="font-semibold text-gray-800  flex items-center gap-2">
               <Coffee size={18} className="text-yellow-600" />
               Morning Routine
             </p>
-            <p className="text-sm text-gray-600 mt-1">
+            <p className="text-sm text-gray-600  mt-1">
               Do 10 push-ups while coffee brews. Stretch during breakfast. Walk
               while taking morning calls.
             </p>
           </div>
 
           <div className="border-l-4 border-blue-500 pl-4">
-            <p className="font-semibold text-gray-800 flex items-center gap-2">
+            <p className="font-semibold text-gray-800  flex items-center gap-2">
               <Briefcase size={18} className="text-blue-600" />
               Work Integration
             </p>
-            <p className="text-sm text-gray-600 mt-1">
+            <p className="text-sm text-gray-600  mt-1">
               Walking meetings. Desk exercises during breaks. Stand while on
               calls. Stairs instead of elevator.
             </p>
           </div>
 
           <div className="border-l-4 border-pink-500 pl-4">
-            <p className="font-semibold text-gray-800 flex items-center gap-2">
+            <p className="font-semibold text-gray-800  flex items-center gap-2">
               <Users size={18} className="text-pink-600" />
               Social Life
             </p>
-            <p className="text-sm text-gray-600 mt-1">
+            <p className="text-sm text-gray-600  mt-1">
               Hiking with friends. Dance nights instead of bars. Active dates.
               Sports leagues. Walking catch-ups.
             </p>
           </div>
 
           <div className="border-l-4 border-green-500 pl-4">
-            <p className="font-semibold text-gray-800 flex items-center gap-2">
+            <p className="font-semibold text-gray-800  flex items-center gap-2">
               <Home size={18} className="text-green-600" />
               Family Time
             </p>
-            <p className="text-sm text-gray-600 mt-1">
+            <p className="text-sm text-gray-600  mt-1">
               Bike rides with kids. Backyard games. Dance parties. Active
               chores. Family walk after dinner.
             </p>
@@ -543,11 +543,11 @@ const LifestyleIntegrationScore = () => {
       </div>
 
       {/* Recommendation */}
-      <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-green-500">
-        <h4 className="font-bold text-gray-800 mb-2">
+      <div className="bg-white  rounded-xl shadow-md p-6 border-l-4 border-green-500">
+        <h4 className="font-bold text-gray-800  mb-2">
           💡 Your Integration Focus
         </h4>
-        <p className="text-gray-700">
+        <p className="text-gray-700 ">
           {overallScore >= 80 &&
             "Amazing! Fitness is beautifully woven into your life. You're an inspiration - consider sharing your strategies with others who are struggling."}
           {overallScore >= 60 &&

@@ -74,8 +74,8 @@ const WorkoutLogger = ({ exercise, onSubmit, initialData }) => {
   return (
     <div className="bg-linear-to-br from-blue-50 to-purple-50 rounded-xl p-6 border-2 border-blue-200">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="font-bold text-gray-800 text-lg">Log Your Sets</h3>
-        <div className="text-sm text-gray-600">
+        <h3 className="font-bold text-gray-800  text-lg">Log Your Sets</h3>
+        <div className="text-sm text-gray-600 ">
           {completedSets}/{sets.length} completed
         </div>
       </div>
@@ -88,8 +88,8 @@ const WorkoutLogger = ({ exercise, onSubmit, initialData }) => {
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: index * 0.05 }}
-            className={`bg-white rounded-lg p-4 ${
-              set.completed ? "ring-2 ring-green-500" : "border border-gray-200"
+            className={`bg-white  rounded-lg p-4 ${
+              set.completed ? "ring-2 ring-green-500" : "border border-gray-200 "
             }`}
           >
             <div className="grid grid-cols-12 gap-3 items-center">
@@ -107,21 +107,21 @@ const WorkoutLogger = ({ exercise, onSubmit, initialData }) => {
 
               {/* Set Number */}
               <div className="col-span-2">
-                <p className="text-sm font-semibold text-gray-700">
+                <p className="text-sm font-semibold text-gray-700 ">
                   Set {set.setNumber}
                 </p>
               </div>
 
               {/* Weight Input */}
               <div className="col-span-3">
-                <label className="block text-xs text-gray-600 mb-1">
+                <label className="block text-xs text-gray-600  mb-1">
                   Weight (kg)
                 </label>
                 <input
                   type="number"
                   value={set.weight}
                   onChange={(e) => updateSet(index, "weight", e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-gray-300  rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none"
                   placeholder="0"
                   step="0.5"
                 />
@@ -129,25 +129,25 @@ const WorkoutLogger = ({ exercise, onSubmit, initialData }) => {
 
               {/* Reps Input */}
               <div className="col-span-3">
-                <label className="block text-xs text-gray-600 mb-1">Reps</label>
+                <label className="block text-xs text-gray-600  mb-1">Reps</label>
                 <input
                   type="number"
                   value={set.reps}
                   onChange={(e) => updateSet(index, "reps", e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-gray-300  rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none"
                   placeholder="0"
                 />
               </div>
 
               {/* RPE Rating */}
               <div className="col-span-3">
-                <label className="block text-xs text-gray-600 mb-1">RPE</label>
+                <label className="block text-xs text-gray-600  mb-1">RPE</label>
                 <select
                   value={set.rpe}
                   onChange={(e) =>
                     updateSet(index, "rpe", parseInt(e.target.value))
                   }
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none"
+                  className="w-full px-3 py-2 border border-gray-300  rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none"
                 >
                   {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((rpe) => (
                     <option key={rpe} value={rpe}>
@@ -182,11 +182,11 @@ const WorkoutLogger = ({ exercise, onSubmit, initialData }) => {
       </div>
 
       {/* RPE Guide */}
-      <div className="bg-white rounded-lg p-3 mb-4">
-        <p className="text-xs font-semibold text-gray-700 mb-2">
+      <div className="bg-white  rounded-lg p-3 mb-4">
+        <p className="text-xs font-semibold text-gray-700  mb-2">
           RPE Guide (Rate of Perceived Exertion)
         </p>
-        <div className="grid grid-cols-2 gap-2 text-xs text-gray-600">
+        <div className="grid grid-cols-2 gap-2 text-xs text-gray-600 ">
           <div>1-3: Very easy</div>
           <div>4-6: Moderate</div>
           <div>7-8: Hard</div>
@@ -196,13 +196,13 @@ const WorkoutLogger = ({ exercise, onSubmit, initialData }) => {
 
       {/* Notes Field */}
       <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+        <label className="block text-sm font-medium text-gray-700  mb-2">
           Notes (Optional)
         </label>
         <textarea
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none resize-none"
+          className="w-full px-4 py-3 border border-gray-300  rounded-lg focus:ring-2 focus:ring-blue-500 outline-none resize-none"
           rows="3"
           placeholder="How did it feel? Any issues or achievements?"
         />
@@ -215,7 +215,7 @@ const WorkoutLogger = ({ exercise, onSubmit, initialData }) => {
         className={`w-full py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all ${
           allSetsCompleted
             ? "bg-linear-to-r from-green-600 to-emerald-600 text-white hover:shadow-lg"
-            : "bg-gray-300 text-gray-500 cursor-not-allowed"
+            : "bg-gray-300 text-gray-500  cursor-not-allowed"
         }`}
       >
         <Save className="w-5 h-5" />
@@ -226,8 +226,8 @@ const WorkoutLogger = ({ exercise, onSubmit, initialData }) => {
 
       {/* Volume Summary */}
       {sets.some((s) => s.weight && s.reps) && (
-        <div className="mt-4 bg-white rounded-lg p-3">
-          <p className="text-xs text-gray-600 mb-1">Total Volume</p>
+        <div className="mt-4 bg-white  rounded-lg p-3">
+          <p className="text-xs text-gray-600  mb-1">Total Volume</p>
           <p className="text-2xl font-bold text-blue-600">
             {sets
               .reduce(

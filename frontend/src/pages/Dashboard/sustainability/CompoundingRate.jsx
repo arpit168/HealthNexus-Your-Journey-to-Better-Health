@@ -130,33 +130,33 @@ const CompoundingRate = () => {
       <div
         className={`bg-linear-to-br from-${status.color}-50 to-${status.color}-100 rounded-xl p-6 border-2 border-${status.color}-200`}
       >
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
-            <h3 className="text-xl font-bold text-gray-800 mb-2">
+            <h3 className="text-lg md:text-xl font-bold text-gray-800  mb-2">
               {status.emoji} Total Compounding Gain
             </h3>
-            <p className="text-5xl font-bold text-gray-900">+{stats.total}%</p>
+            <p className="text-4xl md:text-5xl font-bold text-gray-900 ">+{stats.total}%</p>
             <p
-              className={`text-lg font-semibold text-${status.color}-700 mt-2`}
+              className={`text-base md:text-lg font-semibold text-${status.color}-700 mt-2`}
             >
               {status.level}
             </p>
-            <p className="text-gray-600 mt-1">{status.description}</p>
+            <p className="text-gray-600  mt-1 text-sm md:text-base">{status.description}</p>
           </div>
-          <div className="text-right">
-            <div className="mb-4">
-              <p className="text-3xl font-bold text-green-600">
+          <div className="md:text-right w-full md:w-auto text-left">
+            <div className="mb-0 md:mb-4">
+              <p className="text-2xl md:text-3xl font-bold text-green-600">
                 +{stats.perDay}%
               </p>
-              <p className="text-sm text-gray-600">Average Daily Improvement</p>
+              <p className="text-xs md:text-sm text-gray-600 ">Average Daily Improvement</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Compounding Growth Chart */}
-      <div className="bg-white rounded-xl shadow-md p-6">
-        <h4 className="font-bold text-gray-800 mb-4">
+      <div className="bg-white  rounded-xl shadow-md p-6">
+        <h4 className="font-bold text-gray-800  mb-4">
           📈 Cumulative Growth Over Time
         </h4>
         <ResponsiveContainer width="100%" height={300}>
@@ -202,52 +202,52 @@ const CompoundingRate = () => {
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-white rounded-xl shadow-md p-6">
+        <div className="bg-white  rounded-xl shadow-md p-6">
           <div className="flex items-center gap-3 mb-2">
             <div className="p-2 bg-green-100 rounded-lg">
               <TrendingUp className="text-green-600" size={24} />
             </div>
             <div>
-              <p className="text-2xl font-bold text-gray-800">
+              <p className="text-2xl font-bold text-gray-800 ">
                 +{stats.total}%
               </p>
-              <p className="text-sm text-gray-600">Total Growth (90 days)</p>
+              <p className="text-sm text-gray-600 ">Total Growth (90 days)</p>
             </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-6">
+        <div className="bg-white  rounded-xl shadow-md p-6">
           <div className="flex items-center gap-3 mb-2">
             <div className="p-2 bg-blue-100 rounded-lg">
               <Percent className="text-blue-600" size={24} />
             </div>
             <div>
-              <p className="text-2xl font-bold text-gray-800">
+              <p className="text-2xl font-bold text-gray-800 ">
                 +{stats.perDay}%
               </p>
-              <p className="text-sm text-gray-600">Avg Daily Rate</p>
+              <p className="text-sm text-gray-600 ">Avg Daily Rate</p>
             </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-6">
+        <div className="bg-white  rounded-xl shadow-md p-6">
           <div className="flex items-center gap-3 mb-2">
             <div className="p-2 bg-purple-100 rounded-lg">
               <Zap className="text-purple-600" size={24} />
             </div>
             <div>
-              <p className="text-2xl font-bold text-gray-800">
+              <p className="text-2xl font-bold text-gray-800 ">
                 +{stats.projected365}%
               </p>
-              <p className="text-sm text-gray-600">Projected (1 Year)</p>
+              <p className="text-sm text-gray-600 ">Projected (1 Year)</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Daily Improvement Trends */}
-      <div className="bg-white rounded-xl shadow-md p-6">
-        <h4 className="font-bold text-gray-800 mb-4">
+      <div className="bg-white  rounded-xl shadow-md p-6">
+        <h4 className="font-bold text-gray-800  mb-4">
           📊 Daily Improvement Rate
         </h4>
         <ResponsiveContainer width="100%" height={200}>
@@ -306,23 +306,23 @@ const CompoundingRate = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-white rounded-lg p-4">
+          <div className="bg-white  rounded-lg p-4">
             <p className="text-2xl font-bold text-blue-600">
               +{simulation.days30}%
             </p>
-            <p className="text-sm text-gray-600">In 30 Days</p>
+            <p className="text-sm text-gray-600 ">In 30 Days</p>
           </div>
-          <div className="bg-white rounded-lg p-4">
+          <div className="bg-white  rounded-lg p-4">
             <p className="text-2xl font-bold text-green-600">
               +{simulation.days90}%
             </p>
-            <p className="text-sm text-gray-600">In 90 Days</p>
+            <p className="text-sm text-gray-600 ">In 90 Days</p>
           </div>
-          <div className="bg-white rounded-lg p-4">
+          <div className="bg-white  rounded-lg p-4">
             <p className="text-2xl font-bold text-purple-600">
               +{simulation.days365}%
             </p>
-            <p className="text-sm text-gray-600">In 1 Year</p>
+            <p className="text-sm text-gray-600 ">In 1 Year</p>
           </div>
         </div>
       </div>
@@ -333,7 +333,7 @@ const CompoundingRate = () => {
           💎 The Power of 1% Daily Improvement
         </h4>
         <div className="space-y-3">
-          <div className="bg-white rounded-lg p-4">
+          <div className="bg-white  rounded-lg p-4">
             <p className="font-semibold text-green-900">
               📚 The Math Behind It
             </p>
@@ -342,7 +342,7 @@ const CompoundingRate = () => {
               than when you started!
             </p>
           </div>
-          <div className="bg-white rounded-lg p-4">
+          <div className="bg-white  rounded-lg p-4">
             <p className="font-semibold text-green-900">
               🎯 How to Achieve 1% Daily
             </p>
@@ -354,7 +354,7 @@ const CompoundingRate = () => {
               <li>• Sleep 5 minutes earlier</li>
             </ul>
           </div>
-          <div className="bg-white rounded-lg p-4">
+          <div className="bg-white  rounded-lg p-4">
             <p className="font-semibold text-green-900">
               ⚠️ The Reverse Effect
             </p>
@@ -367,11 +367,11 @@ const CompoundingRate = () => {
       </div>
 
       {/* Recommendation */}
-      <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-green-500">
-        <h4 className="font-bold text-gray-800 mb-2">
+      <div className="bg-white  rounded-xl shadow-md p-6 border-l-4 border-green-500">
+        <h4 className="font-bold text-gray-800  mb-2">
           💡 Your Compounding Strategy
         </h4>
-        <p className="text-gray-700">
+        <p className="text-gray-700 ">
           {stats.perDay >= 1.5 &&
             "Incredible! You're improving at an exceptional rate. This kind of consistency will transform you completely in a year."}
           {stats.perDay >= 1 &&

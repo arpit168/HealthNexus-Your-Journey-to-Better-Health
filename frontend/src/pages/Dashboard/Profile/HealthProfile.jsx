@@ -98,7 +98,7 @@ const HealthProfile = ({ onChange, values, errors }) => {
   };
 
   const getBmiColor = () => {
-    if (!bmi) return "text-gray-600";
+    if (!bmi) return "text-gray-600 ";
     if (bmi < 18.5) return "text-blue-600";
     if (bmi >= 18.5 && bmi < 25) return "text-green-600";
     if (bmi >= 25 && bmi < 30) return "text-yellow-600";
@@ -109,10 +109,10 @@ const HealthProfile = ({ onChange, values, errors }) => {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">
+        <h2 className="text-2xl font-bold text-gray-800  mb-2">
           Health Profile
         </h2>
-        <p className="text-gray-600 text-sm">
+        <p className="text-gray-600  text-sm">
           Tell us about your physical characteristics to personalize your
           experience
         </p>
@@ -122,7 +122,7 @@ const HealthProfile = ({ onChange, values, errors }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Age Input */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700  mb-2">
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4 text-blue-600" />
               Age
@@ -137,8 +137,8 @@ const HealthProfile = ({ onChange, values, errors }) => {
             max="120"
             className={`w-full px-4 py-3 border-2 rounded-lg transition-all outline-none ${
               errors?.age
-                ? "border-red-300 bg-red-50 focus:border-red-500"
-                : "border-gray-200 bg-gray-50 focus:border-blue-400 focus:bg-white"
+                ? "border-red-300 bg-red-50  focus:border-red-500"
+                : "border-gray-200  bg-gray-50  focus:border-blue-400 focus:bg-white"
             }`}
             placeholder="Enter your age"
           />
@@ -152,7 +152,7 @@ const HealthProfile = ({ onChange, values, errors }) => {
 
         {/* Sex Selection */}
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700  mb-2">
             <div className="flex items-center gap-2">
               <User className="w-4 h-4 text-purple-600" />
               Sex
@@ -164,8 +164,8 @@ const HealthProfile = ({ onChange, values, errors }) => {
             onChange={handleInputChange}
             className={`w-full px-4 py-3 border-2 rounded-lg transition-all outline-none ${
               errors?.sex
-                ? "border-red-300 bg-red-50 focus:border-red-500"
-                : "border-gray-200 bg-gray-50 focus:border-blue-400 focus:bg-white"
+                ? "border-red-300 bg-red-50  focus:border-red-500"
+                : "border-gray-200  bg-gray-50  focus:border-blue-400 focus:bg-white"
             }`}
           >
             <option value="">Select sex</option>
@@ -184,7 +184,7 @@ const HealthProfile = ({ onChange, values, errors }) => {
 
       {/* Height Input */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+        <label className="block text-sm font-medium text-gray-700  mb-2">
           <div className="flex items-center gap-2">
             <Ruler className="w-4 h-4 text-green-600" />
             Height
@@ -200,8 +200,8 @@ const HealthProfile = ({ onChange, values, errors }) => {
             step="0.1"
             className={`flex-1 px-4 py-3 border-2 rounded-lg transition-all outline-none ${
               errors?.height
-                ? "border-red-300 bg-red-50 focus:border-red-500"
-                : "border-gray-200 bg-gray-50 focus:border-blue-400 focus:bg-white"
+                ? "border-red-300 bg-red-50  focus:border-red-500"
+                : "border-gray-200  bg-gray-50  focus:border-blue-400 focus:bg-white"
             }`}
             placeholder={formData.heightUnit === "cm" ? "170" : "5.6"}
           />
@@ -209,7 +209,7 @@ const HealthProfile = ({ onChange, values, errors }) => {
             name="heightUnit"
             value={formData.heightUnit}
             onChange={handleInputChange}
-            className="px-4 py-3 border-2 border-gray-200 rounded-lg bg-gray-50 focus:border-blue-400 focus:bg-white transition-all outline-none"
+            className="px-4 py-3 border-2 border-gray-200  rounded-lg bg-gray-50  focus:border-blue-400 focus:bg-white transition-all outline-none"
           >
             <option value="cm">cm</option>
             <option value="ft">ft</option>
@@ -225,7 +225,7 @@ const HealthProfile = ({ onChange, values, errors }) => {
 
       {/* Weight Input */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+        <label className="block text-sm font-medium text-gray-700  mb-2">
           <div className="flex items-center gap-2">
             <Weight className="w-4 h-4 text-orange-600" />
             Current Weight (kg)
@@ -240,8 +240,8 @@ const HealthProfile = ({ onChange, values, errors }) => {
           step="0.1"
           className={`w-full px-4 py-3 border-2 rounded-lg transition-all outline-none ${
             errors?.weight
-              ? "border-red-300 bg-red-50 focus:border-red-500"
-              : "border-gray-200 bg-gray-50 focus:border-blue-400 focus:bg-white"
+              ? "border-red-300 bg-red-50  focus:border-red-500"
+              : "border-gray-200  bg-gray-50  focus:border-blue-400 focus:bg-white"
           }`}
           placeholder="Enter your weight in kg"
         />
@@ -255,7 +255,7 @@ const HealthProfile = ({ onChange, values, errors }) => {
 
       {/* Activity Level Dropdown */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+        <label className="block text-sm font-medium text-gray-700  mb-2">
           <div className="flex items-center gap-2">
             <Activity className="w-4 h-4 text-indigo-600" />
             Activity Level
@@ -267,8 +267,8 @@ const HealthProfile = ({ onChange, values, errors }) => {
           onChange={handleInputChange}
           className={`w-full px-4 py-3 border-2 rounded-lg transition-all outline-none ${
             errors?.activityLevel
-              ? "border-red-300 bg-red-50 focus:border-red-500"
-              : "border-gray-200 bg-gray-50 focus:border-blue-400 focus:bg-white"
+              ? "border-red-300 bg-red-50  focus:border-red-500"
+              : "border-gray-200  bg-gray-50  focus:border-blue-400 focus:bg-white"
           }`}
         >
           <option value="">Select activity level</option>
@@ -295,10 +295,10 @@ const HealthProfile = ({ onChange, values, errors }) => {
         >
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-1">
+              <h3 className="text-lg font-semibold text-gray-800  mb-1">
                 Body Mass Index (BMI)
               </h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-600 ">
                 Based on your height and weight
               </p>
             </div>
@@ -313,7 +313,7 @@ const HealthProfile = ({ onChange, values, errors }) => {
           {/* BMI Scale */}
           <div className="mt-4">
             <div className="h-2 bg-linear-to-r from-blue-400 via-yellow-400 to-red-400 rounded-full"></div>
-            <div className="flex justify-between mt-2 text-xs text-gray-600">
+            <div className="flex justify-between mt-2 text-xs text-gray-600 ">
               <span>Underweight</span>
               <span>Normal</span>
               <span>Overweight</span>
@@ -323,7 +323,7 @@ const HealthProfile = ({ onChange, values, errors }) => {
 
           {/* BMI Information */}
           <div className="mt-4 p-3 bg-white/60 rounded-lg">
-            <p className="text-xs text-gray-700">
+            <p className="text-xs text-gray-700 ">
               <strong>Note:</strong> BMI is a general indicator and may not
               account for muscle mass, bone density, and other factors. Consult
               with a healthcare professional for personalized advice.
