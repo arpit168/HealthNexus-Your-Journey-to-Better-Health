@@ -40,13 +40,21 @@ export const AuthProvider = ({ children }) => {
         console.log("🔄 Attempting to refresh session...");
       }
 
-      const res = await axiosInstance.get("/auth/refresh");
+      const localRefreshToken = localStorage.getItem("refreshToken");
+      const headers = localRefreshToken ? { "x-refresh-token": localRefreshToken } : {};
+
+      const res = await axiosInstance.get("/auth/refresh", { headers });
 
       if (res.data?.accessToken) {
         setAccessToken(res.data.accessToken);
         setUser(res.data.user || null);
         setIsAuthenticated(true);
         window.__accessToken = res.data.accessToken;
+
+        // Support token rotation if the backend sends a new refresh token
+        if (res.data.refreshToken) {
+          localStorage.setItem("refreshToken", res.data.refreshToken);
+        }
 
         if (import.meta.env.DEV) {
           console.log("✅ Session refreshed successfully");
@@ -57,6 +65,7 @@ export const AuthProvider = ({ children }) => {
         setAccessToken(null);
         setIsAuthenticated(false);
         window.__accessToken = null;
+        localStorage.removeItem("refreshToken");
         if (isRetry) throw new Error("No access token in response");
         return null;
       }
@@ -80,6 +89,7 @@ export const AuthProvider = ({ children }) => {
       setAccessToken(null);
       setIsAuthenticated(false);
       window.__accessToken = null;
+      localStorage.removeItem("refreshToken");
 
       if (isRetry) throw err;
       return null;
@@ -108,6 +118,10 @@ export const AuthProvider = ({ children }) => {
         setAccessToken(res.data.accessToken);
         setUser(res.data.user || null);
         setIsAuthenticated(true);
+        
+        if (res.data.refreshToken) {
+          localStorage.setItem("refreshToken", res.data.refreshToken);
+        }
 
         if (import.meta.env.DEV) {
           console.log("✅ Login successful");
@@ -215,6 +229,7 @@ export const AuthProvider = ({ children }) => {
       setError(null);
       setLoading(false);
       window.__accessToken = null;
+      localStorage.removeItem("refreshToken");
       refreshAttempted.current = false;
     }
   }, []);

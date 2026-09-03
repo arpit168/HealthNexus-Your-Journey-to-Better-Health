@@ -91,7 +91,7 @@ export const UserRegister = async (req, res, next) => {
 
 export const refresh = async (req, res) => {
   try {
-    const token = req.cookies.refreshToken;
+    const token = req.cookies.refreshToken || req.headers["x-refresh-token"];
 
     if (!token) {
       // Return 200 with no accessToken so frontend handles it gracefully without throwing a red console error
@@ -112,8 +112,18 @@ export const refresh = async (req, res) => {
       { expiresIn: "10m" },
     );
 
+    // Generate a new refresh token for token rotation (rolling sessions)
+    const newRefreshToken = jwt.sign(
+      { id: user._id },
+      process.env.REFRESH_SECRET,
+      { expiresIn: "7d" }
+    );
+
+    res.cookie("refreshToken", newRefreshToken, refreshCookieOptions);
+
     res.status(200).json({
       accessToken: newAccessToken,
+      refreshToken: newRefreshToken,
       user, // ⭐ MOST IMPORTANT LINE
     });
   } catch (err) {
@@ -175,6 +185,7 @@ export const UserLogin = async (req, res, next) => {
     res.status(200).json({
       message: "Login Successful",
       accessToken,
+      refreshToken, // Added for cross-origin localStorage fallback
       user: existingUser,
     });
   } catch (error) {
