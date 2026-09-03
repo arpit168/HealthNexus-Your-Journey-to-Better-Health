@@ -4,7 +4,16 @@ import User from "../models/userModel.js";
 // ----------------------Protect------------------
 export const Protect = async (req, res, next) => {
   try {
-    const token = req.cookies.refreshToken;
+    let token;
+    
+    // Check Authorization header first
+    if (req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
+      token = req.headers.authorization.split(" ")[1];
+    } 
+    // Fallback to cookie
+    else if (req.cookies.accessToken || req.cookies.refreshToken) {
+      token = req.cookies.accessToken || req.cookies.refreshToken;
+    }
 
     if (!token) {
       const error = new Error(
@@ -16,7 +25,12 @@ export const Protect = async (req, res, next) => {
 
     let decoded;
     try {
-      decoded = jwt.verify(token, process.env.REFRESH_SECRET);
+      // Try verifying with ACCESS_SECRET first, fallback to REFRESH_SECRET for compatibility
+      try {
+        decoded = jwt.verify(token, process.env.ACCESS_SECRET);
+      } catch (err) {
+        decoded = jwt.verify(token, process.env.REFRESH_SECRET);
+      }
     } catch (jwtError) {
       const error = new Error("Invalid or expired token. Please login again.");
       error.statusCode = 401;
