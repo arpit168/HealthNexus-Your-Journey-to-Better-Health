@@ -21,23 +21,26 @@ import analyticsRouter from "./src/routers/analyticsRouter.js";
 
 const app = express();
 
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://health-nexus-your-journey-to-better.vercel.app",
-  "https://health-nexus-your-journey-to-better.vercel.app/",
-  "https://health-nexus-your-journey-to-better-health-lhdll1p57.vercel.app",
-  "https://health-nexus-your-journey-to-better-health-lhdll1p57.vercel.app/",
-  ...(process.env.FRONTEND_URL ? [process.env.FRONTEND_URL] : []),
-];
+const allowedOrigins = process.env.CORS_ORIGINS
+  ? process.env.CORS_ORIGINS.split(",").map(o => o.trim())
+  : [
+      "http://localhost:5173",
+      "https://health-nexus-your-journey-to-better.vercel.app",
+      "https://health-nexus-your-journey-to-better.vercel.app/",
+      "https://health-nexus-your-journey-to-better-health-lhdll1p57.vercel.app",
+      "https://health-nexus-your-journey-to-better-health-lhdll1p57.vercel.app/",
+      ...(process.env.FRONTEND_URL ? [process.env.FRONTEND_URL] : []),
+    ];
 
 app.use(
   cors({
     origin: (origin, callback) => {
       // Allow non-browser requests (no Origin header) and known frontends.
-      if (!origin || allowedOrigins.includes(origin)) {
+      if (!origin || allowedOrigins.includes(origin) || allowedOrigins.includes(origin + "/")) {
         return callback(null, true);
       }
-      return callback(new Error("Not allowed by CORS"));
+      // Return false to gracefully fail CORS without throwing a 500 error on preflight
+      return callback(null, false);
     },
     credentials: true,
   }),
