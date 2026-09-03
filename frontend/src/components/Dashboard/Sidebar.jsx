@@ -18,6 +18,26 @@ const Sidebar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Hide when scrolling down, show when scrolling up
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        setIsVisible(false);
+      } else if (currentScrollY < lastScrollY) {
+        setIsVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   const menuItems = [
     {
@@ -112,18 +132,20 @@ const Sidebar = () => {
       {/* Mobile Hamburger Button - positioned below navbar */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="lg:hidden fixed top-18 left-2 z-50 bg-white/50 p-2  rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+        className={`lg:hidden fixed top-18 left-2 z-50 bg-white/50 p-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 ${
+          isVisible ? "translate-x-0" : "-translate-x-[150%]"
+        }`}
       >
         {isOpen ? (
-          <FiX className="w-6 h-6 text-gray-900" />
+          <FiX className="w-6 h-6 text-gray-900 " />
         ) : (
-          <FiMenu className="w-6 h-6 text-gray-900" />
+          <FiMenu className="w-6 h-6 text-gray-900 " />
         )}
       </button>
 
       {/* Sidebar - Fixed positioning starting below navbar */}
       <aside
-        className={`fixed left-0 top-20 h-[calc(100vh-80px)] bg-linear-to-b from-white to-gray-50 shadow-lg lg:shadow-xl border-r border-gray-200 transition-all duration-300 z-40 ${
+        className={`fixed left-0 top-20 h-[calc(100vh-80px)] bg-linear-to-b from-white to-gray-50 shadow-lg lg:shadow-xl border-r border-gray-200  transition-all duration-300 z-40 ${
           isOpen ? "w-64" : "w-64 -translate-x-full lg:translate-x-0"
         }`}
       >
@@ -140,7 +162,7 @@ const Sidebar = () => {
                 className={`w-full items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 group ${
                   active
                     ? "bg-linear-to-r from-blue-600 to-indigo-600 text-white shadow-lg"
-                    : "text-gray-700 hover:bg-gray-100"
+                    : "text-gray-700  hover:bg-gray-100 "
                 } ${item.hideOnMobile ? "hidden lg:flex" : "flex"}`}
               >
                 <Icon
@@ -150,7 +172,7 @@ const Sidebar = () => {
                 />
                 <span className="font-semibold text-sm">{item.label}</span>
                 {active && (
-                  <div className="ml-auto w-2 h-2 rounded-full bg-white animate-pulse"></div>
+                  <div className="ml-auto w-2 h-2 rounded-full bg-white  animate-pulse"></div>
                 )}
               </button>
             );

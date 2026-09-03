@@ -74,17 +74,17 @@ const MeasurementTracker = ({ measurements = [], photos = [], onSubmit }) => {
   return (
     <div className="space-y-6">
       {/* Header with Add Button */}
-      <div className="bg-white rounded-2xl shadow-lg p-6">
-        <div className="flex items-center justify-between">
+      <div className="bg-white  rounded-2xl shadow-lg p-6">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <Ruler className="w-6 h-6 text-purple-600" />
-            <h2 className="text-2xl font-bold text-gray-800">
+            <h2 className="text-2xl font-bold text-gray-800 ">
               Body Measurements
             </h2>
           </div>
           <button
             onClick={() => setShowForm(!showForm)}
-            className="px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-colors"
+            className="px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-colors w-full sm:w-auto"
           >
             {showForm ? "Cancel" : "Add Measurement"}
           </button>
@@ -93,15 +93,15 @@ const MeasurementTracker = ({ measurements = [], photos = [], onSubmit }) => {
 
       {/* Add Measurement Form */}
       {showForm && (
-        <div className="bg-white rounded-2xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-800 mb-4">
+        <div className="bg-white  rounded-2xl shadow-lg p-6">
+          <h3 className="text-xl font-bold text-gray-800  mb-4">
             New Measurement Entry
           </h3>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {bodyParts.map((part) => (
                 <div key={part.key}>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-gray-700  mb-2">
                     {part.icon} {part.label} (cm)
                   </label>
                   <input
@@ -112,7 +112,7 @@ const MeasurementTracker = ({ measurements = [], photos = [], onSubmit }) => {
                       handleInputChange(part.key, e.target.value)
                     }
                     placeholder="0.0"
-                    className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-500 focus:outline-none"
+                    className="w-full px-4 py-3 border-2 border-gray-300  rounded-lg focus:border-purple-500 focus:outline-none"
                   />
                 </div>
               ))}
@@ -135,11 +135,11 @@ const MeasurementTracker = ({ measurements = [], photos = [], onSubmit }) => {
           const change = calculateChange(current, previous);
 
           return (
-            <div key={part.key} className="bg-white rounded-xl shadow-lg p-6">
+            <div key={part.key} className="bg-white  rounded-xl shadow-lg p-6">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
                   <span className="text-2xl">{part.icon}</span>
-                  <span className="font-semibold text-gray-700">
+                  <span className="font-semibold text-gray-700 ">
                     {part.label}
                   </span>
                 </div>
@@ -150,7 +150,7 @@ const MeasurementTracker = ({ measurements = [], photos = [], onSubmit }) => {
                     <TrendingUp className="w-5 h-5 text-orange-600" />
                   ))}
               </div>
-              <p className="text-3xl font-bold text-gray-800 mb-1">
+              <p className="text-3xl font-bold text-gray-800  mb-1">
                 {current ? `${current.toFixed(1)} cm` : "-"}
               </p>
               {change && (
@@ -168,27 +168,27 @@ const MeasurementTracker = ({ measurements = [], photos = [], onSubmit }) => {
 
       {/* Before/After Comparison */}
       {latestMeasurement && previousMeasurement && (
-        <div className="bg-white rounded-2xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-800 mb-4">
+        <div className="bg-white  rounded-2xl shadow-lg p-6">
+          <h3 className="text-xl font-bold text-gray-800  mb-4">
             Before vs After Comparison
           </h3>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b-2 border-gray-200">
-                  <th className="text-left py-3 px-4 font-semibold text-gray-700">
+                <tr className="border-b-2 border-gray-200 ">
+                  <th className="text-left py-3 px-4 font-semibold text-gray-700 ">
                     Body Part
                   </th>
-                  <th className="text-center py-3 px-4 font-semibold text-gray-700">
+                  <th className="text-center py-3 px-4 font-semibold text-gray-700 ">
                     Before
                   </th>
-                  <th className="text-center py-3 px-4 font-semibold text-gray-700">
+                  <th className="text-center py-3 px-4 font-semibold text-gray-700 ">
                     Current
                   </th>
-                  <th className="text-center py-3 px-4 font-semibold text-gray-700">
+                  <th className="text-center py-3 px-4 font-semibold text-gray-700 ">
                     Change
                   </th>
-                  <th className="text-center py-3 px-4 font-semibold text-gray-700">
+                  <th className="text-center py-3 px-4 font-semibold text-gray-700 ">
                     %
                   </th>
                 </tr>
@@ -202,15 +202,15 @@ const MeasurementTracker = ({ measurements = [], photos = [], onSubmit }) => {
                   return (
                     <tr
                       key={part.key}
-                      className="border-b border-gray-100 hover:bg-gray-50"
+                      className="border-b border-gray-100  hover:bg-gray-50 "
                     >
-                      <td className="py-3 px-4 font-semibold text-gray-800">
+                      <td className="py-3 px-4 font-semibold text-gray-800 ">
                         {part.icon} {part.label}
                       </td>
-                      <td className="py-3 px-4 text-center text-gray-600">
+                      <td className="py-3 px-4 text-center text-gray-600 ">
                         {before ? `${before.toFixed(1)} cm` : "-"}
                       </td>
-                      <td className="py-3 px-4 text-center font-semibold text-gray-800">
+                      <td className="py-3 px-4 text-center font-semibold text-gray-800 ">
                         {current ? `${current.toFixed(1)} cm` : "-"}
                       </td>
                       <td className="py-3 px-4 text-center">
@@ -246,17 +246,17 @@ const MeasurementTracker = ({ measurements = [], photos = [], onSubmit }) => {
       )}
 
       {/* Progress Photos Section */}
-      <div className="bg-white rounded-2xl shadow-lg p-6">
+      <div className="bg-white  rounded-2xl shadow-lg p-6">
         <div className="flex items-center gap-3 mb-4">
           <Camera className="w-6 h-6 text-purple-600" />
-          <h3 className="text-xl font-bold text-gray-800">Progress Photos</h3>
+          <h3 className="text-xl font-bold text-gray-800 ">Progress Photos</h3>
         </div>
         {photos.length > 0 ? (
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {photos.slice(0, 4).map((photo, index) => (
               <div
                 key={photo.id || index}
-                className="relative rounded-lg overflow-hidden bg-gray-100 aspect-square"
+                className="relative rounded-lg overflow-hidden bg-gray-100  aspect-square"
               >
                 <img
                   src={photo.url || "/placeholder.jpg"}
@@ -280,12 +280,12 @@ const MeasurementTracker = ({ measurements = [], photos = [], onSubmit }) => {
 
       {/* Empty State */}
       {measurements.length === 0 && (
-        <div className="bg-purple-50 rounded-2xl border-2 border-dashed border-purple-300 p-12 text-center">
+        <div className="bg-purple-50  rounded-2xl border-2 border-dashed border-purple-300 p-12 text-center">
           <Ruler className="w-16 h-16 text-purple-400 mx-auto mb-4" />
-          <h3 className="text-xl font-bold text-gray-800 mb-2">
+          <h3 className="text-xl font-bold text-gray-800  mb-2">
             No Measurements Yet
           </h3>
-          <p className="text-gray-600 mb-4">
+          <p className="text-gray-600  mb-4">
             Start tracking your body measurements to see your transformation
             over time!
           </p>

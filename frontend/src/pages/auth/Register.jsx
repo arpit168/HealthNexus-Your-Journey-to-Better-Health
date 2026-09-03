@@ -316,7 +316,7 @@ const Register = () => {
                       currentStep > step.number
                         ? "bg-green-500 text-white"
                         : currentStep === step.number
-                          ? "bg-white text-blue-600 shadow-lg"
+                          ? "bg-white  text-blue-600 shadow-lg"
                           : "bg-white/20 text-white"
                     }`}
                   >
@@ -584,7 +584,7 @@ const Register = () => {
                   transition={{ duration: 0.3 }}
                   className="space-y-4"
                 >
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Age */}
                     <div>
                       <label className="block text-sm font-medium text-white mb-2">
@@ -935,7 +935,7 @@ const Register = () => {
                   whileTap={{ scale: 0.98 }}
                   type="button"
                   onClick={handleNext}
-                  className="px-6 py-3 bg-white text-blue-600 rounded-lg font-medium hover:bg-white/90 transition-all flex items-center ml-auto"
+                  className="px-6 py-3 bg-white  text-blue-600 rounded-lg font-medium hover:bg-white/90 transition-all flex items-center ml-auto"
                 >
                   Next
                   <ArrowRight className="w-4 h-4 ml-2" />
@@ -948,7 +948,7 @@ const Register = () => {
                   disabled={!validateStep(3) || isSubmitting}
                   className={`px-8 py-3 rounded-lg font-medium transition-all flex items-center ml-auto ${
                     !validateStep(3) || isSubmitting
-                      ? "bg-gray-400 cursor-not-allowed text-gray-600"
+                      ? "bg-gray-400 cursor-not-allowed text-gray-600 "
                       : "bg-green-500 text-white hover:bg-green-600"
                   }`}
                 >

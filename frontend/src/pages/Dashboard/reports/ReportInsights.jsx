@@ -214,7 +214,7 @@ export default function ReportInsights({
               <span
                 className={
                   item.completed
-                    ? "text-gray-500 line-through"
+                    ? "text-gray-500  line-through"
                     : "text-gray-300"
                 }
               >

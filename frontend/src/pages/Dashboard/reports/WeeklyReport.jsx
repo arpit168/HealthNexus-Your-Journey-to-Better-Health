@@ -7,6 +7,7 @@ import ReportTables from "./ReportTables";
 import PDFDownloadButton from "./PDFDownloadButton";
 import EmailReportButton from "./EmailReportButton";
 import { reportsService } from "../../../Services/reportsService";
+import ResponsiveSlider from "../../../components/Common/ResponsiveSlider";
 
 export default function WeeklyReport() {
   const [weekStart, setWeekStart] = useState(
@@ -52,15 +53,15 @@ export default function WeeklyReport() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-linear-to-r from-indigo-900/80 to-blue-900/80 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-indigo-500/20">
-        <div className="flex justify-between items-center mb-6">
+      <div className="bg-linear-to-r from-indigo-900/80 to-blue-900/80 backdrop-blur-md p-6 md:p-8 rounded-2xl shadow-2xl border border-indigo-500/20">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
           <div>
-            <h2 className="text-4xl font-extrabold text-white mb-2 drop-shadow-lg">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-2 drop-shadow-lg">
               📅 Weekly Report
             </h2>
             <p className="text-indigo-100 text-lg">Your week at a glance</p>
           </div>
-          <div className="flex gap-3">
+          <div className="flex flex-wrap gap-3 w-full md:w-auto">
             <PDFDownloadButton reportData={mockData} />
             <EmailReportButton reportData={mockData} />
           </div>
@@ -75,33 +76,35 @@ export default function WeeklyReport() {
       </div>
 
       {/* Daily Breakdown with enhanced cards */}
-      <div className="grid grid-cols-2 md:grid-cols-7 gap-3">
-        {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day, idx) => (
-          <div
-            key={day}
-            className={`p-5 rounded-xl text-center transition-all transform hover:scale-105 hover:shadow-xl duration-300 ${
-              idx === 2
-                ? "bg-linear-to-br from-green-500/80 to-green-700/80 shadow-lg shadow-green-500/30 border border-green-400/30"
-                : idx < 5
-                  ? "bg-linear-to-br from-blue-800/80 to-blue-900/80 border border-blue-500/20"
-                  : "bg-linear-to-br from-gray-800/80 to-gray-900/80 border border-gray-700/30"
-            }`}
-          >
-            <p className="text-white font-bold text-lg">{day}</p>
-            <p className="text-white text-2xl font-extrabold mt-2">
-              {100 - idx * 5}%
-            </p>
-            <p className="text-xs text-gray-300 mt-1">Complete</p>
-          </div>
-        ))}
+      <div className="bg-transparent">
+        <ResponsiveSlider>
+          {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day, idx) => (
+            <div
+              key={day}
+              className={`p-5 rounded-xl text-center transition-all transform hover:scale-105 hover:shadow-xl duration-300 min-w-[120px] ${
+                idx === 2
+                  ? "bg-linear-to-br from-green-500/80 to-green-700/80 shadow-lg shadow-green-500/30 border border-green-400/30"
+                  : idx < 5
+                    ? "bg-linear-to-br from-blue-800/80 to-blue-900/80 border border-blue-500/20"
+                    : "bg-linear-to-br from-gray-800/80 to-gray-900/80 border border-gray-700/30"
+              }`}
+            >
+              <p className="text-white font-bold text-lg">{day}</p>
+              <p className="text-white text-2xl font-extrabold mt-2">
+                {100 - idx * 5}%
+              </p>
+              <p className="text-xs text-gray-300 mt-1">Complete</p>
+            </div>
+          ))}
+        </ResponsiveSlider>
       </div>
 
-      <div className="flex gap-3 bg-gray-900/50 backdrop-blur-sm p-2 rounded-2xl border border-gray-700/50">
+      <div className="flex gap-3 bg-gray-900/50 backdrop-blur-sm p-2 rounded-2xl border border-gray-700/50 overflow-x-auto scrollbar-hide">
         {["overview", "charts", "tables", "insights"].map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`flex-1 px-6 py-3 font-semibold rounded-xl transition-all capitalize ${
+            className={`flex-1 min-w-[120px] whitespace-nowrap px-6 py-3 font-semibold rounded-xl transition-all capitalize ${
               activeTab === tab
                 ? "bg-linear-to-r from-indigo-600 to-blue-600 text-white shadow-lg shadow-indigo-500/30 scale-105"
                 : "text-gray-400 hover:text-white hover:bg-gray-800/50"

@@ -45,42 +45,42 @@ const CalorieTracker = ({ logs = [], target = {}, onLog }) => {
           background: `conic-gradient(${color} ${value}%, #e5e7eb 0)`,
         }}
       >
-        <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center">
+        <div className="w-14 h-14 bg-white  rounded-full flex items-center justify-center">
           <span className="text-xs font-semibold">{value}%</span>
         </div>
       </div>
-      <p className="text-xs text-gray-500 mt-2">{label}</p>
+      <p className="text-xs text-gray-500  mt-2">{label}</p>
     </div>
   );
 
   return (
     <div className="space-y-6">
-      <div className="bg-white rounded-2xl shadow-lg p-6">
+      <div className="bg-white  rounded-2xl shadow-lg p-6">
         <div className="flex items-center gap-2">
           <Flame className="w-5 h-5 text-emerald-600" />
-          <h3 className="text-xl font-bold text-gray-800">Daily Calories</h3>
+          <h3 className="text-xl font-bold text-gray-800 ">Daily Calories</h3>
         </div>
 
         <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="bg-emerald-50 rounded-xl p-4">
-            <p className="text-sm text-gray-600">Consumed</p>
+            <p className="text-sm text-gray-600 ">Consumed</p>
             <p className="text-2xl font-bold text-emerald-700">
               {totals.calories} kcal
             </p>
           </div>
-          <div className="bg-blue-50 rounded-xl p-4">
-            <p className="text-sm text-gray-600">Remaining</p>
+          <div className="bg-blue-50  rounded-xl p-4">
+            <p className="text-sm text-gray-600 ">Remaining</p>
             <p className="text-2xl font-bold text-blue-700">{remaining} kcal</p>
           </div>
           <div className="bg-amber-50 rounded-xl p-4">
-            <p className="text-sm text-gray-600">Target</p>
+            <p className="text-sm text-gray-600 ">Target</p>
             <p className="text-2xl font-bold text-amber-700">
               {calorieTarget} kcal
             </p>
           </div>
         </div>
 
-        <div className="mt-4 w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+        <div className="mt-4 w-full bg-gray-200  rounded-full h-3 overflow-hidden">
           <div
             className="h-full bg-linear-to-r from-emerald-500 to-green-500"
             style={{ width: `${caloriePercent}%` }}
@@ -88,10 +88,10 @@ const CalorieTracker = ({ logs = [], target = {}, onLog }) => {
         </div>
       </div>
 
-      <div className="bg-white rounded-2xl shadow-lg p-6">
+      <div className="bg-white  rounded-2xl shadow-lg p-6">
         <div className="flex items-center gap-2">
           <PieChart className="w-5 h-5 text-blue-600" />
-          <h3 className="text-xl font-bold text-gray-800">Macro Balance</h3>
+          <h3 className="text-xl font-bold text-gray-800 ">Macro Balance</h3>
         </div>
         <div className="mt-5 grid grid-cols-3 gap-3">
           {macroRing(
@@ -112,11 +112,11 @@ const CalorieTracker = ({ logs = [], target = {}, onLog }) => {
         </div>
       </div>
 
-      <div className="bg-white rounded-2xl shadow-lg p-6">
-        <div className="flex items-center justify-between">
+      <div className="bg-white  rounded-2xl shadow-lg p-6">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <Droplet className="w-5 h-5 text-blue-500" />
-            <h3 className="text-xl font-bold text-gray-800">Water Tracking</h3>
+            <h3 className="text-xl font-bold text-gray-800 ">Water Tracking</h3>
           </div>
           <button
             className="px-4 py-2 bg-blue-500 text-white rounded-lg font-semibold"
@@ -125,14 +125,14 @@ const CalorieTracker = ({ logs = [], target = {}, onLog }) => {
             Add Glass
           </button>
         </div>
-        <div className="mt-4 flex items-center gap-3">
+        <div className="mt-4 flex flex-wrap items-center gap-3">
           {Array.from({ length: 10 }).map((_, index) => (
             <div
               key={index}
               className={`w-6 h-10 rounded-md ${index < water ? "bg-blue-500" : "bg-blue-100"}`}
             />
           ))}
-          <span className="text-sm text-gray-500">{water}/10</span>
+          <span className="text-sm text-gray-500 ">{water}/10</span>
         </div>
       </div>
     </div>

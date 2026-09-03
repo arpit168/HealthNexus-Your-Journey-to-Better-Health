@@ -81,21 +81,21 @@ const Diet = () => {
       <div className="min-h-screen bg-linear-to-br from-gray-50 via-green-50 to-emerald-50 p-4 md:p-8">
         <div className="max-w-7xl mx-auto space-y-6">
           {/* Header */}
-          <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+          <div className="bg-white  rounded-2xl shadow-lg p-6 md:p-8">
             <div className="flex items-center gap-3 mb-2">
               <Utensils className="w-10 h-10 text-green-600" />
               <h1 className="text-4xl font-bold bg-linear-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
                 Nutrition Center
               </h1>
             </div>
-            <p className="text-gray-600">
+            <p className="text-gray-600 ">
               Plan your meals, track calories, and calculate optimal macros for
               your goals.
             </p>
           </div>
 
           {/* Tabs Navigation */}
-          <div className="bg-white rounded-xl shadow-sm p-2">
+          <div className="bg-white  rounded-xl shadow-sm p-2">
             <div className="flex flex-wrap gap-2">
               {tabs.map((tab) => {
                 const Icon = tab.icon;
@@ -106,7 +106,7 @@ const Diet = () => {
                     className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${
                       activeTab === tab.id
                         ? "bg-linear-to-r from-green-600 to-emerald-600 text-white shadow-md"
-                        : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                        : "bg-gray-100  text-gray-600  hover:bg-gray-200 "
                     }`}
                   >
                     <Icon className="w-5 h-5" />

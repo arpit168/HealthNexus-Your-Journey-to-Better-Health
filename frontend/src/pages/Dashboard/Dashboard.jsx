@@ -22,6 +22,8 @@ import { MdNightlight, MdBed } from "react-icons/md";
 import DashboardLayout from "../../components/Dashboard/DashboardLayout";
 import { getUserData } from "../../Services/authService";
 import profileService from "../../Services/profileService";
+import ResponsiveSlider from "../../components/Common/ResponsiveSlider";
+import ResponsiveCard, { CardContent } from "../../components/Common/ResponsiveCard";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -140,15 +142,15 @@ const Dashboard = () => {
                 <h1 className="text-4xl md:text-5xl font-bold bg-linear-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent mb-2">
                   {greeting}, {firstName}!
                 </h1>
-                <div className="flex items-center gap-2 text-gray-600">
+                <div className="flex items-center gap-2 text-gray-600 ">
                   <FiCalendar className="w-4 h-4" />
                   <span>{formattedDate}</span>
                 </div>
               </div>
-              <div className="flex items-center gap-3 bg-white rounded-2xl px-6 py-3 shadow-lg border border-orange-200">
+              <div className="flex items-center gap-3 bg-white  rounded-2xl px-6 py-3 shadow-lg border border-orange-200">
                 <IoFlame className="w-8 h-8 text-orange-500 animate-bounce [animation-duration:2s]" />
                 <div>
-                  <p className="text-sm text-gray-600">Streak</p>
+                  <p className="text-sm text-gray-600 ">Streak</p>
                   <p className="text-3xl font-bold text-orange-500">
                     {mockData.streak}
                   </p>
@@ -158,9 +160,10 @@ const Dashboard = () => {
           </div>
 
           {/* SECTION 2: QUICK STATS CARDS */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            {/* Habit Score Card */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:100ms]">
+          <div className="mb-8">
+            <ResponsiveSlider>
+              {/* Habit Score Card */}
+            <div className="bg-white  rounded-2xl shadow-lg p-6 border border-gray-100  hover:shadow-xl transition-all duration-300 hover:scale-105 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:100ms]">
               <div className="flex items-start justify-between mb-4">
                 <div className="bg-yellow-100 rounded-xl p-3">
                   <FiStar className="w-6 h-6 text-yellow-600" />
@@ -169,16 +172,16 @@ const Dashboard = () => {
                   +5
                 </span>
               </div>
-              <h3 className="text-gray-600 text-sm font-semibold mb-2">
+              <h3 className="text-gray-600  text-sm font-semibold mb-2">
                 Habit Score
               </h3>
               <div className="mb-3">
-                <p className="text-3xl font-bold text-gray-900">
+                <p className="text-3xl font-bold text-gray-900 ">
                   {mockData.habitScore}
                 </p>
-                <p className="text-xs text-gray-500">out of 100</p>
+                <p className="text-xs text-gray-500 ">out of 100</p>
               </div>
-              <div className="w-full bg-gray-200 rounded-full h-2">
+              <div className="w-full bg-gray-200  rounded-full h-2">
                 <div
                   className="bg-yellow-500 h-2 rounded-full transition-all duration-500"
                   style={{ width: `${mockData.habitScore}%` }}
@@ -187,7 +190,7 @@ const Dashboard = () => {
             </div>
 
             {/* Current Weight Card */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:200ms]">
+            <div className="bg-white  rounded-2xl shadow-lg p-6 border border-gray-100  hover:shadow-xl transition-all duration-300 hover:scale-105 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:200ms]">
               <div className="flex items-start justify-between mb-4">
                 <div className="bg-blue-100 rounded-xl p-3">
                   <FiTrendingDown className="w-6 h-6 text-blue-600" />
@@ -199,15 +202,15 @@ const Dashboard = () => {
                   {Math.abs(mockData.weightChange)} kg
                 </span>
               </div>
-              <h3 className="text-gray-600 text-sm font-semibold mb-2">
+              <h3 className="text-gray-600  text-sm font-semibold mb-2">
                 Current Weight
               </h3>
               <div className="mb-3">
-                <p className="text-3xl font-bold text-gray-900">
+                <p className="text-3xl font-bold text-gray-900 ">
                   {userData?.healthData?.vitals?.weight ||
                     mockData.currentWeight}
                 </p>
-                <p className="text-xs text-gray-500">kg</p>
+                <p className="text-xs text-gray-500 ">kg</p>
               </div>
               <p className="text-xs text-green-600 font-semibold">
                 From start: {mockData.weightChange} kg
@@ -215,7 +218,7 @@ const Dashboard = () => {
             </div>
 
             {/* Calories Card */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:300ms]">
+            <div className="bg-white  rounded-2xl shadow-lg p-6 border border-gray-100  hover:shadow-xl transition-all duration-300 hover:scale-105 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:300ms]">
               <div className="flex items-start justify-between mb-4">
                 <div className="bg-red-100 rounded-xl p-3">
                   <FiZap className="w-6 h-6 text-red-600" />
@@ -227,18 +230,18 @@ const Dashboard = () => {
                   %
                 </span>
               </div>
-              <h3 className="text-gray-600 text-sm font-semibold mb-2">
+              <h3 className="text-gray-600  text-sm font-semibold mb-2">
                 Calories
               </h3>
               <div className="mb-3">
-                <p className="text-3xl font-bold text-gray-900">
+                <p className="text-3xl font-bold text-gray-900 ">
                   {mockData.calories}
                 </p>
-                <p className="text-xs text-gray-500">
+                <p className="text-xs text-gray-500 ">
                   of {mockData.caloriesTarget} kcal
                 </p>
               </div>
-              <div className="w-full bg-gray-200 rounded-full h-2">
+              <div className="w-full bg-gray-200  rounded-full h-2">
                 <div
                   className="bg-red-500 h-2 rounded-full transition-all duration-500"
                   style={{
@@ -249,7 +252,7 @@ const Dashboard = () => {
             </div>
 
             {/* Workout Card */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:400ms]">
+            <div className="bg-white  rounded-2xl shadow-lg p-6 border border-gray-100  hover:shadow-xl transition-all duration-300 hover:scale-105 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:400ms]">
               <div className="flex items-start justify-between mb-4">
                 <div className="bg-purple-100 rounded-xl p-3">
                   <GiWeightLiftingUp className="w-6 h-6 text-purple-600" />
@@ -258,14 +261,14 @@ const Dashboard = () => {
                   Today
                 </span>
               </div>
-              <h3 className="text-gray-600 text-sm font-semibold mb-2">
+              <h3 className="text-gray-600  text-sm font-semibold mb-2">
                 Workout
               </h3>
               <div className="mb-3">
-                <p className="text-lg font-bold text-gray-900">
+                <p className="text-lg font-bold text-gray-900 ">
                   {mockData.workoutFocus}
                 </p>
-                <p className="text-xs text-gray-500">
+                <p className="text-xs text-gray-500 ">
                   {mockData.exercisesToday} exercises
                 </p>
               </div>
@@ -274,37 +277,38 @@ const Dashboard = () => {
                 <span>In Progress</span>
               </div>
             </div>
-          </div>
+          </ResponsiveSlider>
+        </div>
 
           {/* SECTION 3: HEALTH METRICS (New Section from API Data) */}
           {userData?.healthData?.vitals && (
-            <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 mb-8 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:450ms]">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+            <div className="bg-white  rounded-2xl shadow-lg p-8 border border-gray-100  mb-8 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:450ms]">
+              <h2 className="text-2xl font-bold text-gray-900  mb-6 flex items-center gap-3">
                 <FiHeart className="w-6 h-6 text-red-500" />
                 Your Health Metrics
               </h2>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <ResponsiveSlider>
                 {userData.healthData.vitals.bloodGroup &&
                   userData.healthData.vitals.bloodGroup !== "N/A" && (
-                    <div className="text-center p-4 bg-gray-50 rounded-xl">
+                    <div className="text-center p-4 bg-gray-50  rounded-xl">
                       <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-2">
                         <FiDroplet className="w-6 h-6 text-red-600" />
                       </div>
-                      <p className="text-sm text-gray-600">Blood Group</p>
-                      <p className="text-xl font-bold text-gray-900">
+                      <p className="text-sm text-gray-600 ">Blood Group</p>
+                      <p className="text-xl font-bold text-gray-900 ">
                         {userData.healthData.vitals.bloodGroup}
                       </p>
                     </div>
                   )}
 
                 {userData.healthData.vitals.heartRate && (
-                  <div className="text-center p-4 bg-gray-50 rounded-xl">
+                  <div className="text-center p-4 bg-gray-50  rounded-xl">
                     <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-2">
                       <FiHeart className="w-6 h-6 text-red-600" />
                     </div>
-                    <p className="text-sm text-gray-600">Heart Rate</p>
-                    <p className="text-xl font-bold text-gray-900">
+                    <p className="text-sm text-gray-600 ">Heart Rate</p>
+                    <p className="text-xl font-bold text-gray-900 ">
                       {userData.healthData.vitals.heartRate}{" "}
                       <span className="text-sm">bpm</span>
                     </p>
@@ -313,49 +317,49 @@ const Dashboard = () => {
 
                 {userData.healthData.vitals.bloodPressure &&
                   userData.healthData.vitals.bloodPressure !== "N/A" && (
-                    <div className="text-center p-4 bg-gray-50 rounded-xl">
+                    <div className="text-center p-4 bg-gray-50  rounded-xl">
                       <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
                         <FiActivity className="w-6 h-6 text-blue-600" />
                       </div>
-                      <p className="text-sm text-gray-600">Blood Pressure</p>
-                      <p className="text-xl font-bold text-gray-900">
+                      <p className="text-sm text-gray-600 ">Blood Pressure</p>
+                      <p className="text-xl font-bold text-gray-900 ">
                         {userData.healthData.vitals.bloodPressure}
                       </p>
                     </div>
                   )}
 
                 {userData.healthData.vitals.oxygenSaturation && (
-                  <div className="text-center p-4 bg-gray-50 rounded-xl">
+                  <div className="text-center p-4 bg-gray-50  rounded-xl">
                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
                       <IoWater className="w-6 h-6 text-blue-600" />
                     </div>
-                    <p className="text-sm text-gray-600">Oxygen Level</p>
-                    <p className="text-xl font-bold text-gray-900">
+                    <p className="text-sm text-gray-600 ">Oxygen Level</p>
+                    <p className="text-xl font-bold text-gray-900 ">
                       {userData.healthData.vitals.oxygenSaturation}%
                     </p>
                   </div>
                 )}
 
                 {userData.healthData.vitals.temperature && (
-                  <div className="text-center p-4 bg-gray-50 rounded-xl">
+                  <div className="text-center p-4 bg-gray-50  rounded-xl">
                     <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-2">
                       <FiThermometer className="w-6 h-6 text-orange-600" />
                     </div>
-                    <p className="text-sm text-gray-600">Temperature</p>
-                    <p className="text-xl font-bold text-gray-900">
+                    <p className="text-sm text-gray-600 ">Temperature</p>
+                    <p className="text-xl font-bold text-gray-900 ">
                       {userData.healthData.vitals.temperature}°C
                     </p>
                   </div>
                 )}
-              </div>
+              </ResponsiveSlider>
             </div>
           )}
 
           {/* SECTION 3: TODAY'S WORKOUT */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 mb-8 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:500ms]">
+          <div className="bg-white  rounded-2xl shadow-lg p-8 border border-gray-100  mb-8 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:500ms]">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-3">
+                <h2 className="text-2xl font-bold text-gray-900  flex items-center gap-3">
                   <GiWeightLiftingUp className="w-6 h-6 text-blue-600" />
                   Today's Workout
                 </h2>
@@ -376,7 +380,7 @@ const Dashboard = () => {
               {todayExercises.map((exercise, index) => (
                 <div
                   key={exercise.id}
-                  className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-all duration-300 animate-[slideInRight_0.5s_ease-out] opacity-0 [animation-fill-mode:forwards]"
+                  className="flex items-center gap-4 p-4 bg-gray-50  rounded-xl hover:bg-gray-100  transition-all duration-300 animate-[slideInRight_0.5s_ease-out] opacity-0 [animation-fill-mode:forwards]"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <button
@@ -384,7 +388,7 @@ const Dashboard = () => {
                     className={`shrink-0 w-6 h-6 rounded-full border-2 transition-all duration-300 flex items-center justify-center ${
                       completedExercises.includes(exercise.id)
                         ? "bg-green-500 border-green-500"
-                        : "border-gray-300 hover:border-blue-500"
+                        : "border-gray-300  hover:border-blue-500"
                     }`}
                   >
                     {completedExercises.includes(exercise.id) && (
@@ -393,17 +397,17 @@ const Dashboard = () => {
                   </button>
                   <div className="flex-1">
                     <p
-                      className={`font-semibold transition-all ${completedExercises.includes(exercise.id) ? "text-gray-400 line-through" : "text-gray-900"}`}
+                      className={`font-semibold transition-all ${completedExercises.includes(exercise.id) ? "text-gray-400 line-through" : "text-gray-900 "}`}
                     >
                       {exercise.name}
                     </p>
-                    <p className="text-sm text-gray-500">{exercise.focus}</p>
+                    <p className="text-sm text-gray-500 ">{exercise.focus}</p>
                   </div>
                   <div className="text-right">
-                    <p className="font-semibold text-gray-900">
+                    <p className="font-semibold text-gray-900 ">
                       {exercise.sets} × {exercise.reps}
                     </p>
-                    <p className="text-xs text-gray-500">Sets × Reps</p>
+                    <p className="text-xs text-gray-500 ">Sets × Reps</p>
                   </div>
                 </div>
               ))}
@@ -419,9 +423,9 @@ const Dashboard = () => {
           </div>
 
           {/* SECTION 4: TODAY'S NUTRITION */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 mb-8 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:600ms]">
+          <div className="bg-white  rounded-2xl shadow-lg p-8 border border-gray-100  mb-8 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:600ms]">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-3">
+              <h2 className="text-2xl font-bold text-gray-900  flex items-center gap-3">
                 <IoRestaurant className="w-6 h-6 text-green-600" />
                 Today's Nutrition
               </h2>
@@ -460,22 +464,22 @@ const Dashboard = () => {
               ].map((macro, index) => (
                 <div
                   key={macro.label}
-                  className="p-6 bg-gray-50 rounded-xl animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards]"
+                  className="p-6 bg-gray-50  rounded-xl animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards]"
                   style={{ animationDelay: `${600 + index * 100}ms` }}
                 >
-                  <p className="text-sm font-semibold text-gray-600 mb-2">
+                  <p className="text-sm font-semibold text-gray-600  mb-2">
                     {macro.label}
                   </p>
-                  <p className="text-2xl font-bold text-gray-900 mb-1">
+                  <p className="text-2xl font-bold text-gray-900  mb-1">
                     {macro.current}
-                    <span className="text-sm text-gray-500 ml-1">
+                    <span className="text-sm text-gray-500  ml-1">
                       {macro.unit}
                     </span>
                   </p>
-                  <p className="text-xs text-gray-500 mb-3">
+                  <p className="text-xs text-gray-500  mb-3">
                     of {macro.target}g
                   </p>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
+                  <div className="w-full bg-gray-200  rounded-full h-2">
                     <div
                       className={`${macro.color} h-2 rounded-full transition-all duration-500`}
                       style={{
@@ -497,9 +501,9 @@ const Dashboard = () => {
           </div>
 
           {/* SECTION 5: PROGRESS SUMMARY */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 mb-8 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:700ms]">
+          <div className="bg-white  rounded-2xl shadow-lg p-8 border border-gray-100  mb-8 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:700ms]">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-3">
+              <h2 className="text-2xl font-bold text-gray-900  flex items-center gap-3">
                 <FiTrendingUp className="w-6 h-6 text-indigo-600" />
                 Progress Summary
               </h2>
@@ -514,15 +518,15 @@ const Dashboard = () => {
 
             {/* Weight Progress */}
             <div className="mb-8 p-6 bg-linear-to-r from-blue-50 to-indigo-50 rounded-xl">
-              <h3 className="text-sm font-semibold text-gray-700 mb-4">
+              <h3 className="text-sm font-semibold text-gray-700  mb-4">
                 Weight Goal Progress
               </h3>
               <div className="flex items-center justify-between mb-4 text-sm">
-                <span className="text-gray-600">
+                <span className="text-gray-600 ">
                   <span className="font-semibold">{mockData.startWeight}</span>{" "}
                   kg
                 </span>
-                <span className="text-gray-600">
+                <span className="text-gray-600 ">
                   <span className="font-semibold">
                     {userData?.healthData?.vitals?.weight ||
                       mockData.currentWeight}
@@ -533,7 +537,7 @@ const Dashboard = () => {
                   Goal: <span>{mockData.goalWeight}</span> kg
                 </span>
               </div>
-              <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+              <div className="w-full bg-gray-200  rounded-full h-3 overflow-hidden">
                 <div
                   className="bg-linear-to-r from-blue-500 to-indigo-500 h-3 rounded-full transition-all duration-500"
                   style={{
@@ -541,7 +545,7 @@ const Dashboard = () => {
                   }}
                 />
               </div>
-              <p className="text-xs text-gray-600 mt-2">
+              <p className="text-xs text-gray-600  mt-2">
                 {Math.max(0, Math.min(progressPercentage, 100)).toFixed(1)}%
                 Complete
               </p>
@@ -568,10 +572,10 @@ const Dashboard = () => {
               ].map((stat, index) => (
                 <div
                   key={stat.label}
-                  className="p-4 bg-gray-50 rounded-xl animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards]"
+                  className="p-4 bg-gray-50  rounded-xl animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards]"
                   style={{ animationDelay: `${700 + index * 100}ms` }}
                 >
-                  <p className="text-sm font-semibold text-gray-600 mb-2">
+                  <p className="text-sm font-semibold text-gray-600  mb-2">
                     {stat.label}
                   </p>
                   {stat.isText ? (
@@ -580,10 +584,10 @@ const Dashboard = () => {
                     </p>
                   ) : (
                     <>
-                      <p className="text-3xl font-bold text-gray-900 mb-2">
+                      <p className="text-3xl font-bold text-gray-900  mb-2">
                         {stat.value}%
                       </p>
-                      <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div className="w-full bg-gray-200  rounded-full h-2">
                         <div
                           className={`bg-linear-to-r ${stat.color} h-2 rounded-full transition-all duration-500`}
                           style={{ width: `${stat.value}%` }}
@@ -598,31 +602,31 @@ const Dashboard = () => {
 
           {/* SECTION 6: LIFESTYLE & HABITS (From API) */}
           {userData?.healthData?.lifestyle && (
-            <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 mb-8 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:750ms]">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+            <div className="bg-white  rounded-2xl shadow-lg p-8 border border-gray-100  mb-8 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:750ms]">
+              <h2 className="text-2xl font-bold text-gray-900  mb-6 flex items-center gap-3">
                 <GiRunningShoe className="w-6 h-6 text-orange-600" />
                 Lifestyle & Habits
               </h2>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="p-6 bg-gray-50 rounded-xl">
-                  <p className="text-sm text-gray-600 mb-2">
+              <ResponsiveSlider>
+                <div className="p-6 bg-gray-50  rounded-xl h-full">
+                  <p className="text-sm text-gray-600  mb-2">
                     Exercise Frequency
                   </p>
-                  <p className="text-xl font-bold text-gray-900">
+                  <p className="text-xl font-bold text-gray-900 ">
                     {userData.healthData.lifestyle.exerciseFrequency}
                   </p>
                 </div>
 
-                <div className="p-6 bg-gray-50 rounded-xl">
-                  <p className="text-sm text-gray-600 mb-2">Diet Type</p>
-                  <p className="text-xl font-bold text-gray-900">
+                <div className="p-6 bg-gray-50  rounded-xl">
+                  <p className="text-sm text-gray-600  mb-2">Diet Type</p>
+                  <p className="text-xl font-bold text-gray-900 ">
                     {userData.healthData.lifestyle.diet}
                   </p>
                 </div>
 
-                <div className="p-6 bg-gray-50 rounded-xl">
-                  <p className="text-sm text-gray-600 mb-2">Smoking</p>
+                <div className="p-6 bg-gray-50  rounded-xl">
+                  <p className="text-sm text-gray-600  mb-2">Smoking</p>
                   <p
                     className={`text-xl font-bold ${userData.healthData.lifestyle.smoking ? "text-red-600" : "text-green-600"}`}
                   >
@@ -630,21 +634,22 @@ const Dashboard = () => {
                   </p>
                 </div>
 
-                <div className="p-6 bg-gray-50 rounded-xl">
-                  <p className="text-sm text-gray-600 mb-2">Alcohol</p>
+                <div className="p-6 bg-gray-50  rounded-xl">
+                  <p className="text-sm text-gray-600  mb-2">Alcohol</p>
                   <p
                     className={`text-xl font-bold ${userData.healthData.lifestyle.alcohol ? "text-red-600" : "text-green-600"}`}
                   >
                     {userData.healthData.lifestyle.alcohol ? "Yes" : "No"}
                   </p>
                 </div>
-              </div>
+              </ResponsiveSlider>
             </div>
           )}
 
           {/* SECTION 7: QUICK ACTIONS */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:800ms]">
-            {[
+          <div className="mb-8 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:800ms]">
+            <ResponsiveSlider>
+              {[
               {
                 label: "Log Workout",
                 icon: GiWeightLiftingUp,
@@ -675,8 +680,8 @@ const Dashboard = () => {
                 <button
                   key={action.label}
                   onClick={() => navigate(action.action)}
-                  className={`bg-linear-to-r ${action.color} text-white font-semibold py-6 rounded-2xl hover:shadow-xl transition-all duration-300 hover:scale-110 flex flex-col items-center gap-3 group animate-[slideInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards]`}
-                  style={{ animationDelay: `${800 + index * 100}ms` }}
+                  className={`w-full h-full bg-linear-to-r ${action.color} text-white font-semibold py-6 rounded-2xl hover:shadow-xl transition-all duration-300 hover:scale-105 flex flex-col items-center justify-center gap-3 group`}
+                  style={{ minHeight: '120px' }}
                 >
                   <Icon className="w-8 h-8 group-hover:scale-125 transition-transform duration-300" />
                   <span>{action.label}</span>
@@ -684,6 +689,7 @@ const Dashboard = () => {
                 </button>
               );
             })}
+            </ResponsiveSlider>
           </div>
         </div>
 

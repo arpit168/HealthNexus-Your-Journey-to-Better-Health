@@ -417,21 +417,21 @@ const WorkoutPlan = ({ plan, weekOffset = 0, onUpdate }) => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-gray-800">
+          <h2 className="text-2xl font-bold text-gray-800 ">
             Weekly Workout Plan
           </h2>
-          <p className="text-gray-600 text-sm mt-1">
+          <p className="text-gray-600  text-sm mt-1">
             {currentPlan.startDate} - {currentPlan.endDate} • Week{" "}
             {currentPlan.weekNumber}
           </p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
           <button
             onClick={() => setSelectedWeek(Math.max(0, selectedWeek - 1))}
-            className="p-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+            className="p-2 bg-white border border-gray-300  rounded-lg hover:bg-gray-50  transition-colors"
           >
-            <ChevronLeft className="w-5 h-5 text-gray-600" />
+            <ChevronLeft className="w-5 h-5 text-gray-600 " />
           </button>
           <button
             onClick={() =>
@@ -439,13 +439,13 @@ const WorkoutPlan = ({ plan, weekOffset = 0, onUpdate }) => {
                 Math.min(workoutPlan.weeks.length - 1, selectedWeek + 1),
               )
             }
-            className="p-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+            className="p-2 bg-white border border-gray-300  rounded-lg hover:bg-gray-50  transition-colors"
           >
-            <ChevronRight className="w-5 h-5 text-gray-600" />
+            <ChevronRight className="w-5 h-5 text-gray-600 " />
           </button>
           <button
             onClick={handlePrint}
-            className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+            className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300  text-gray-700  rounded-lg hover:bg-gray-50  transition-colors"
           >
             <Printer className="w-4 h-4" />
             <span className="hidden sm:inline">Print</span>
@@ -463,16 +463,16 @@ const WorkoutPlan = ({ plan, weekOffset = 0, onUpdate }) => {
       {/* Plan Info */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         <div className="bg-linear-to-br from-blue-50 to-blue-100 rounded-lg p-4">
-          <p className="text-sm text-gray-600 mb-1">Goal</p>
-          <p className="text-lg font-bold text-gray-800">{workoutPlan.goal}</p>
+          <p className="text-sm text-gray-600  mb-1">Goal</p>
+          <p className="text-lg font-bold text-gray-800 ">{workoutPlan.goal}</p>
         </div>
         <div className="bg-linear-to-br from-purple-50 to-purple-100 rounded-lg p-4">
-          <p className="text-sm text-gray-600 mb-1">Level</p>
-          <p className="text-lg font-bold text-gray-800">{workoutPlan.level}</p>
+          <p className="text-sm text-gray-600  mb-1">Level</p>
+          <p className="text-lg font-bold text-gray-800 ">{workoutPlan.level}</p>
         </div>
         <div className="bg-linear-to-br from-green-50 to-green-100 rounded-lg p-4 col-span-2 md:col-span-1">
-          <p className="text-sm text-gray-600 mb-1">Completion</p>
-          <p className="text-lg font-bold text-gray-800">
+          <p className="text-sm text-gray-600  mb-1">Completion</p>
+          <p className="text-lg font-bold text-gray-800 ">
             {currentPlan.days.filter((d) => d.completed).length}/
             {currentPlan.days.length} days
           </p>
@@ -490,10 +490,10 @@ const WorkoutPlan = ({ plan, weekOffset = 0, onUpdate }) => {
               key={dayPlan.id}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className={`bg-white rounded-xl shadow-sm border-2 transition-all ${
+              className={`bg-white  rounded-xl shadow-sm border-2 transition-all ${
                 dayPlan.completed
-                  ? "border-green-500 bg-green-50"
-                  : "border-gray-200 hover:border-blue-300"
+                  ? "border-green-500 bg-green-50 "
+                  : "border-gray-200  hover:border-blue-300"
               }`}
             >
               {/* Day Header */}
@@ -513,10 +513,10 @@ const WorkoutPlan = ({ plan, weekOffset = 0, onUpdate }) => {
                   )}
 
                   <div className="text-left">
-                    <h3 className="font-bold text-gray-800">
+                    <h3 className="font-bold text-gray-800 ">
                       {dayPlan.day} - {dayPlan.focus}
                     </h3>
-                    <div className="flex items-center gap-3 text-sm text-gray-600 mt-1">
+                    <div className="flex items-center gap-3 text-sm text-gray-600  mt-1">
                       <span>{dayPlan.date}</span>
                       {!isRestDay && (
                         <>
@@ -536,9 +536,9 @@ const WorkoutPlan = ({ plan, weekOffset = 0, onUpdate }) => {
                 {!isRestDay && (
                   <div className="flex items-center gap-2">
                     {isExpanded ? (
-                      <ChevronUp className="w-5 h-5 text-gray-600" />
+                      <ChevronUp className="w-5 h-5 text-gray-600 " />
                     ) : (
-                      <ChevronDown className="w-5 h-5 text-gray-600" />
+                      <ChevronDown className="w-5 h-5 text-gray-600 " />
                     )}
                   </div>
                 )}
@@ -554,20 +554,20 @@ const WorkoutPlan = ({ plan, weekOffset = 0, onUpdate }) => {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
                       onClick={() => handleExerciseClick(exercise, dayPlan)}
-                      className="bg-gray-50 rounded-lg p-3 hover:bg-gray-100 cursor-pointer transition-colors"
+                      className="bg-gray-50  rounded-lg p-3 hover:bg-gray-100  cursor-pointer transition-colors"
                     >
                       <div className="flex items-center justify-between">
                         <div className="flex-1">
-                          <h4 className="font-medium text-gray-800">
+                          <h4 className="font-medium text-gray-800 ">
                             {exercise.name}
                           </h4>
-                          <div className="flex items-center gap-4 text-sm text-gray-600 mt-1">
+                          <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-sm text-gray-600  mt-1">
                             <span>
                               {exercise.sets} × {exercise.reps}
                             </span>
-                            <span>•</span>
+                            <span className="hidden sm:inline">•</span>
                             <span>Rest: {exercise.rest}</span>
-                            <span>•</span>
+                            <span className="hidden sm:inline">•</span>
                             <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded">
                               {exercise.difficulty}
                             </span>

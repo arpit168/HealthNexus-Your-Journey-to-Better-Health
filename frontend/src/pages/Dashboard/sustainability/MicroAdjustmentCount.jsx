@@ -194,39 +194,39 @@ const MicroAdjustmentCount = () => {
       <div
         className={`bg-linear-to-br from-${status.color}-50 to-${status.color}-100 rounded-xl p-6 border-2 border-${status.color}-200`}
       >
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
-            <h3 className="text-xl font-bold text-gray-800 mb-2">
+            <h3 className="text-lg md:text-xl font-bold text-gray-800  mb-2">
               {status.emoji} Total Micro-Adjustments
             </h3>
-            <p className="text-5xl font-bold text-gray-900">{stats.total}</p>
+            <p className="text-4xl md:text-5xl font-bold text-gray-900 ">{stats.total}</p>
             <p
-              className={`text-lg font-semibold text-${status.color}-700 mt-2`}
+              className={`text-base md:text-lg font-semibold text-${status.color}-700 mt-2`}
             >
               {status.level}
             </p>
-            <p className="text-gray-600 mt-1">{status.description}</p>
+            <p className="text-gray-600  mt-1 text-sm md:text-base">{status.description}</p>
           </div>
-          <div className="text-right">
-            <div className="mb-2">
-              <p className="text-3xl font-bold text-blue-600">
+          <div className="md:text-right w-full md:w-auto flex flex-row md:flex-col justify-between md:justify-start">
+            <div className="mb-0 md:mb-2 text-left md:text-right">
+              <p className="text-2xl md:text-3xl font-bold text-blue-600">
                 {stats.weeklyAvg}
               </p>
-              <p className="text-sm text-gray-600">Per Day (7-day avg)</p>
+              <p className="text-xs md:text-sm text-gray-600 ">Per Day (7-day avg)</p>
             </div>
-            <div>
-              <p className="text-2xl font-bold text-green-600">
+            <div className="text-right">
+              <p className="text-xl md:text-2xl font-bold text-green-600">
                 {stats.last7Days}
               </p>
-              <p className="text-sm text-gray-600">This Week</p>
+              <p className="text-xs md:text-sm text-gray-600 ">This Week</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Add New Adjustment */}
-      <div className="bg-white rounded-xl shadow-md p-6">
-        <h4 className="font-bold text-gray-800 mb-4">
+      <div className="bg-white  rounded-xl shadow-md p-6">
+        <h4 className="font-bold text-gray-800  mb-4">
           ➕ Log Today's Micro-Adjustment
         </h4>
 
@@ -238,7 +238,7 @@ const MicroAdjustmentCount = () => {
               className={`px-4 py-2 rounded-lg font-medium transition-all ${
                 selectedCategory === cat.id
                   ? `bg-${cat.color}-500 text-white`
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  : "bg-gray-100  text-gray-700  hover:bg-gray-200 "
               }`}
             >
               {cat.name}
@@ -246,25 +246,25 @@ const MicroAdjustmentCount = () => {
           ))}
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex flex-col sm:flex-row gap-2">
           <input
             type="text"
             value={newAdjustment}
             onChange={(e) => setNewAdjustment(e.target.value)}
             onKeyPress={(e) => e.key === "Enter" && addAdjustment()}
             placeholder="What tiny change did you make today?"
-            className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="flex-1 px-4 py-2 border border-gray-300  rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
           />
           <button
             onClick={addAdjustment}
-            className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors flex items-center gap-2"
+            className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2"
           >
             <Plus size={18} />
             Add
           </button>
         </div>
 
-        <p className="text-sm text-gray-500 mt-2">
+        <p className="text-sm text-gray-500  mt-2">
           💡 Examples: "Added 1 more rep", "Drank 1 extra glass of water",
           "Slept 10 min earlier"
         </p>
@@ -272,64 +272,64 @@ const MicroAdjustmentCount = () => {
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="bg-white rounded-xl shadow-md p-6">
+        <div className="bg-white  rounded-xl shadow-md p-6">
           <div className="flex items-center gap-3 mb-2">
             <div className="p-2 bg-green-100 rounded-lg">
               <Target className="text-green-600" size={24} />
             </div>
             <div>
-              <p className="text-2xl font-bold text-gray-800">{stats.total}</p>
-              <p className="text-sm text-gray-600">Total Adjustments</p>
+              <p className="text-2xl font-bold text-gray-800 ">{stats.total}</p>
+              <p className="text-sm text-gray-600 ">Total Adjustments</p>
             </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-6">
+        <div className="bg-white  rounded-xl shadow-md p-6">
           <div className="flex items-center gap-3 mb-2">
             <div className="p-2 bg-blue-100 rounded-lg">
               <CheckCircle className="text-blue-600" size={24} />
             </div>
             <div>
-              <p className="text-2xl font-bold text-gray-800">
+              <p className="text-2xl font-bold text-gray-800 ">
                 {stats.last7Days}
               </p>
-              <p className="text-sm text-gray-600">Last 7 Days</p>
+              <p className="text-sm text-gray-600 ">Last 7 Days</p>
             </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-6">
+        <div className="bg-white  rounded-xl shadow-md p-6">
           <div className="flex items-center gap-3 mb-2">
             <div className="p-2 bg-purple-100 rounded-lg">
               <TrendingUp className="text-purple-600" size={24} />
             </div>
             <div>
-              <p className="text-2xl font-bold text-gray-800">
+              <p className="text-2xl font-bold text-gray-800 ">
                 {stats.last30Days}
               </p>
-              <p className="text-sm text-gray-600">Last 30 Days</p>
+              <p className="text-sm text-gray-600 ">Last 30 Days</p>
             </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-6">
+        <div className="bg-white  rounded-xl shadow-md p-6">
           <div className="flex items-center gap-3 mb-2">
             <div className="p-2 bg-orange-100 rounded-lg">
               <Target className="text-orange-600" size={24} />
             </div>
             <div>
-              <p className="text-2xl font-bold text-gray-800">
+              <p className="text-2xl font-bold text-gray-800 ">
                 {stats.weeklyAvg}
               </p>
-              <p className="text-sm text-gray-600">Daily Average</p>
+              <p className="text-sm text-gray-600 ">Daily Average</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Weekly Trend Chart */}
-      <div className="bg-white rounded-xl shadow-md p-6">
-        <h4 className="font-bold text-gray-800 mb-4">
+      <div className="bg-white  rounded-xl shadow-md p-6">
+        <h4 className="font-bold text-gray-800  mb-4">
           📊 8-Week Adjustment Trend
         </h4>
         <ResponsiveContainer width="100%" height={250}>
@@ -351,8 +351,8 @@ const MicroAdjustmentCount = () => {
 
       {/* Category Breakdown */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white rounded-xl shadow-md p-6">
-          <h4 className="font-bold text-gray-800 mb-4">
+        <div className="bg-white  rounded-xl shadow-md p-6">
+          <h4 className="font-bold text-gray-800  mb-4">
             🎯 Category Distribution
           </h4>
           <ResponsiveContainer width="100%" height={250}>
@@ -376,22 +376,22 @@ const MicroAdjustmentCount = () => {
           </ResponsiveContainer>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-6">
-          <h4 className="font-bold text-gray-800 mb-4">
+        <div className="bg-white  rounded-xl shadow-md p-6">
+          <h4 className="font-bold text-gray-800  mb-4">
             📝 Recent Adjustments
           </h4>
           <div className="space-y-2 max-h-64 overflow-y-auto">
             {adjustments.slice(0, 10).map((adj) => (
               <div
                 key={adj.id}
-                className="flex items-start gap-2 p-2 bg-gray-50 rounded-lg"
+                className="flex items-start gap-2 p-2 bg-gray-50  rounded-lg"
               >
                 <CheckCircle className="text-green-500 mt-1" size={16} />
                 <div className="flex-1">
-                  <p className="text-sm font-medium text-gray-800">
+                  <p className="text-sm font-medium text-gray-800 ">
                     {adj.description}
                   </p>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-gray-500 ">
                     {categories.find((c) => c.id === adj.category)?.name} •{" "}
                     {new Date(adj.date).toLocaleDateString()}
                   </p>
@@ -408,7 +408,7 @@ const MicroAdjustmentCount = () => {
           🧠 The Philosophy of Micro-Adjustments
         </h4>
         <div className="space-y-3">
-          <div className="bg-white rounded-lg p-4">
+          <div className="bg-white  rounded-lg p-4">
             <p className="font-semibold text-blue-900">Why Tiny Changes Work</p>
             <p className="text-sm text-blue-800 mt-1">
               Big transformations come from tiny, consistent improvements.
@@ -418,7 +418,7 @@ const MicroAdjustmentCount = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <div className="bg-white rounded-lg p-3">
+            <div className="bg-white  rounded-lg p-3">
               <p className="font-semibold text-blue-900 text-sm">
                 🥗 Nutrition Examples
               </p>
@@ -428,7 +428,7 @@ const MicroAdjustmentCount = () => {
                 <li>• Reduce portion by 10%</li>
               </ul>
             </div>
-            <div className="bg-white rounded-lg p-3">
+            <div className="bg-white  rounded-lg p-3">
               <p className="font-semibold text-blue-900 text-sm">
                 💪 Workout Examples
               </p>
@@ -443,11 +443,11 @@ const MicroAdjustmentCount = () => {
       </div>
 
       {/* Recommendation */}
-      <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-green-500">
-        <h4 className="font-bold text-gray-800 mb-2">
+      <div className="bg-white  rounded-xl shadow-md p-6 border-l-4 border-green-500">
+        <h4 className="font-bold text-gray-800  mb-2">
           💡 Your Micro-Adjustment Strategy
         </h4>
-        <p className="text-gray-700">
+        <p className="text-gray-700 ">
           {stats.weeklyAvg >= 5 &&
             "Amazing! You're making multiple tiny improvements daily. This consistent approach will lead to massive long-term results."}
           {stats.weeklyAvg >= 3 &&

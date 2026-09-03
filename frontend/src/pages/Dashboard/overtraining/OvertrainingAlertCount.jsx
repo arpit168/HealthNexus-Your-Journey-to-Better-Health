@@ -165,41 +165,41 @@ const OvertrainingAlertCount = () => {
     <div className="space-y-6">
       {/* Alert Statistics */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-red-600">
-          <p className="text-sm font-semibold text-gray-600">Total Alerts</p>
+        <div className="bg-white  rounded-xl shadow-md p-6 border-l-4 border-red-600">
+          <p className="text-sm font-semibold text-gray-600 ">Total Alerts</p>
           <p className="text-4xl font-bold text-red-600 mt-2">
             {alertStats.total}
           </p>
-          <p className="text-xs text-gray-500 mt-2">All time</p>
+          <p className="text-xs text-gray-500  mt-2">All time</p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-orange-600">
-          <p className="text-sm font-semibold text-gray-600">This Month</p>
+        <div className="bg-white  rounded-xl shadow-md p-6 border-l-4 border-orange-600">
+          <p className="text-sm font-semibold text-gray-600 ">This Month</p>
           <p className="text-4xl font-bold text-orange-600 mt-2">
             {alertStats.thisMonth}
           </p>
-          <p className="text-xs text-gray-500 mt-2">Current month</p>
+          <p className="text-xs text-gray-500  mt-2">Current month</p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-yellow-600">
-          <p className="text-sm font-semibold text-gray-600">This Week</p>
+        <div className="bg-white  rounded-xl shadow-md p-6 border-l-4 border-yellow-600">
+          <p className="text-sm font-semibold text-gray-600 ">This Week</p>
           <p className="text-4xl font-bold text-yellow-600 mt-2">
             {alertStats.thisWeek}
           </p>
-          <p className="text-xs text-gray-500 mt-2">Last 7 days</p>
+          <p className="text-xs text-gray-500  mt-2">Last 7 days</p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-pink-600">
-          <p className="text-sm font-semibold text-gray-600">Critical</p>
+        <div className="bg-white  rounded-xl shadow-md p-6 border-l-4 border-pink-600">
+          <p className="text-sm font-semibold text-gray-600 ">Critical</p>
           <p className="text-4xl font-bold text-pink-600 mt-2">
             {alertStats.critical}
           </p>
-          <p className="text-xs text-gray-500 mt-2">High priority</p>
+          <p className="text-xs text-gray-500  mt-2">High priority</p>
         </div>
       </div>
 
       {/* Action Buttons */}
-      <div className="flex gap-3">
+      <div className="flex flex-col sm:flex-row gap-3">
         <button
           onClick={addAlert}
           className="flex-1 bg-linear-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-bold py-2 rounded-lg transition-all"
@@ -215,8 +215,8 @@ const OvertrainingAlertCount = () => {
       </div>
 
       {/* Alert Trend Chart */}
-      <div className="bg-white rounded-2xl shadow-lg p-6">
-        <h3 className="text-xl font-bold text-gray-900 mb-4">
+      <div className="bg-white  rounded-2xl shadow-lg p-6">
+        <h3 className="text-xl font-bold text-gray-900  mb-4">
           Alert Trends (Last 12 Weeks)
         </h3>
         {chartData.length > 0 ? (
@@ -252,17 +252,17 @@ const OvertrainingAlertCount = () => {
             </BarChart>
           </ResponsiveContainer>
         ) : (
-          <p className="text-gray-500 text-center py-8">No alert data yet</p>
+          <p className="text-gray-500  text-center py-8">No alert data yet</p>
         )}
       </div>
 
       {/* Recent Alerts */}
-      <div className="bg-white rounded-2xl shadow-lg p-6">
-        <h3 className="text-xl font-bold text-gray-900 mb-4">
+      <div className="bg-white  rounded-2xl shadow-lg p-6">
+        <h3 className="text-xl font-bold text-gray-900  mb-4">
           📋 Recent Alerts
         </h3>
         {alerts.length === 0 ? (
-          <p className="text-gray-500 text-center py-8">No alerts recorded</p>
+          <p className="text-gray-500  text-center py-8">No alerts recorded</p>
         ) : (
           <div className="space-y-3 max-h-96 overflow-y-auto">
             {alerts
@@ -273,7 +273,7 @@ const OvertrainingAlertCount = () => {
                   key={alert.id}
                   className={`p-4 rounded-lg border-l-4 ${
                     alert.severity === "critical"
-                      ? "bg-red-50 border-red-600"
+                      ? "bg-red-50  border-red-600"
                       : "bg-orange-50 border-orange-600"
                   }`}
                 >
@@ -305,7 +305,7 @@ const OvertrainingAlertCount = () => {
                       >
                         {alert.desc}
                       </p>
-                      <p className="text-xs text-gray-600 mt-2">
+                      <p className="text-xs text-gray-600  mt-2">
                         📅{" "}
                         {new Date(alert.date).toLocaleDateString("en-US", {
                           month: "short",

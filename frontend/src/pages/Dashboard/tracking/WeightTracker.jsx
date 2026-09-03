@@ -46,27 +46,27 @@ const WeightTracker = ({ logs = [], goal = 75, onSubmit, onDelete }) => {
     <div className="space-y-6">
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white rounded-xl shadow-lg p-6">
+        <div className="bg-white  rounded-xl shadow-lg p-6">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm text-gray-600">Current Weight</span>
+            <span className="text-sm text-gray-600 ">Current Weight</span>
             <Scale className="w-5 h-5 text-purple-600" />
           </div>
-          <p className="text-3xl font-bold text-gray-800">
+          <p className="text-3xl font-bold text-gray-800 ">
             {currentWeight.toFixed(1)} kg
           </p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-lg p-6">
+        <div className="bg-white  rounded-xl shadow-lg p-6">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm text-gray-600">Goal Weight</span>
+            <span className="text-sm text-gray-600 ">Goal Weight</span>
             <Scale className="w-5 h-5 text-green-600" />
           </div>
-          <p className="text-3xl font-bold text-gray-800">{goal} kg</p>
+          <p className="text-3xl font-bold text-gray-800 ">{goal} kg</p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-lg p-6">
+        <div className="bg-white  rounded-xl shadow-lg p-6">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm text-gray-600">Total Change</span>
+            <span className="text-sm text-gray-600 ">Total Change</span>
             {totalChange < 0 ? (
               <TrendingDown className="w-5 h-5 text-green-600" />
             ) : (
@@ -81,9 +81,9 @@ const WeightTracker = ({ logs = [], goal = 75, onSubmit, onDelete }) => {
           </p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-lg p-6">
+        <div className="bg-white  rounded-xl shadow-lg p-6">
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm text-gray-600">Weekly Change</span>
+            <span className="text-sm text-gray-600 ">Weekly Change</span>
             {weeklyChange < 0 ? (
               <TrendingDown className="w-5 h-5 text-green-600" />
             ) : (
@@ -100,21 +100,21 @@ const WeightTracker = ({ logs = [], goal = 75, onSubmit, onDelete }) => {
       </div>
 
       {/* Goal Progress */}
-      <div className="bg-white rounded-2xl shadow-lg p-6">
-        <h3 className="text-xl font-bold text-gray-800 mb-4">Goal Progress</h3>
+      <div className="bg-white  rounded-2xl shadow-lg p-6">
+        <h3 className="text-xl font-bold text-gray-800  mb-4">Goal Progress</h3>
         <div className="space-y-3">
-          <div className="flex justify-between text-sm text-gray-600">
+          <div className="flex justify-between text-sm text-gray-600 ">
             <span>Start: {startWeight.toFixed(1)} kg</span>
             <span>Current: {currentWeight.toFixed(1)} kg</span>
             <span>Goal: {goal} kg</span>
           </div>
-          <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
+          <div className="w-full bg-gray-200  rounded-full h-4 overflow-hidden">
             <div
               className="h-full bg-linear-to-r from-purple-500 to-pink-500 transition-all duration-500"
               style={{ width: `${Math.min(Math.max(progress, 0), 100)}%` }}
             />
           </div>
-          <p className="text-center text-sm text-gray-600">
+          <p className="text-center text-sm text-gray-600 ">
             {Math.abs(goalRemaining).toFixed(1)} kg{" "}
             {goalRemaining > 0 ? "to lose" : "to gain"}
           </p>
@@ -122,8 +122,8 @@ const WeightTracker = ({ logs = [], goal = 75, onSubmit, onDelete }) => {
       </div>
 
       {/* Visual Trend Chart */}
-      <div className="bg-white rounded-2xl shadow-lg p-6">
-        <h3 className="text-xl font-bold text-gray-800 mb-4">Weight Trend</h3>
+      <div className="bg-white  rounded-2xl shadow-lg p-6">
+        <h3 className="text-xl font-bold text-gray-800  mb-4">Weight Trend</h3>
         <div className="h-64 flex items-end justify-between gap-2">
           {sortedLogs.length > 0 ? (
             sortedLogs
@@ -146,7 +146,7 @@ const WeightTracker = ({ logs = [], goal = 75, onSubmit, onDelete }) => {
                         {log.weight.toFixed(1)} kg
                       </div>
                     </div>
-                    <span className="text-xs text-gray-500 transform -rotate-45 origin-top-left mt-2">
+                    <span className="text-xs text-gray-500  transform -rotate-45 origin-top-left mt-2">
                       {new Date(log.date).toLocaleDateString("en-GB", {
                         day: "2-digit",
                         month: "short",
@@ -164,12 +164,12 @@ const WeightTracker = ({ logs = [], goal = 75, onSubmit, onDelete }) => {
       </div>
 
       {/* Add Weight Entry */}
-      <div className="bg-white rounded-2xl shadow-lg p-6">
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-xl font-bold text-gray-800">Log Weight</h3>
+      <div className="bg-white  rounded-2xl shadow-lg p-6">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
+          <h3 className="text-xl font-bold text-gray-800 ">Log Weight</h3>
           <button
             onClick={() => setShowForm(!showForm)}
-            className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+            className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors w-full sm:w-auto justify-center"
           >
             <Plus className="w-4 h-4" />
             Add Entry
@@ -179,7 +179,7 @@ const WeightTracker = ({ logs = [], goal = 75, onSubmit, onDelete }) => {
         {showForm && (
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
+              <label className="block text-sm font-semibold text-gray-700  mb-2">
                 Weight (kg)
               </label>
               <input
@@ -188,10 +188,10 @@ const WeightTracker = ({ logs = [], goal = 75, onSubmit, onDelete }) => {
                 value={weight}
                 onChange={(e) => setWeight(e.target.value)}
                 placeholder="75.5"
-                className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-500 focus:outline-none"
+                className="w-full px-4 py-3 border-2 border-gray-300  rounded-lg focus:border-purple-500 focus:outline-none"
               />
             </div>
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-3">
               <button
                 type="submit"
                 className="flex-1 py-3 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-colors"
@@ -201,7 +201,7 @@ const WeightTracker = ({ logs = [], goal = 75, onSubmit, onDelete }) => {
               <button
                 type="button"
                 onClick={() => setShowForm(false)}
-                className="px-6 py-3 bg-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-300 transition-colors"
+                className="flex-1 sm:flex-none px-6 py-3 bg-gray-200  text-gray-700  font-semibold rounded-lg hover:bg-gray-300 transition-colors"
               >
                 Cancel
               </button>
@@ -211,22 +211,22 @@ const WeightTracker = ({ logs = [], goal = 75, onSubmit, onDelete }) => {
       </div>
 
       {/* History Table */}
-      <div className="bg-white rounded-2xl shadow-lg p-6">
-        <h3 className="text-xl font-bold text-gray-800 mb-4">Weight History</h3>
+      <div className="bg-white  rounded-2xl shadow-lg p-6">
+        <h3 className="text-xl font-bold text-gray-800  mb-4">Weight History</h3>
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="border-b-2 border-gray-200">
-                <th className="text-left py-3 px-4 font-semibold text-gray-700">
+              <tr className="border-b-2 border-gray-200 ">
+                <th className="text-left py-3 px-4 font-semibold text-gray-700 ">
                   Date
                 </th>
-                <th className="text-left py-3 px-4 font-semibold text-gray-700">
+                <th className="text-left py-3 px-4 font-semibold text-gray-700 ">
                   Weight
                 </th>
-                <th className="text-left py-3 px-4 font-semibold text-gray-700">
+                <th className="text-left py-3 px-4 font-semibold text-gray-700 ">
                   Change
                 </th>
-                <th className="text-right py-3 px-4 font-semibold text-gray-700">
+                <th className="text-right py-3 px-4 font-semibold text-gray-700 ">
                   Actions
                 </th>
               </tr>
@@ -239,16 +239,16 @@ const WeightTracker = ({ logs = [], goal = 75, onSubmit, onDelete }) => {
                   return (
                     <tr
                       key={log.id}
-                      className="border-b border-gray-100 hover:bg-gray-50"
+                      className="border-b border-gray-100  hover:bg-gray-50 "
                     >
-                      <td className="py-3 px-4 text-gray-800">
+                      <td className="py-3 px-4 text-gray-800 ">
                         {new Date(log.date).toLocaleDateString("en-GB", {
                           day: "2-digit",
                           month: "short",
                           year: "numeric",
                         })}
                       </td>
-                      <td className="py-3 px-4 font-semibold text-gray-800">
+                      <td className="py-3 px-4 font-semibold text-gray-800 ">
                         {log.weight.toFixed(1)} kg
                       </td>
                       <td className="py-3 px-4">

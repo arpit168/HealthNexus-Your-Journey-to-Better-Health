@@ -440,16 +440,16 @@ const Chat = () => {
                   onClick={(e) => e.stopPropagation()}
                 >
                   <div className="flex items-center justify-between mb-6">
-                    <h3 className="font-bold text-gray-800 text-lg flex items-center">
+                    <h3 className="font-bold text-gray-800  text-lg flex items-center">
                       <span className="w-1 h-6 bg-linear-to-b from-purple-500 to-pink-500 rounded-full mr-3"></span>
                       Chat History
                     </h3>
                     <button
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                      className="p-2 hover:bg-gray-100  rounded-lg transition-colors"
                     >
                       <svg
-                        className="w-5 h-5 text-gray-500"
+                        className="w-5 h-5 text-gray-500 "
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -466,7 +466,7 @@ const Chat = () => {
 
                   {/* History Controls */}
                   <div className="flex justify-between items-center mb-4">
-                    <span className="text-sm text-gray-500">
+                    <span className="text-sm text-gray-500 ">
                       {chatHistory.length} conversations
                     </span>
                     {chatHistory.length > 0 && (
@@ -502,7 +502,7 @@ const Chat = () => {
                           className={`p-4 rounded-xl cursor-pointer transition-all duration-300 group relative ${
                             selectedChatId === chat.id
                               ? "bg-linear-to-r from-purple-100 to-pink-100 shadow-md border-2 border-purple-300"
-                              : "bg-gray-50 hover:bg-linear-to-r hover:from-purple-50 hover:to-pink-50 border-2 border-transparent hover:border-purple-200"
+                              : "bg-gray-50  hover:bg-linear-to-r hover:from-purple-50 hover:to-pink-50 border-2 border-transparent hover:border-purple-200"
                           }`}
                         >
                           <button
@@ -523,10 +523,10 @@ const Chat = () => {
                               />
                             </svg>
                           </button>
-                          <p className="font-semibold text-sm text-gray-800 truncate pr-6 mb-1">
+                          <p className="font-semibold text-sm text-gray-800  truncate pr-6 mb-1">
                             {chat.title}
                           </p>
-                          <p className="text-xs text-gray-500 line-clamp-2 mb-2">
+                          <p className="text-xs text-gray-500  line-clamp-2 mb-2">
                             {chat.preview}
                           </p>
                           <div className="flex items-center justify-between text-xs">
@@ -566,7 +566,7 @@ const Chat = () => {
                         </div>
                       ))
                     ) : (
-                      <div className="text-center py-8 text-gray-500">
+                      <div className="text-center py-8 text-gray-500 ">
                         <svg
                           className="w-12 h-12 mx-auto mb-3 text-gray-300"
                           fill="none"
@@ -595,16 +595,16 @@ const Chat = () => {
             {showHistory && (
               <div className="hidden lg:block w-80 bg-white/90 backdrop-blur-xl rounded-2xl shadow-2xl p-5 h-[calc(100vh-140px)] overflow-y-auto border border-purple-100 transition-all duration-300">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-bold text-gray-800 text-lg flex items-center">
+                  <h3 className="font-bold text-gray-800  text-lg flex items-center">
                     <span className="w-1 h-6 bg-linear-to-b from-purple-500 to-pink-500 rounded-full mr-3"></span>
                     Chat History
                   </h3>
                   <button
                     onClick={() => setShowHistory(false)}
-                    className="p-1.5 hover:bg-gray-100 rounded-lg transition-colors"
+                    className="p-1.5 hover:bg-gray-100  rounded-lg transition-colors"
                   >
                     <svg
-                      className="w-5 h-5 text-gray-500"
+                      className="w-5 h-5 text-gray-500 "
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -621,7 +621,7 @@ const Chat = () => {
 
                 {/* History Controls */}
                 <div className="flex justify-between items-center mb-4">
-                  <span className="text-sm text-gray-500">
+                  <span className="text-sm text-gray-500 ">
                     {chatHistory.length} conversations
                   </span>
                   {chatHistory.length > 0 && (
@@ -657,7 +657,7 @@ const Chat = () => {
                         className={`p-4 rounded-xl cursor-pointer transition-all duration-300 transform hover:scale-[1.02] group relative ${
                           selectedChatId === chat.id
                             ? "bg-linear-to-r from-purple-100 to-pink-100 shadow-md border-2 border-purple-300"
-                            : "bg-gray-50 hover:bg-linear-to-r hover:from-purple-50 hover:to-pink-50 border-2 border-transparent hover:border-purple-200"
+                            : "bg-gray-50  hover:bg-linear-to-r hover:from-purple-50 hover:to-pink-50 border-2 border-transparent hover:border-purple-200"
                         }`}
                       >
                         <button
@@ -678,10 +678,10 @@ const Chat = () => {
                             />
                           </svg>
                         </button>
-                        <p className="font-semibold text-sm text-gray-800 truncate pr-6 mb-1">
+                        <p className="font-semibold text-sm text-gray-800  truncate pr-6 mb-1">
                           {chat.title}
                         </p>
-                        <p className="text-xs text-gray-500 line-clamp-2 mb-2">
+                        <p className="text-xs text-gray-500  line-clamp-2 mb-2">
                           {chat.preview}
                         </p>
                         <div className="flex items-center justify-between text-xs">
@@ -721,7 +721,7 @@ const Chat = () => {
                       </div>
                     ))
                   ) : (
-                    <div className="text-center py-8 text-gray-500">
+                    <div className="text-center py-8 text-gray-500 ">
                       <svg
                         className="w-12 h-12 mx-auto mb-3 text-gray-300"
                         fill="none"
@@ -931,15 +931,15 @@ const Chat = () => {
                       className={`max-w-[90%] sm:max-w-[80%] group ${
                         message.type === "user"
                           ? "bg-linear-to-br from-purple-600 to-pink-600 text-white rounded-2xl rounded-tr-sm shadow-lg hover:shadow-xl"
-                          : "bg-white text-gray-800 rounded-2xl rounded-tl-sm shadow-md hover:shadow-lg border border-gray-100"
+                          : "bg-white  text-gray-800  rounded-2xl rounded-tl-sm shadow-md hover:shadow-lg border border-gray-100 "
                       } p-3 sm:p-4 transition-all duration-300 transform hover:scale-[1.02]`}
                     >
                       {message.type === "ai" && (
-                        <div className="flex items-center space-x-2 mb-2 pb-2 border-b border-gray-100">
+                        <div className="flex items-center space-x-2 mb-2 pb-2 border-b border-gray-100 ">
                           <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-linear-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-sm">
                             <span className="text-xs sm:text-sm">🤖</span>
                           </div>
-                          <span className="text-xs font-semibold text-gray-500">
+                          <span className="text-xs font-semibold text-gray-500 ">
                             HealthNexus Coach
                           </span>
                           <span className="text-xs text-gray-400">•</span>
@@ -954,7 +954,7 @@ const Chat = () => {
 
                       {/* Options Buttons */}
                       {message.options && message.options.length > 0 && (
-                        <div className="flex flex-wrap gap-2 mt-3 pt-3 border-t border-gray-100">
+                        <div className="flex flex-wrap gap-2 mt-3 pt-3 border-t border-gray-100 ">
                           {message.options.map((option, index) => (
                             <button
                               key={index}
@@ -985,7 +985,7 @@ const Chat = () => {
                 {/* Typing Indicator */}
                 {isTyping && (
                   <div className="flex justify-start animate-fadeInUp">
-                    <div className="bg-white text-gray-800 rounded-2xl rounded-tl-sm p-3 sm:p-4 shadow-md border border-gray-100">
+                    <div className="bg-white  text-gray-800  rounded-2xl rounded-tl-sm p-3 sm:p-4 shadow-md border border-gray-100 ">
                       <div className="flex items-center space-x-3">
                         <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-linear-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-sm">
                           <span className="text-xs sm:text-sm">🤖</span>
@@ -1012,7 +1012,7 @@ const Chat = () => {
               {/* Quick Questions */}
               <div className="px-4 sm:px-6 py-3 sm:py-4 bg-linear-to-r from-purple-50/50 to-pink-50/50 border-t border-purple-100">
                 <div className="flex items-center justify-between mb-2 sm:mb-3">
-                  <p className="text-xs sm:text-sm font-semibold text-gray-700 flex items-center">
+                  <p className="text-xs sm:text-sm font-semibold text-gray-700  flex items-center">
                     <svg
                       className="w-4 h-4 mr-2 text-purple-500"
                       fill="none"
@@ -1028,7 +1028,7 @@ const Chat = () => {
                     </svg>
                     Quick Actions
                   </p>
-                  <div className="flex items-center text-xs text-gray-500">
+                  <div className="flex items-center text-xs text-gray-500 ">
                     <span className="w-2 h-2 bg-green-400 rounded-full mr-1.5 animate-pulse"></span>
                     Ready to help
                   </div>
@@ -1038,7 +1038,7 @@ const Chat = () => {
                     <button
                       key={q.id}
                       onClick={() => handleQuickQuestion(q)}
-                      className="px-3 py-1.5 sm:px-4 sm:py-2.5 bg-white hover:bg-linear-to-r hover:from-purple-50 hover:to-pink-50 rounded-lg sm:rounded-xl text-xs sm:text-sm text-gray-700 hover:text-purple-700 transition-all duration-300 transform hover:scale-105 shadow-sm hover:shadow-md border border-gray-200 hover:border-purple-300 font-medium"
+                      className="px-3 py-1.5 sm:px-4 sm:py-2.5 bg-white  hover:bg-linear-to-r hover:from-purple-50 hover:to-pink-50 rounded-lg sm:rounded-xl text-xs sm:text-sm text-gray-700  hover:text-purple-700 transition-all duration-300 transform hover:scale-105 shadow-sm hover:shadow-md border border-gray-200  hover:border-purple-300 font-medium"
                       disabled={isTyping}
                     >
                       <span className="mr-1 text-sm sm:text-base">
@@ -1064,7 +1064,7 @@ const Chat = () => {
                       value={inputMessage}
                       onChange={(e) => setInputMessage(e.target.value)}
                       placeholder="Ask me anything about fitness..."
-                      className="w-full px-4 sm:px-5 py-2.5 sm:py-3.5 pr-10 sm:pr-12 border-2 border-gray-200 rounded-xl sm:rounded-2xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 bg-white shadow-sm hover:shadow-md placeholder-gray-400 text-sm sm:text-base"
+                      className="w-full px-4 sm:px-5 py-2.5 sm:py-3.5 pr-10 sm:pr-12 border-2 border-gray-200  rounded-xl sm:rounded-2xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 bg-white  shadow-sm hover:shadow-md placeholder-gray-400 text-sm sm:text-base"
                       disabled={isTyping}
                     />
                   </div>
@@ -1073,19 +1073,19 @@ const Chat = () => {
                     disabled={!inputMessage.trim() || isTyping}
                     className={`px-4 sm:px-8 py-2.5 sm:py-3.5 rounded-xl sm:rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg ${
                       !inputMessage.trim() || isTyping
-                        ? "bg-gray-200 text-gray-400 cursor-not-allowed shadow-none"
+                        ? "bg-gray-200  text-gray-400 cursor-not-allowed shadow-none"
                         : "bg-linear-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 hover:shadow-xl"
                     }`}
                   >
                     {isTyping ? (
                       <div className="flex items-center space-x-2">
-                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full animate-bounce"></div>
+                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white  rounded-full animate-bounce"></div>
                         <div
-                          className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full animate-bounce"
+                          className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white  rounded-full animate-bounce"
                           style={{ animationDelay: "0.15s" }}
                         ></div>
                         <div
-                          className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full animate-bounce"
+                          className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white  rounded-full animate-bounce"
                           style={{ animationDelay: "0.3s" }}
                         ></div>
                       </div>

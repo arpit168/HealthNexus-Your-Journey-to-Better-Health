@@ -43,7 +43,7 @@ const GoalSettings = ({
       label: "Lose Weight",
       icon: TrendingDown,
       color: "text-red-600",
-      bgColor: "bg-red-50",
+      bgColor: "bg-red-50 ",
       border: "border-red-500",
     },
     {
@@ -51,7 +51,7 @@ const GoalSettings = ({
       label: "Maintain Weight",
       icon: Target,
       color: "text-blue-600",
-      bgColor: "bg-blue-50",
+      bgColor: "bg-blue-50 ",
       border: "border-blue-500",
     },
     {
@@ -59,7 +59,7 @@ const GoalSettings = ({
       label: "Gain Weight",
       icon: TrendingUp,
       color: "text-green-600",
-      bgColor: "bg-green-50",
+      bgColor: "bg-green-50 ",
       border: "border-green-500",
     },
     {
@@ -67,7 +67,7 @@ const GoalSettings = ({
       label: "Build Muscle",
       icon: Award,
       color: "text-purple-600",
-      bgColor: "bg-purple-50",
+      bgColor: "bg-purple-50 ",
       border: "border-purple-500",
     },
   ];
@@ -285,15 +285,15 @@ const GoalSettings = ({
       {/* HEADER */}
 
       <div>
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">Goal Settings</h2>
+        <h2 className="text-2xl font-bold text-gray-800  mb-2">Goal Settings</h2>
 
-        <p className="text-gray-600 text-sm">Define your fitness goals</p>
+        <p className="text-gray-600  text-sm">Define your fitness goals</p>
       </div>
 
       {/* GOAL TYPES */}
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-3">
+        <label className="block text-sm font-medium text-gray-700  mb-3">
           What's your primary goal?
         </label>
 
@@ -322,7 +322,7 @@ const GoalSettings = ({
                 className={`p-4 rounded-xl border-2 transition-all ${
                   isSelected
                     ? `${goal.bgColor} ${goal.border}`
-                    : "bg-white border-gray-200 hover:border-gray-300"
+                    : "bg-white  border-gray-200  hover:border-gray-300 "
                 }`}
               >
                 <div className="flex flex-col items-center gap-2">
@@ -334,7 +334,7 @@ const GoalSettings = ({
 
                   <span
                     className={`text-sm font-medium ${
-                      isSelected ? "text-gray-800" : "text-gray-600"
+                      isSelected ? "text-gray-800 " : "text-gray-600 "
                     }`}
                   >
                     {goal.label}
@@ -350,7 +350,7 @@ const GoalSettings = ({
 
       {formData.goalType !== "maintain" && formData.goalType && (
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700  mb-2">
             Target Weight (kg)
           </label>
 
@@ -359,7 +359,7 @@ const GoalSettings = ({
             name="targetWeight"
             value={formData.targetWeight}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg bg-gray-50 focus:border-blue-400 outline-none"
+            className="w-full px-4 py-3 border-2 border-gray-200  rounded-lg bg-gray-50  focus:border-blue-400 outline-none"
             placeholder="Enter target weight"
           />
         </div>
@@ -368,7 +368,7 @@ const GoalSettings = ({
       {/* TIMELINE */}
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+        <label className="block text-sm font-medium text-gray-700  mb-2">
           Timeline
         </label>
 
@@ -376,7 +376,7 @@ const GoalSettings = ({
           name="timeline"
           value={formData.timeline}
           onChange={handleInputChange}
-          className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg bg-gray-50 focus:border-blue-400 outline-none"
+          className="w-full px-4 py-3 border-2 border-gray-200  rounded-lg bg-gray-50  focus:border-blue-400 outline-none"
         >
           <option value="">Select Timeline</option>
 
@@ -391,7 +391,7 @@ const GoalSettings = ({
       {/* EXPERIENCE */}
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-3">
+        <label className="block text-sm font-medium text-gray-700  mb-3">
           Experience Level
         </label>
 
@@ -411,13 +411,13 @@ const GoalSettings = ({
                 }
                 className={`p-4 rounded-xl border-2 text-left transition-all ${
                   isSelected
-                    ? "bg-purple-50 border-purple-500"
-                    : "bg-white border-gray-200"
+                    ? "bg-purple-50  border-purple-500"
+                    : "bg-white  border-gray-200 "
                 }`}
               >
                 <p className="font-semibold">{level.label}</p>
 
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="text-xs text-gray-500  mt-1">
                   {level.description}
                 </p>
               </button>
@@ -430,23 +430,23 @@ const GoalSettings = ({
 
       {calorieTarget && (
         <div className="bg-orange-50 border border-orange-200 rounded-xl p-6">
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
               <h3 className="text-lg font-semibold">Daily Calorie Target</h3>
 
-              <p className="text-sm text-gray-600">Personalized calories</p>
+              <p className="text-sm text-gray-600 ">Personalized calories</p>
             </div>
 
-            <div className="text-right">
+            <div className="text-left sm:text-right">
               <div className="flex items-center gap-2">
-                <Flame className="w-8 h-8 text-orange-600" />
+                <Flame className="w-8 h-8 text-orange-600 shrink-0" />
 
                 <p className="text-4xl font-bold text-orange-600">
                   {calorieTarget}
                 </p>
               </div>
 
-              <p className="text-sm text-gray-600">calories/day</p>
+              <p className="text-sm text-gray-600 ">calories/day</p>
             </div>
           </div>
         </div>
@@ -455,7 +455,7 @@ const GoalSettings = ({
       {/* WARNINGS */}
 
       {safetyWarnings.length > 0 && (
-        <div className="bg-yellow-50 border-l-4 border-yellow-400 rounded-lg p-4">
+        <div className="bg-yellow-50  border-l-4 border-yellow-400 rounded-lg p-4">
           <div className="flex gap-3">
             <AlertTriangle className="w-5 h-5 text-yellow-600 shrink-0" />
 
@@ -477,11 +477,11 @@ const GoalSettings = ({
       {/* SUCCESS */}
 
       {calorieTarget && safetyWarnings.length === 0 && (
-        <div className="bg-green-50 border-l-4 border-green-400 rounded-lg p-4">
+        <div className="bg-green-50  border-l-4 border-green-400 rounded-lg p-4">
           <div className="flex items-center gap-3">
             <CheckCircle className="w-5 h-5 text-green-600" />
 
-            <p className="text-sm text-gray-700">
+            <p className="text-sm text-gray-700 ">
               Your goal setup looks safe and sustainable.
             </p>
           </div>

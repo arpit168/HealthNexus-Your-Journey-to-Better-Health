@@ -143,7 +143,7 @@ const HistoryView = ({ data = {}, type = "all", onExport }) => {
       case "adherence":
         return "bg-green-100 text-green-700";
       default:
-        return "bg-gray-100 text-gray-700";
+        return "bg-gray-100  text-gray-700 ";
     }
   };
 
@@ -165,18 +165,18 @@ const HistoryView = ({ data = {}, type = "all", onExport }) => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-white rounded-2xl shadow-lg p-6">
+      <div className="bg-white  rounded-2xl shadow-lg p-6">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <History className="w-6 h-6 text-purple-600" />
-            <h2 className="text-2xl font-bold text-gray-800">
+            <h2 className="text-2xl font-bold text-gray-800 ">
               Progress History
             </h2>
           </div>
           <div className="flex flex-wrap gap-3">
             <button
               onClick={handlePrint}
-              className="flex items-center gap-2 px-4 py-2 bg-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-300 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-gray-200  text-gray-700  font-semibold rounded-lg hover:bg-gray-300 transition-colors"
             >
               <Printer className="w-4 h-4" />
               Print
@@ -194,19 +194,19 @@ const HistoryView = ({ data = {}, type = "all", onExport }) => {
 
       {/* Summary Cards */}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-        <div className="bg-white rounded-xl shadow-lg p-4">
-          <p className="text-sm text-gray-600 mb-1">Total Entries</p>
-          <p className="text-3xl font-bold text-gray-800">
+        <div className="bg-white  rounded-xl shadow-lg p-4">
+          <p className="text-sm text-gray-600  mb-1">Total Entries</p>
+          <p className="text-3xl font-bold text-gray-800 ">
             {summaryStats.totalEntries}
           </p>
         </div>
-        <div className="bg-purple-50 rounded-xl shadow-lg p-4">
+        <div className="bg-purple-50  rounded-xl shadow-lg p-4">
           <p className="text-sm text-purple-600 mb-1">Weight Logs</p>
           <p className="text-3xl font-bold text-purple-700">
             {summaryStats.weight}
           </p>
         </div>
-        <div className="bg-blue-50 rounded-xl shadow-lg p-4">
+        <div className="bg-blue-50  rounded-xl shadow-lg p-4">
           <p className="text-sm text-blue-600 mb-1">Measurements</p>
           <p className="text-3xl font-bold text-blue-700">
             {summaryStats.measurements}
@@ -218,7 +218,7 @@ const HistoryView = ({ data = {}, type = "all", onExport }) => {
             {summaryStats.photos}
           </p>
         </div>
-        <div className="bg-green-50 rounded-xl shadow-lg p-4">
+        <div className="bg-green-50  rounded-xl shadow-lg p-4">
           <p className="text-sm text-green-600 mb-1">Check-ins</p>
           <p className="text-3xl font-bold text-green-700">
             {summaryStats.adherence}
@@ -227,16 +227,16 @@ const HistoryView = ({ data = {}, type = "all", onExport }) => {
       </div>
 
       {/* Filters */}
-      <div className="bg-white rounded-2xl shadow-lg p-6">
+      <div className="bg-white  rounded-2xl shadow-lg p-6">
         <div className="flex items-center gap-2 mb-4">
-          <Filter className="w-5 h-5 text-gray-600" />
-          <h3 className="text-lg font-bold text-gray-800">Filters</h3>
+          <Filter className="w-5 h-5 text-gray-600 " />
+          <h3 className="text-lg font-bold text-gray-800 ">Filters</h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Search */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-gray-700  mb-2">
               <Search className="w-4 h-4 inline mr-1" />
               Search
             </label>
@@ -245,19 +245,19 @@ const HistoryView = ({ data = {}, type = "all", onExport }) => {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search entries..."
-              className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-purple-500 focus:outline-none"
+              className="w-full px-4 py-2 border-2 border-gray-300  rounded-lg focus:border-purple-500 focus:outline-none"
             />
           </div>
 
           {/* Type Filter */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-gray-700  mb-2">
               Entry Type
             </label>
             <select
               value={filterType}
               onChange={(e) => setFilterType(e.target.value)}
-              className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-purple-500 focus:outline-none"
+              className="w-full px-4 py-2 border-2 border-gray-300  rounded-lg focus:border-purple-500 focus:outline-none"
             >
               <option value="all">All Types</option>
               <option value="weight">Weight</option>
@@ -269,18 +269,18 @@ const HistoryView = ({ data = {}, type = "all", onExport }) => {
 
           {/* Date Range */}
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-gray-700  mb-2">
               <Calendar className="w-4 h-4 inline mr-1" />
               Date Range
             </label>
-            <div className="flex gap-2">
+            <div className="flex flex-col sm:flex-row gap-2">
               <input
                 type="date"
                 value={dateRange.start}
                 onChange={(e) =>
                   setDateRange((prev) => ({ ...prev, start: e.target.value }))
                 }
-                className="flex-1 px-3 py-2 border-2 border-gray-300 rounded-lg focus:border-purple-500 focus:outline-none text-sm"
+                className="flex-1 w-full sm:w-auto px-3 py-2 border-2 border-gray-300  rounded-lg focus:border-purple-500 focus:outline-none text-sm"
               />
               <input
                 type="date"
@@ -288,7 +288,7 @@ const HistoryView = ({ data = {}, type = "all", onExport }) => {
                 onChange={(e) =>
                   setDateRange((prev) => ({ ...prev, end: e.target.value }))
                 }
-                className="flex-1 px-3 py-2 border-2 border-gray-300 rounded-lg focus:border-purple-500 focus:outline-none text-sm"
+                className="flex-1 w-full sm:w-auto px-3 py-2 border-2 border-gray-300  rounded-lg focus:border-purple-500 focus:outline-none text-sm"
               />
             </div>
           </div>
@@ -305,7 +305,7 @@ const HistoryView = ({ data = {}, type = "all", onExport }) => {
               setFilterType("all");
               setDateRange({ start: "", end: "" });
             }}
-            className="mt-4 px-4 py-2 bg-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-300 transition-colors"
+            className="mt-4 px-4 py-2 bg-gray-200  text-gray-700  font-semibold rounded-lg hover:bg-gray-300 transition-colors"
           >
             Clear All Filters
           </button>
@@ -313,8 +313,8 @@ const HistoryView = ({ data = {}, type = "all", onExport }) => {
       </div>
 
       {/* Entries List */}
-      <div className="bg-white rounded-2xl shadow-lg p-6">
-        <h3 className="text-xl font-bold text-gray-800 mb-4">
+      <div className="bg-white  rounded-2xl shadow-lg p-6">
+        <h3 className="text-xl font-bold text-gray-800  mb-4">
           All Entries ({filteredEntries.length})
         </h3>
 
@@ -323,7 +323,7 @@ const HistoryView = ({ data = {}, type = "all", onExport }) => {
             {filteredEntries.map((entry, index) => (
               <div
                 key={entry.id || index}
-                className="p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors border border-gray-200"
+                className="p-4 bg-gray-50  rounded-lg hover:bg-gray-100  transition-colors border border-gray-200 "
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex items-start gap-3 flex-1">
@@ -335,7 +335,7 @@ const HistoryView = ({ data = {}, type = "all", onExport }) => {
                         >
                           {entry.type}
                         </span>
-                        <span className="text-sm text-gray-500">
+                        <span className="text-sm text-gray-500 ">
                           {entry.date.toLocaleDateString("en-GB", {
                             day: "2-digit",
                             month: "short",
@@ -343,23 +343,23 @@ const HistoryView = ({ data = {}, type = "all", onExport }) => {
                           })}
                         </span>
                       </div>
-                      <p className="font-semibold text-gray-800">
+                      <p className="font-semibold text-gray-800 ">
                         {entry.displayText}
                       </p>
 
                       {/* Additional Details */}
                       {entry.type === "weight" && (
-                        <p className="text-sm text-gray-600 mt-1">
+                        <p className="text-sm text-gray-600  mt-1">
                           Weight: {entry.weight.toFixed(1)} kg
                         </p>
                       )}
                       {entry.type === "adherence" && entry.notes && (
-                        <p className="text-sm text-gray-600 mt-1 italic">
+                        <p className="text-sm text-gray-600  mt-1 italic">
                           "{entry.notes}"
                         </p>
                       )}
                       {entry.type === "adherence" && (
-                        <p className="text-sm text-gray-600 mt-1">
+                        <p className="text-sm text-gray-600  mt-1">
                           Sleep Quality: {entry.sleepQuality}/5
                         </p>
                       )}
@@ -378,7 +378,7 @@ const HistoryView = ({ data = {}, type = "all", onExport }) => {
         ) : (
           <div className="text-center py-12">
             <History className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-            <p className="text-gray-500 text-lg">No entries found</p>
+            <p className="text-gray-500  text-lg">No entries found</p>
             <p className="text-gray-400 text-sm mt-2">
               {searchTerm ||
               filterType !== "all" ||

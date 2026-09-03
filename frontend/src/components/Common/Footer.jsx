@@ -65,7 +65,7 @@ const Footer = () => {
 
   return (
     <footer
-      className={`${isLandingPage ? "bg-linear-to-b from-white to-blue-50" : "bg-linear-to-b from-white to-gray-50"} border-t border-gray-200 ${isLandingPage ? "mt-20" : "mt-12"} relative overflow-hidden`}
+      className={`${isLandingPage ? "bg-linear-to-b from-white to-blue-50" : "bg-linear-to-b from-white to-gray-50"} border-t border-gray-200  ${isLandingPage ? "mt-20" : "mt-12"} relative overflow-hidden`}
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -110,11 +110,11 @@ const Footer = () => {
                   HealthNexus
                 </span>
               </button>
-              <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+              <p className="text-gray-600  text-sm mb-4 leading-relaxed">
                 Your integrated health companion. Making wellness simple,
                 accessible, and personalized for everyone.
               </p>
-              <div className="space-y-3 text-sm text-gray-600">
+              <div className="space-y-3 text-sm text-gray-600 ">
                 <div className="flex items-center group hover:text-blue-600 transition-colors">
                   <FiMapPin className="w-4 h-4 mr-2 text-blue-600" />
                   <span>123 Health Ave, NY 10001</span>
@@ -135,7 +135,7 @@ const Footer = () => {
               className="animate-fadeInUp"
               style={{ animationDelay: "0.1s" }}
             >
-              <h3 className="font-semibold text-gray-800 mb-4 flex items-center">
+              <h3 className="font-semibold text-gray-800  mb-4 flex items-center">
                 <span className="w-1 h-4 bg-blue-500 rounded-full mr-2 animate-pulse"></span>
                 Product
               </h3>
@@ -145,7 +145,7 @@ const Footer = () => {
                     <li key={i}>
                       <a
                         href="#"
-                        className="text-gray-600 hover:text-blue-600 transition-colors duration-300 flex items-center group"
+                        className="text-gray-600  hover:text-blue-600 transition-colors duration-300 flex items-center group"
                       >
                         <FiArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
                         {link}
@@ -161,7 +161,7 @@ const Footer = () => {
               className="animate-fadeInUp"
               style={{ animationDelay: "0.2s" }}
             >
-              <h3 className="font-semibold text-gray-800 mb-4 flex items-center">
+              <h3 className="font-semibold text-gray-800  mb-4 flex items-center">
                 <span className="w-1 h-4 bg-indigo-500 rounded-full mr-2 animate-pulse"></span>
                 Company
               </h3>
@@ -170,7 +170,7 @@ const Footer = () => {
                   <li key={i}>
                     <a
                       href="#"
-                      className="text-gray-600 hover:text-indigo-600 transition-colors duration-300 flex items-center group"
+                      className="text-gray-600  hover:text-indigo-600 transition-colors duration-300 flex items-center group"
                     >
                       <FiArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-opacity" />
                       {link}
@@ -185,11 +185,11 @@ const Footer = () => {
               className="animate-fadeInRight"
               style={{ animationDelay: "0.3s" }}
             >
-              <h3 className="font-semibold text-gray-800 mb-4 flex items-center">
+              <h3 className="font-semibold text-gray-800  mb-4 flex items-center">
                 <span className="w-1 h-4 bg-green-500 rounded-full mr-2 animate-pulse"></span>
                 Stay Updated
               </h3>
-              <p className="text-gray-600 text-sm mb-4">
+              <p className="text-gray-600  text-sm mb-4">
                 Get wellness tips and health insights delivered to your inbox.
               </p>
               <form
@@ -209,7 +209,7 @@ const Footer = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Your email"
-                    className="w-full px-4 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-200 transition-all duration-300"
+                    className="w-full px-4 py-2 border border-gray-200  rounded-lg text-sm focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-200 transition-all duration-300"
                     required
                   />
                   <button
@@ -229,7 +229,7 @@ const Footer = () => {
           </div>
 
           {/* Divider */}
-          <div className="border-t border-gray-200 my-8"></div>
+          <div className="border-t border-gray-200  my-8"></div>
 
           {/* Social & Copyright */}
           <div className="flex flex-col md:flex-row justify-between items-center">
@@ -247,13 +247,13 @@ const Footer = () => {
               )}
             </div>
 
-            <p className="text-sm text-gray-500 flex items-center">
+            <p className="text-sm text-gray-500  flex items-center">
               © {currentYear} HealthNexus. Made with
               <FiHeart className="w-4 h-4 text-red-500 mx-1 animate-heartbeat" />
               for your health
             </p>
 
-            <div className="flex space-x-4 mt-4 md:mt-0 text-gray-500 text-xs">
+            <div className="flex space-x-4 mt-4 md:mt-0 text-gray-500  text-xs">
               <a href="#" className="hover:text-blue-600 transition-colors">
                 Privacy
               </a>
@@ -280,18 +280,18 @@ const Footer = () => {
             ].map((stat, i) => (
               <div
                 key={i}
-                className="bg-white rounded-2xl p-4 text-center shadow-sm"
+                className="bg-white  rounded-2xl p-4 text-center shadow-sm"
               >
                 <p className="text-xl font-bold text-blue-600">{stat.number}</p>
-                <p className="text-xs text-gray-600">{stat.label}</p>
+                <p className="text-xs text-gray-600 ">{stat.label}</p>
               </div>
             ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-gray-200">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-gray-200 ">
             <div>
-              <h3 className="font-semibold text-gray-800 mb-4">Quick Links</h3>
-              <ul className="space-y-2 text-sm text-gray-600">
+              <h3 className="font-semibold text-gray-800  mb-4">Quick Links</h3>
+              <ul className="space-y-2 text-sm text-gray-600 ">
                 {["Dashboard", "Health", "Reports", "Settings"].map(
                   (link, i) => (
                     <li key={i}>
@@ -307,8 +307,8 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold text-gray-800 mb-4">Support</h3>
-              <ul className="space-y-2 text-sm text-gray-600">
+              <h3 className="font-semibold text-gray-800  mb-4">Support</h3>
+              <ul className="space-y-2 text-sm text-gray-600 ">
                 {["Help Center", "Contact Us", "FAQ", "Security"].map(
                   (link, i) => (
                     <li key={i}>
@@ -324,8 +324,8 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold text-gray-800 mb-4">Legal</h3>
-              <ul className="space-y-2 text-sm text-gray-600">
+              <h3 className="font-semibold text-gray-800  mb-4">Legal</h3>
+              <ul className="space-y-2 text-sm text-gray-600 ">
                 {["Privacy", "Terms", "Cookies", "HIPAA"].map((link, i) => (
                   <li key={i}>
                     <a
@@ -340,7 +340,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-between items-center pt-8 text-sm text-gray-500">
+          <div className="flex flex-col md:flex-row justify-between items-center pt-8 text-sm text-gray-500 ">
             <p>
               © {currentYear} HealthNexus. Made with{" "}
               <FiHeart className="w-3 h-3 text-red-500 inline mx-1" /> for
@@ -350,7 +350,7 @@ const Footer = () => {
           </div>
 
           {/* Medical Disclaimer */}
-          <div className="mt-8 p-4 bg-blue-50 rounded-xl border border-blue-200">
+          <div className="mt-8 p-4 bg-blue-50  rounded-xl border border-blue-200">
             <p className="text-xs text-blue-800">
               <span className="font-semibold">⚕️ Disclaimer:</span> HealthNexus
               provides informational purposes only. Always consult with your

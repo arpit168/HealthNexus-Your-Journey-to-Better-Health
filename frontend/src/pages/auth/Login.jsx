@@ -380,7 +380,7 @@ const Login = () => {
           {/* Right Side - Login Form */}
           <motion.div
             variants={itemVariants}
-            className="lg:w-1/2 bg-white p-6 sm:p-8 md:p-10 lg:p-12"
+            className="lg:w-1/2 bg-white  p-6 sm:p-8 md:p-10 lg:p-12"
           >
             <div className="max-w-md mx-auto">
               {/* Header */}
@@ -388,10 +388,10 @@ const Login = () => {
                 variants={itemVariants}
                 className="text-center lg:text-left"
               >
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 ">
                   Welcome Back!
                 </h2>
-                <p className="text-gray-500 text-sm sm:text-base mt-1 sm:mt-2">
+                <p className="text-gray-500  text-sm sm:text-base mt-1 sm:mt-2">
                   Sign in to continue your fitness journey
                 </p>
               </motion.div>
@@ -404,7 +404,7 @@ const Login = () => {
               >
                 {/* Email Field */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
+                  <label className="block text-sm font-medium text-gray-700  mb-1 sm:mb-2">
                     Email Address
                   </label>
                   <div className="relative">
@@ -419,10 +419,10 @@ const Login = () => {
                       className={`w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2.5 sm:py-3 border-2 rounded-lg sm:rounded-xl transition-all duration-200 outline-none text-sm sm:text-base
                         ${
                           touched.email && errors.email
-                            ? "border-red-300 bg-red-50 focus:border-red-500"
+                            ? "border-red-300 bg-red-50  focus:border-red-500"
                             : loginError
-                              ? "border-red-300 bg-red-50"
-                              : "border-gray-200 bg-gray-50 focus:border-blue-400 focus:bg-white"
+                              ? "border-red-300 bg-red-50 "
+                              : "border-gray-200  bg-gray-50  focus:border-blue-400 focus:bg-white"
                         }
                         hover:border-blue-300 focus:ring-2 focus:ring-blue-100`}
                       placeholder="you@example.com"
@@ -446,7 +446,7 @@ const Login = () => {
 
                 {/* Password Field */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1 sm:mb-2">
+                  <label className="block text-sm font-medium text-gray-700  mb-1 sm:mb-2">
                     Password
                   </label>
                   <div className="relative">
@@ -460,10 +460,10 @@ const Login = () => {
                       className={`w-full pl-9 sm:pl-10 pr-9 sm:pr-12 py-2.5 sm:py-3 border-2 rounded-lg sm:rounded-xl transition-all duration-200 outline-none text-sm sm:text-base
                         ${
                           touched.password && errors.password
-                            ? "border-red-300 bg-red-50 focus:border-red-500"
+                            ? "border-red-300 bg-red-50  focus:border-red-500"
                             : loginError
-                              ? "border-red-300 bg-red-50"
-                              : "border-gray-200 bg-gray-50 focus:border-blue-400 focus:bg-white"
+                              ? "border-red-300 bg-red-50 "
+                              : "border-gray-200  bg-gray-50  focus:border-blue-400 focus:bg-white"
                         }
                         hover:border-blue-300 focus:ring-2 focus:ring-blue-100`}
                       placeholder="Enter your password"
@@ -471,7 +471,7 @@ const Login = () => {
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600  transition-colors"
                     >
                       {showPassword ? (
                         <EyeOff className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -503,7 +503,7 @@ const Login = () => {
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
-                      className="bg-red-50 border border-red-200 rounded-lg p-2.5 sm:p-3 flex items-center space-x-2"
+                      className="bg-red-50  border border-red-200 rounded-lg p-2.5 sm:p-3 flex items-center space-x-2"
                     >
                       <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 text-red-500 shrink-0" />
                       <p className="text-xs sm:text-sm text-red-600">
@@ -520,9 +520,9 @@ const Login = () => {
                       type="checkbox"
                       checked={rememberMe}
                       onChange={(e) => setRememberMe(e.target.checked)}
-                      className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 cursor-pointer"
+                      className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600 border-gray-300  rounded focus:ring-blue-500 cursor-pointer"
                     />
-                    <span className="text-xs sm:text-sm text-gray-600 group-hover:text-gray-800 transition-colors">
+                    <span className="text-xs sm:text-sm text-gray-600  group-hover:text-gray-800  transition-colors">
                       Remember me
                     </span>
                   </label>
@@ -585,7 +585,7 @@ const Login = () => {
                 {/* Sign Up Link */}
                 <motion.p
                   variants={itemVariants}
-                  className="text-center text-xs sm:text-sm text-gray-600"
+                  className="text-center text-xs sm:text-sm text-gray-600 "
                 >
                   Don't have an account?{" "}
                   <motion.button
@@ -601,13 +601,13 @@ const Login = () => {
                 {/* Demo Credentials */}
                 <motion.div
                   variants={itemVariants}
-                  className="mt-4 sm:mt-6 p-3 sm:p-4 bg-gray-50 rounded-lg border border-gray-200"
+                  className="mt-4 sm:mt-6 p-3 sm:p-4 bg-gray-50  rounded-lg border border-gray-200 "
                 >
-                  <p className="text-xs text-gray-500 mb-1.5 sm:mb-2 flex items-center">
+                  <p className="text-xs text-gray-500  mb-1.5 sm:mb-2 flex items-center">
                     <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-500 mr-1" />
                     Demo Credentials:
                   </p>
-                  <p className="text-xs text-gray-600">
+                  <p className="text-xs text-gray-600 ">
                     Email: demo@HealthNexus.com
                     <br />
                     Password: demo123

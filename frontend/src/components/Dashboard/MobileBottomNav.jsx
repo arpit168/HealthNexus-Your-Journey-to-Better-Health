@@ -66,7 +66,7 @@ const MobileBottomNav = () => {
 
   return (
     <div
-      className={`lg:hidden fixed bottom-1 left-2 right-2 bg-gray-100 rounded-full border border-gray-200 shadow-lg z-50 transition-transform duration-300 ease-in-out ${
+      className={`lg:hidden fixed bottom-1 left-2 right-2 bg-gray-100  rounded-full border border-gray-200  shadow-lg z-50 transition-transform duration-300 ease-in-out ${
         isVisible ? "translate-y-0" : "translate-y-[150%]"
       }`}
     >
@@ -81,6 +81,7 @@ const MobileBottomNav = () => {
               className="flex flex-col items-center justify-center p-1 w-full space-y-1"
             >
               <div
+<<<<<<< Updated upstream
                 className={`p-2 rounded-xl transition-all duration-300 ${
                   active ? "bg-indigo-50" : "bg-transparent"
                 }`}
@@ -88,12 +89,21 @@ const MobileBottomNav = () => {
                 <Icon
                   className={`w-6 h-6 ${
                     active ? "text-indigo-600" : "text-gray-500"
+=======
+                className={`p-1.5 rounded-xl transition-all duration-300 ${
+                  active ? "bg-indigo-50 " : "bg-transparent"
+                }`}
+              >
+                <Icon
+                  className={`w-5 h-5 ${
+                    active ? "text-indigo-600" : "text-gray-500 "
+>>>>>>> Stashed changes
                   }`}
                 />
               </div>
               <span
                 className={`text-[10px] font-medium transition-colors duration-300 ${
-                  active ? "text-indigo-600" : "text-gray-500"
+                  active ? "text-indigo-600" : "text-gray-500 "
                 }`}
               >
                 {item.label}

@@ -18,8 +18,9 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Prevent multiple refresh calls on mount
+  // Prevent multiple refresh calls on mount or from concurrent interceptors
   const refreshAttempted = useRef(false);
+  const refreshPromise = useRef(null);
 
   const clearError = useCallback(() => setError(null), []);
 
@@ -32,10 +33,11 @@ export const AuthProvider = ({ children }) => {
   const refreshAuth = useCallback(async (isRetry = false) => {
     if (refreshAttempted.current && !isRetry) return;
 
-    try {
-      refreshAttempted.current = true;
-      setError(null);
+    if (refreshPromise.current) {
+      return refreshPromise.current;
+    }
 
+<<<<<<< Updated upstream
       if (import.meta.env.DEV) {
         console.log("🔄 Attempting to refresh session...");
       }
@@ -46,18 +48,84 @@ export const AuthProvider = ({ children }) => {
         setAccessToken(res.data.accessToken);
         setUser(res.data.user || null);
         setIsAuthenticated(true);
+=======
+    const refreshLogic = async () => {
+      try {
+        refreshAttempted.current = true;
+        setError(null);
+>>>>>>> Stashed changes
 
         if (import.meta.env.DEV) {
-          console.log("✅ Session refreshed successfully");
+          console.log("🔄 Attempting to refresh session...");
         }
+<<<<<<< Updated upstream
       } else {
         setUser(null);
         setAccessToken(null);
         setIsAuthenticated(false);
-      }
-    } catch (err) {
-      const status = err.response?.status;
+=======
 
+        const localRefreshToken = localStorage.getItem("refreshToken");
+        const headers = localRefreshToken ? { "x-refresh-token": localRefreshToken } : {};
+
+        const res = await axiosInstance.get("/auth/refresh", { headers });
+
+        if (res.data?.accessToken) {
+          setAccessToken(res.data.accessToken);
+          setUser(res.data.user || null);
+          setIsAuthenticated(true);
+          window.__accessToken = res.data.accessToken;
+
+          // Support token rotation if the backend sends a new refresh token
+          if (res.data.refreshToken) {
+            localStorage.setItem("refreshToken", res.data.refreshToken);
+          }
+
+          if (import.meta.env.DEV) {
+            console.log("✅ Session refreshed successfully");
+          }
+          return res.data.accessToken;
+        } else {
+          setUser(null);
+          setAccessToken(null);
+          setIsAuthenticated(false);
+          window.__accessToken = null;
+          localStorage.removeItem("refreshToken");
+          if (isRetry) throw new Error("No access token in response");
+          return null;
+        }
+      } catch (err) {
+        const status = err.response?.status;
+
+        if (status === 401) {
+          if (import.meta.env.DEV) {
+            console.log("ℹ️ No active session found (expected on first load)");
+          }
+        } else if (err.code === "ECONNABORTED") {
+          console.error("Refresh request timeout");
+          setError("Connection timeout. Please check your network.");
+        } else {
+          if (import.meta.env.DEV) {
+            console.warn("Could not refresh session:", err.message);
+          }
+        }
+
+        setUser(null);
+        setAccessToken(null);
+        setIsAuthenticated(false);
+        window.__accessToken = null;
+        localStorage.removeItem("refreshToken");
+
+        if (isRetry) throw err;
+        return null;
+      } finally {
+        setLoading(false);
+        refreshPromise.current = null;
+>>>>>>> Stashed changes
+      }
+    };
+
+<<<<<<< Updated upstream
       if (status === 401) {
         if (import.meta.env.DEV) {
           console.log("ℹ️ No active session found (expected on first load)");
@@ -78,6 +146,10 @@ export const AuthProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
+=======
+    refreshPromise.current = refreshLogic();
+    return refreshPromise.current;
+>>>>>>> Stashed changes
   }, []);
 
   // Initial refresh on mount

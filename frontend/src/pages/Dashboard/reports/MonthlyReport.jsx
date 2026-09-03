@@ -64,23 +64,23 @@ export default function MonthlyReport() {
 
   return (
     <div className="space-y-6">
-      <div className="bg-linear-to-r from-green-900/80 to-blue-900/80 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-green-500/20">
-        <div className="flex justify-between items-center mb-6">
+      <div className="bg-linear-to-r from-green-900/80 to-blue-900/80 backdrop-blur-md p-6 md:p-8 rounded-2xl shadow-2xl border border-green-500/20">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
           <div>
-            <h2 className="text-4xl font-extrabold text-white mb-2 drop-shadow-lg">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-2 drop-shadow-lg">
               📆 Monthly Report
             </h2>
             <p className="text-green-100 text-lg">
               Monthly achievements and progress summary
             </p>
           </div>
-          <div className="flex gap-3">
+          <div className="flex flex-wrap gap-3 w-full md:w-auto">
             <PDFDownloadButton reportData={mockData} />
             <EmailReportButton reportData={mockData} />
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl">
           <div>
             <label className="block text-sm text-gray-200 mb-2 font-semibold">
               Month
@@ -115,8 +115,8 @@ export default function MonthlyReport() {
       </div>
 
       {/* Achievements with enhanced styling */}
-      <div className="bg-linear-to-br from-yellow-900/80 to-orange-900/80 backdrop-blur-md p-8 rounded-2xl border border-yellow-500/20 shadow-2xl">
-        <h3 className="text-3xl font-extrabold text-white mb-6 drop-shadow-lg">
+      <div className="bg-linear-to-br from-yellow-900/80 to-orange-900/80 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-yellow-500/20 shadow-2xl">
+        <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-6 drop-shadow-lg">
           🏆 Monthly Achievements
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -129,17 +129,17 @@ export default function MonthlyReport() {
             </div>
           ))}
         </div>
-        <p className="text-xl text-yellow-200 font-bold mt-6 text-center animate-pulse">
+        <p className="text-lg md:text-xl text-yellow-200 font-bold mt-6 text-center animate-pulse">
           {mockData.monthHighlight}
         </p>
       </div>
 
-      <div className="flex gap-3 bg-gray-900/50 backdrop-blur-sm p-2 rounded-2xl border border-gray-700/50">
+      <div className="flex gap-3 bg-gray-900/50 backdrop-blur-sm p-2 rounded-2xl border border-gray-700/50 overflow-x-auto scrollbar-hide">
         {["overview", "charts", "tables", "insights"].map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`flex-1 px-6 py-3 font-semibold rounded-xl transition-all capitalize ${
+            className={`flex-1 min-w-[120px] whitespace-nowrap px-6 py-3 font-semibold rounded-xl transition-all capitalize ${
               activeTab === tab
                 ? "bg-linear-to-r from-green-600 to-blue-600 text-white shadow-lg shadow-green-500/30 scale-105"
                 : "text-gray-400 hover:text-white hover:bg-gray-800/50"

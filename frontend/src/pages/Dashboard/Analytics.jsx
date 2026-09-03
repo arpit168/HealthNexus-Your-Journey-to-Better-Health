@@ -784,17 +784,20 @@ const Analytics = () => {
           padding: 1.5rem;
           border-radius: 8px;
           margin-bottom: 1rem;
+          min-width: 0; /* Fixes Recharts ResponsiveContainer flex overflow bug */
+          overflow: hidden;
         }
 
         .dual-chart-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
           gap: 1.5rem;
           margin-bottom: 1.5rem;
         }
 
         .heatmap-container {
           padding: 1rem;
+          overflow-x: auto; /* Add horizontal scroll just in case */
         }
 
         .heatmap-grid {

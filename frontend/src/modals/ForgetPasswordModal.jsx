@@ -100,14 +100,14 @@ const ForgetPasswordModal = ({ onClose }) => {
                 className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold transition-all duration-300 ${
                   step >= s.id
                     ? "bg-linear-to-r from-blue-500 to-indigo-600 text-white shadow-lg shadow-blue-500/50"
-                    : "bg-gray-200 text-gray-500"
+                    : "bg-gray-200  text-gray-500 "
                 }`}
               >
                 {s.id}
               </div>
               <span
                 className={`ml-2 text-sm font-medium ${
-                  step >= s.id ? "text-gray-700" : "text-gray-400"
+                  step >= s.id ? "text-gray-700 " : "text-gray-400"
                 }`}
               >
                 {s.label}
@@ -118,7 +118,7 @@ const ForgetPasswordModal = ({ onClose }) => {
                 className={`w-8 h-0.5 ${
                   step > s.id
                     ? "bg-linear-to-r from-blue-500 to-indigo-600"
-                    : "bg-gray-200"
+                    : "bg-gray-200 "
                 }`}
               />
             )}
@@ -167,7 +167,7 @@ const ForgetPasswordModal = ({ onClose }) => {
           {/* Step 1: Email */}
           {step === 1 && (
             <div className="space-y-1">
-              <label className="block text-sm font-medium text-gray-700 ml-1">
+              <label className="block text-sm font-medium text-gray-700  ml-1">
                 Email Address
               </label>
               <div className="relative">
@@ -180,10 +180,10 @@ const ForgetPasswordModal = ({ onClose }) => {
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder="you@example.com"
-                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 bg-white/70 backdrop-blur-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition shadow-sm"
+                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200  bg-white/70 backdrop-blur-sm text-gray-800  placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition shadow-sm"
                 />
               </div>
-              <p className="text-xs text-gray-500 ml-1 mt-1">
+              <p className="text-xs text-gray-500  ml-1 mt-1">
                 We'll send a 6-digit OTP to this email
               </p>
             </div>
@@ -192,7 +192,7 @@ const ForgetPasswordModal = ({ onClose }) => {
           {/* Step 2: OTP */}
           {step === 2 && (
             <div className="space-y-1">
-              <label className="block text-sm font-medium text-gray-700 ml-1">
+              <label className="block text-sm font-medium text-gray-700  ml-1">
                 One-Time Password
               </label>
               <div className="relative">
@@ -206,10 +206,10 @@ const ForgetPasswordModal = ({ onClose }) => {
                   onChange={handleInputChange}
                   placeholder="Enter 6-digit OTP"
                   maxLength="6"
-                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 bg-white/70 backdrop-blur-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition shadow-sm"
+                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200  bg-white/70 backdrop-blur-sm text-gray-800  placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition shadow-sm"
                 />
               </div>
-              <p className="text-xs text-gray-500 ml-1 mt-1">
+              <p className="text-xs text-gray-500  ml-1 mt-1">
                 Check your inbox for the OTP
               </p>
             </div>
@@ -219,7 +219,7 @@ const ForgetPasswordModal = ({ onClose }) => {
           {step === 3 && (
             <>
               <div className="space-y-1">
-                <label className="block text-sm font-medium text-gray-700 ml-1">
+                <label className="block text-sm font-medium text-gray-700  ml-1">
                   New Password
                 </label>
                 <div className="relative">
@@ -232,13 +232,13 @@ const ForgetPasswordModal = ({ onClose }) => {
                     value={formData.newPassword}
                     onChange={handleInputChange}
                     placeholder="••••••••"
-                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 bg-white/70 backdrop-blur-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition shadow-sm"
+                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200  bg-white/70 backdrop-blur-sm text-gray-800  placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition shadow-sm"
                   />
                 </div>
               </div>
 
               <div className="space-y-1">
-                <label className="block text-sm font-medium text-gray-700 ml-1">
+                <label className="block text-sm font-medium text-gray-700  ml-1">
                   Confirm Password
                 </label>
                 <div className="relative">
@@ -251,7 +251,7 @@ const ForgetPasswordModal = ({ onClose }) => {
                     value={formData.cfNewPassword}
                     onChange={handleInputChange}
                     placeholder="••••••••"
-                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 bg-white/70 backdrop-blur-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition shadow-sm"
+                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200  bg-white/70 backdrop-blur-sm text-gray-800  placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition shadow-sm"
                   />
                 </div>
               </div>
@@ -282,7 +282,7 @@ const ForgetPasswordModal = ({ onClose }) => {
 
           {/* Hint for step 1 to go back? (optional, but we don't want to change logic) */}
           {step > 1 && (
-            <p className="text-center text-sm text-gray-500 mt-4">
+            <p className="text-center text-sm text-gray-500  mt-4">
               <button
                 type="button"
                 onClick={() => setStep(step - 1)}

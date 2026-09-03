@@ -142,7 +142,7 @@ const InjuryRiskLevel = () => {
       <div
         className={`bg-linear-to-br ${getRiskColor(overallRisk)} rounded-2xl shadow-lg p-8 text-white`}
       >
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
           <div>
             <p className="text-sm font-semibold opacity-90">
               Injury Risk Level
@@ -158,7 +158,7 @@ const InjuryRiskLevel = () => {
         {/* Risk Progress Bar */}
         <div className="w-full bg-white/20 rounded-full h-3 overflow-hidden">
           <div
-            className="bg-white h-full rounded-full transition-all duration-500"
+            className="bg-white  h-full rounded-full transition-all duration-500"
             style={{ width: `${riskScore}%` }}
           />
         </div>
@@ -167,8 +167,8 @@ const InjuryRiskLevel = () => {
       {/* Risk Analysis Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Risk Factors Radar */}
-        <div className="bg-white rounded-2xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-900 mb-4">
+        <div className="bg-white  rounded-2xl shadow-lg p-6">
+          <h3 className="text-xl font-bold text-gray-900  mb-4">
             Risk Factors Analysis
           </h3>
           {riskData.length > 0 ? (
@@ -187,14 +187,14 @@ const InjuryRiskLevel = () => {
               </RadarChart>
             </ResponsiveContainer>
           ) : (
-            <p className="text-gray-500 text-center py-8">No data available</p>
+            <p className="text-gray-500  text-center py-8">No data available</p>
           )}
         </div>
 
         {/* Risk Details */}
         <div className="space-y-3">
-          <div className="bg-white rounded-xl shadow-md p-4 border-l-4 border-red-600">
-            <p className="text-sm font-semibold text-gray-600">
+          <div className="bg-white  rounded-xl shadow-md p-4 border-l-4 border-red-600">
+            <p className="text-sm font-semibold text-gray-600 ">
               Highest Risk Factor
             </p>
             <p className="text-2xl font-bold text-red-600 mt-1">
@@ -207,15 +207,15 @@ const InjuryRiskLevel = () => {
           {riskData.map((factor) => (
             <div
               key={factor.name}
-              className="bg-white rounded-xl shadow-md p-4"
+              className="bg-white  rounded-xl shadow-md p-4"
             >
               <div className="flex justify-between items-center mb-2">
-                <p className="font-semibold text-gray-900">{factor.name}</p>
-                <span className="text-lg font-bold text-gray-600">
+                <p className="font-semibold text-gray-900 ">{factor.name}</p>
+                <span className="text-lg font-bold text-gray-600 ">
                   {factor.value.toFixed(0)}/100
                 </span>
               </div>
-              <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+              <div className="w-full bg-gray-200  rounded-full h-2 overflow-hidden">
                 <div
                   className={`h-full rounded-full transition-all duration-500 ${
                     factor.value > 75
@@ -235,12 +235,12 @@ const InjuryRiskLevel = () => {
       </div>
 
       {/* Injury Prevention Guidelines */}
-      <div className="bg-white rounded-2xl shadow-lg p-6">
-        <h3 className="text-xl font-bold text-gray-900 mb-4">
+      <div className="bg-white  rounded-2xl shadow-lg p-6">
+        <h3 className="text-xl font-bold text-gray-900  mb-4">
           🛡️ Injury Prevention Strategies
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <div className="bg-blue-50  border border-blue-200 rounded-lg p-4">
             <p className="font-bold text-blue-900 mb-2">Immediate Actions</p>
             <ul className="text-sm text-blue-800 space-y-1">
               {overallRisk === "Critical" && (
@@ -274,7 +274,7 @@ const InjuryRiskLevel = () => {
             </ul>
           </div>
 
-          <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+          <div className="bg-green-50  border border-green-200 rounded-lg p-4">
             <p className="font-bold text-green-900 mb-2">
               Long-term Prevention
             </p>

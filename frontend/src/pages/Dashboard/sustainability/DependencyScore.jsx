@@ -195,41 +195,41 @@ const DependencyScore = () => {
       <div
         className={`bg-linear-to-br from-${status.color}-50 to-${status.color}-100 rounded-xl p-6 border-2 border-${status.color}-200`}
       >
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
-            <h3 className="text-xl font-bold text-gray-800 mb-2">
+            <h3 className="text-lg md:text-xl font-bold text-gray-800  mb-2">
               {status.emoji} Independence Score
             </h3>
-            <p className="text-5xl font-bold text-gray-900">
+            <p className="text-4xl md:text-5xl font-bold text-gray-900 ">
               {independenceScore}
             </p>
             <p
-              className={`text-lg font-semibold text-${status.color}-700 mt-2`}
+              className={`text-base md:text-lg font-semibold text-${status.color}-700 mt-2`}
             >
               {status.level}
             </p>
-            <p className="text-gray-600 mt-1">{status.description}</p>
+            <p className="text-gray-600  mt-1 text-sm md:text-base">{status.description}</p>
           </div>
-          <div className="text-right">
-            <div className="mb-3">
-              <p className="text-3xl font-bold text-green-600">
+          <div className="md:text-right w-full md:w-auto flex flex-row md:flex-col justify-between md:justify-start">
+            <div className="mb-0 md:mb-3 text-left md:text-right">
+              <p className="text-2xl md:text-3xl font-bold text-green-600">
                 {stats.selfDecisions}
               </p>
-              <p className="text-sm text-gray-600">Self-Directed Decisions</p>
+              <p className="text-xs md:text-sm text-gray-600 ">Self-Directed Decisions</p>
             </div>
-            <div>
-              <p className="text-2xl font-bold text-blue-600">
+            <div className="text-right">
+              <p className="text-xl md:text-2xl font-bold text-blue-600">
                 {stats.appChecks}
               </p>
-              <p className="text-sm text-gray-600">App Check-ins (30d)</p>
+              <p className="text-xs md:text-sm text-gray-600 ">App Check-ins (30d)</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Independence Progress Chart */}
-      <div className="bg-white rounded-xl shadow-md p-6">
-        <h4 className="font-bold text-gray-800 mb-4">
+      <div className="bg-white  rounded-xl shadow-md p-6">
+        <h4 className="font-bold text-gray-800  mb-4">
           📈 Independence Journey (60 Days)
         </h4>
         <ResponsiveContainer width="100%" height={300}>
@@ -283,8 +283,8 @@ const DependencyScore = () => {
 
       {/* Skills Radar Chart */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white rounded-xl shadow-md p-6">
-          <h4 className="font-bold text-gray-800 mb-4">
+        <div className="bg-white  rounded-xl shadow-md p-6">
+          <h4 className="font-bold text-gray-800  mb-4">
             🎯 Independence Skills Profile
           </h4>
           <ResponsiveContainer width="100%" height={300}>
@@ -306,45 +306,45 @@ const DependencyScore = () => {
 
         {/* Stats Grid */}
         <div className="space-y-4">
-          <div className="bg-white rounded-xl shadow-md p-6">
+          <div className="bg-white  rounded-xl shadow-md p-6">
             <div className="flex items-center gap-3 mb-2">
               <div className="p-2 bg-green-100 rounded-lg">
                 <Brain className="text-green-600" size={24} />
               </div>
               <div>
-                <p className="text-2xl font-bold text-gray-800">
+                <p className="text-2xl font-bold text-gray-800 ">
                   {stats.avgScore}
                 </p>
-                <p className="text-sm text-gray-600">30-Day Average Score</p>
+                <p className="text-sm text-gray-600 ">30-Day Average Score</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-md p-6">
+          <div className="bg-white  rounded-xl shadow-md p-6">
             <div className="flex items-center gap-3 mb-2">
               <div className="p-2 bg-blue-100 rounded-lg">
                 <CheckCircle className="text-blue-600" size={24} />
               </div>
               <div>
-                <p className="text-2xl font-bold text-gray-800">
+                <p className="text-2xl font-bold text-gray-800 ">
                   {stats.selfDecisions}
                 </p>
-                <p className="text-sm text-gray-600">Independent Decisions</p>
+                <p className="text-sm text-gray-600 ">Independent Decisions</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-md p-6">
+          <div className="bg-white  rounded-xl shadow-md p-6">
             <div className="flex items-center gap-3 mb-2">
               <div className="p-2 bg-purple-100 rounded-lg">
                 <TrendingUp className="text-purple-600" size={24} />
               </div>
               <div>
-                <p className="text-2xl font-bold text-gray-800">
+                <p className="text-2xl font-bold text-gray-800 ">
                   {stats.trend > 0 ? "+" : ""}
                   {stats.trend}
                 </p>
-                <p className="text-sm text-gray-600">Growth Trend</p>
+                <p className="text-sm text-gray-600 ">Growth Trend</p>
               </div>
             </div>
           </div>
@@ -352,13 +352,13 @@ const DependencyScore = () => {
       </div>
 
       {/* Independence Indicators */}
-      <div className="bg-white rounded-xl shadow-md p-6">
-        <h4 className="font-bold text-gray-800 mb-4">
+      <div className="bg-white  rounded-xl shadow-md p-6">
+        <h4 className="font-bold text-gray-800  mb-4">
           🎖️ Independence Milestones
         </h4>
         <div className="space-y-4">
           <div>
-            <p className="font-semibold text-gray-700 mb-2">
+            <p className="font-semibold text-gray-700  mb-2">
               🌱 Beginner (0-40)
             </p>
             <div className="space-y-2">
@@ -370,7 +370,7 @@ const DependencyScore = () => {
                     <XCircle className="text-gray-300" size={18} />
                   )}
                   <p
-                    className={`text-sm ${indicator.achieved ? "text-gray-700" : "text-gray-400"}`}
+                    className={`text-sm ${indicator.achieved ? "text-gray-700 " : "text-gray-400"}`}
                   >
                     {indicator.text}
                   </p>
@@ -380,7 +380,7 @@ const DependencyScore = () => {
           </div>
 
           <div>
-            <p className="font-semibold text-gray-700 mb-2">
+            <p className="font-semibold text-gray-700  mb-2">
               📚 Intermediate (40-70)
             </p>
             <div className="space-y-2">
@@ -392,7 +392,7 @@ const DependencyScore = () => {
                     <XCircle className="text-gray-300" size={18} />
                   )}
                   <p
-                    className={`text-sm ${indicator.achieved ? "text-gray-700" : "text-gray-400"}`}
+                    className={`text-sm ${indicator.achieved ? "text-gray-700 " : "text-gray-400"}`}
                   >
                     {indicator.text}
                   </p>
@@ -402,7 +402,7 @@ const DependencyScore = () => {
           </div>
 
           <div>
-            <p className="font-semibold text-gray-700 mb-2">
+            <p className="font-semibold text-gray-700  mb-2">
               🎓 Advanced (70-100)
             </p>
             <div className="space-y-2">
@@ -414,7 +414,7 @@ const DependencyScore = () => {
                     <XCircle className="text-gray-300" size={18} />
                   )}
                   <p
-                    className={`text-sm ${indicator.achieved ? "text-gray-700" : "text-gray-400"}`}
+                    className={`text-sm ${indicator.achieved ? "text-gray-700 " : "text-gray-400"}`}
                   >
                     {indicator.text}
                   </p>
@@ -435,7 +435,7 @@ const DependencyScore = () => {
           <strong>without</strong> constant guidance.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-white rounded-lg p-4">
+          <div className="bg-white  rounded-lg p-4">
             <p className="font-semibold text-purple-900 mb-2">
               📖 From App-Dependent to Self-Sufficient
             </p>
@@ -445,7 +445,7 @@ const DependencyScore = () => {
               <li>• Master: Intuitively eat for your goals</li>
             </ul>
           </div>
-          <div className="bg-white rounded-lg p-4">
+          <div className="bg-white  rounded-lg p-4">
             <p className="font-semibold text-purple-900 mb-2">
               💪 From Guided to Confident
             </p>
@@ -459,11 +459,11 @@ const DependencyScore = () => {
       </div>
 
       {/* Recommendation */}
-      <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-blue-500">
-        <h4 className="font-bold text-gray-800 mb-2">
+      <div className="bg-white  rounded-xl shadow-md p-6 border-l-4 border-blue-500">
+        <h4 className="font-bold text-gray-800  mb-2">
           💡 Your Next Independence Step
         </h4>
-        <p className="text-gray-700">
+        <p className="text-gray-700 ">
           {independenceScore >= 80 &&
             "Excellent! You've developed strong fitness intuition. Consider mentoring others or exploring advanced programming. You're ready to fly solo!"}
           {independenceScore >= 60 &&

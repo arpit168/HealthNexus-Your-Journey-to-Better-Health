@@ -61,20 +61,20 @@ const Workout = () => {
     <DashboardLayout>
       <div className="min-h-screen bg-linear-to-br from-gray-50 via-blue-50 to-purple-50 p-4 md:p-8">
         <div className="max-w-7xl mx-auto space-y-6">
-          <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+          <div className="bg-white  rounded-2xl shadow-lg p-6 md:p-8">
             <div className="flex items-center gap-3 mb-2">
               <Dumbbell className="w-10 h-10 text-blue-600" />
               <h1 className="text-4xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Workout Center
               </h1>
             </div>
-            <p className="text-gray-600">
+            <p className="text-gray-600 ">
               Plan your workouts, track progress, and build your perfect
               physique.
             </p>
           </div>
 
-          <div className="bg-white rounded-xl shadow-sm p-2">
+          <div className="bg-white  rounded-xl shadow-sm p-2">
             <div className="flex flex-wrap gap-2">
               {tabs.map((tab) => {
                 const Icon = tab.icon;
@@ -85,7 +85,7 @@ const Workout = () => {
                     className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${
                       activeTab === tab.id
                         ? "bg-linear-to-r from-blue-600 to-purple-600 text-white shadow-md"
-                        : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                        : "bg-gray-100  text-gray-600  hover:bg-gray-200 "
                     }`}
                   >
                     <Icon className="w-5 h-5" />

@@ -119,7 +119,7 @@ const RecoveryRate = () => {
       <div
         className={`bg-linear-to-br ${recoverySpeed.color} rounded-2xl shadow-lg p-8 text-white`}
       >
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
           <div>
             <p className="text-sm font-semibold opacity-90">
               Average Recovery Speed
@@ -139,7 +139,7 @@ const RecoveryRate = () => {
         {/* Speed Gauge */}
         <div className="mt-6 bg-white/20 rounded-full h-4 overflow-hidden">
           <div
-            className="bg-white h-full rounded-full transition-all duration-500"
+            className="bg-white  h-full rounded-full transition-all duration-500"
             style={{ width: `${Math.min(avg * 5, 100)}%` }}
           />
         </div>
@@ -147,37 +147,37 @@ const RecoveryRate = () => {
 
       {/* Recovery Speed Comparison */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-orange-600">
-          <p className="text-sm font-semibold text-gray-600 mb-2">
+        <div className="bg-white  rounded-xl shadow-md p-6 border-l-4 border-orange-600">
+          <p className="text-sm font-semibold text-gray-600  mb-2">
             Overall Average
           </p>
           <p className="text-3xl font-bold text-orange-600">{avg}%</p>
-          <p className="text-xs text-gray-500 mt-2">All-time recovery rate</p>
+          <p className="text-xs text-gray-500  mt-2">All-time recovery rate</p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-blue-600">
-          <p className="text-sm font-semibold text-gray-600 mb-2">
+        <div className="bg-white  rounded-xl shadow-md p-6 border-l-4 border-blue-600">
+          <p className="text-sm font-semibold text-gray-600  mb-2">
             Last 7 Days
           </p>
           <p className="text-3xl font-bold text-blue-600">{weeklyAvg}%</p>
-          <p className="text-xs text-gray-500 mt-2">Weekly recovery rate</p>
+          <p className="text-xs text-gray-500  mt-2">Weekly recovery rate</p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-green-600">
-          <p className="text-sm font-semibold text-gray-600 mb-2">Best Day</p>
+        <div className="bg-white  rounded-xl shadow-md p-6 border-l-4 border-green-600">
+          <p className="text-sm font-semibold text-gray-600  mb-2">Best Day</p>
           <p className="text-3xl font-bold text-green-600">
             {Math.max(
               ...recoveryData.map((d) => parseFloat(d.recoveryPercentage)),
             )}
             %
           </p>
-          <p className="text-xs text-gray-500 mt-2">Peak recovery day</p>
+          <p className="text-xs text-gray-500  mt-2">Peak recovery day</p>
         </div>
       </div>
 
       {/* Recovery Rate Trend */}
-      <div className="bg-white rounded-2xl shadow-lg p-6">
-        <h3 className="text-xl font-bold text-gray-900 mb-4">
+      <div className="bg-white  rounded-2xl shadow-lg p-6">
+        <h3 className="text-xl font-bold text-gray-900  mb-4">
           Recovery Rate Over Time
         </h3>
         <ResponsiveContainer width="100%" height={350}>
@@ -210,12 +210,12 @@ const RecoveryRate = () => {
       </div>
 
       {/* Recovery Factors */}
-      <div className="bg-white rounded-2xl shadow-lg p-6">
-        <h3 className="text-xl font-bold text-gray-900 mb-4">
+      <div className="bg-white  rounded-2xl shadow-lg p-6">
+        <h3 className="text-xl font-bold text-gray-900  mb-4">
           🔍 Factors Affecting Recovery
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+          <div className="bg-green-50  border border-green-200 rounded-lg p-4">
             <p className="font-bold text-green-900">
               ✅ Improves Recovery Speed
             </p>
@@ -228,7 +228,7 @@ const RecoveryRate = () => {
             </ul>
           </div>
 
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+          <div className="bg-red-50  border border-red-200 rounded-lg p-4">
             <p className="font-bold text-red-900">❌ Slows Recovery Speed</p>
             <ul className="text-sm text-red-800 mt-2 space-y-1">
               <li>✗ Sleep deprivation</li>

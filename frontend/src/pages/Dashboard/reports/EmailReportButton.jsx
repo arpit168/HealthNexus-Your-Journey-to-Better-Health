@@ -281,7 +281,7 @@ export default function EmailReportButton({ reportData, onComplete }) {
                 <label className="block text-white font-semibold mb-3">
                   Email Format
                 </label>
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {["pdf", "html", "csv"].map((fmt) => (
                     <button
                       key={fmt}
@@ -303,7 +303,7 @@ export default function EmailReportButton({ reportData, onComplete }) {
                 <label className="block text-white font-semibold mb-3">
                   Schedule
                 </label>
-                <div className="grid grid-cols-2 gap-3 mb-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
                   {["now", "schedule"].map((sched) => (
                     <button
                       key={sched}
@@ -321,7 +321,7 @@ export default function EmailReportButton({ reportData, onComplete }) {
                   ))}
                 </div>
                 {options.scheduleTime === "schedule" && (
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <input
                       type="date"
                       value={options.scheduleDate}
@@ -384,7 +384,7 @@ export default function EmailReportButton({ reportData, onComplete }) {
                 <label className="block text-white font-semibold mb-3">
                   Share to Social Media
                 </label>
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-2">
                   {[
                     { name: "Slack", icon: "💬" },
                     { name: "Teams", icon: "📊" },
@@ -407,7 +407,7 @@ export default function EmailReportButton({ reportData, onComplete }) {
                 <p className="text-gray-400 text-sm font-semibold mb-2">
                   Email Preview
                 </p>
-                <p className="text-gray-300 text-sm">
+                <p className="text-gray-300 text-sm break-all">
                   To: {options.recipients.join(", ")}{" "}
                   {options.cc.length > 0 && `| CC: ${options.cc.join(", ")}`}
                 </p>
@@ -418,7 +418,7 @@ export default function EmailReportButton({ reportData, onComplete }) {
             </div>
 
             {/* Footer */}
-            <div className="flex gap-3 p-6 border-t border-gray-700">
+            <div className="flex flex-col sm:flex-row gap-3 p-6 border-t border-gray-700">
               <button
                 onClick={() => setShowModal(false)}
                 disabled={sending || success}

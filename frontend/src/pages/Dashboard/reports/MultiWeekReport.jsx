@@ -45,17 +45,17 @@ export default function MultiWeekReport() {
   return (
     <div className="space-y-6 animate-fadeIn">
       {/* Header with enhanced linear and glass effect */}
-      <div className="bg-linear-to-r from-blue-900/80 to-purple-900/80 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-blue-500/20">
-        <div className="flex justify-between items-center mb-6">
+      <div className="bg-linear-to-r from-blue-900/80 to-purple-900/80 backdrop-blur-md p-6 md:p-8 rounded-2xl shadow-2xl border border-blue-500/20">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
           <div>
-            <h2 className="text-4xl font-extrabold text-white mb-2 drop-shadow-lg">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-2 drop-shadow-lg">
               📈 Multi-Week Report
             </h2>
             <p className="text-blue-100 text-lg">
               Comprehensive fitness analytics and insights over time
             </p>
           </div>
-          <div className="flex gap-3">
+          <div className="flex flex-wrap gap-3 w-full md:w-auto">
             <button
               onClick={() => setBookmarked(!bookmarked)}
               className={`p-3 rounded-xl transition-all transform hover:scale-110 duration-300 ${
@@ -80,7 +80,7 @@ export default function MultiWeekReport() {
         </div>
 
         {/* Controls */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           {/* Week Count Selector */}
           <div>
             <label className="block text-sm text-gray-300 mb-2">
@@ -153,12 +153,12 @@ export default function MultiWeekReport() {
       </div>
 
       {/* Tab Navigation with enhanced styling */}
-      <div className="flex gap-3 bg-gray-900/50 backdrop-blur-sm p-2 rounded-2xl border border-gray-700/50">
+      <div className="flex gap-3 bg-gray-900/50 backdrop-blur-sm p-2 rounded-2xl border border-gray-700/50 overflow-x-auto scrollbar-hide">
         {["overview", "charts", "tables", "insights"].map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`flex-1 px-6 py-3 font-semibold rounded-xl transition-all capitalize ${
+            className={`flex-1 min-w-[120px] whitespace-nowrap px-6 py-3 font-semibold rounded-xl transition-all capitalize ${
               activeTab === tab
                 ? "bg-linear-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/30 scale-105"
                 : "text-gray-400 hover:text-white hover:bg-gray-800/50"

@@ -433,7 +433,7 @@ const Settings = () => {
         <div className="flex items-center justify-center min-h-screen">
           <div className="text-center">
             <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-            <p className="text-gray-600">Loading your settings...</p>
+            <p className="text-gray-600 ">Loading your settings...</p>
           </div>
         </div>
       </DashboardLayout>
@@ -1229,29 +1229,6 @@ const Settings = () => {
                   </div>
                 </div>
 
-                <div className="form-group">
-                  <label>Theme</label>
-                  <div className="radio-group horizontal">
-                    {[
-                      { value: "light", label: "☀️ Light" },
-                      { value: "dark", label: "🌙 Dark" },
-                      { value: "system", label: "💻 System" },
-                    ].map((theme) => (
-                      <label key={theme.value} className="radio-option">
-                        <input
-                          type="radio"
-                          name="theme"
-                          value={theme.value}
-                          checked={appPreferences.theme === theme.value}
-                          onChange={(e) =>
-                            handleAppPreferenceChange("theme", e.target.value)
-                          }
-                        />
-                        <span className="radio-label">{theme.label}</span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
               </div>
             </>
           )}
@@ -2212,11 +2189,14 @@ const Settings = () => {
           }
 
           .settings-tabs {
-            flex-direction: column;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 0.5rem; /* Space for scrollbar */
           }
 
           .tab-btn {
-            width: 100%;
+            white-space: nowrap;
           }
         }
       `}</style>

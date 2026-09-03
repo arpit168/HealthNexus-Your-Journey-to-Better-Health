@@ -36,10 +36,10 @@ const ResetPasswordModal = ({ onClose }) => {
 
   return (
     <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex justify-center items-center z-50 px-4">
-      <div className="bg-white w-full max-w-md rounded-2xl shadow-2xl animate-fadeIn">
+      <div className="bg-white  w-full max-w-md rounded-2xl shadow-2xl animate-fadeIn">
         {/* Header */}
         <div className="flex justify-between items-center px-6 py-4 border-b">
-          <h2 className="text-xl font-semibold text-gray-800">
+          <h2 className="text-xl font-semibold text-gray-800 ">
             Reset Password
           </h2>
           <button
@@ -89,7 +89,7 @@ const ResetPasswordModal = ({ onClose }) => {
               type="button"
               onClick={onClose}
               disabled={loading}
-              className="px-5 py-2 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-100 transition disabled:opacity-50"
+              className="px-5 py-2 rounded-lg border border-gray-300  text-gray-600  hover:bg-gray-100  transition disabled:opacity-50"
             >
               Cancel
             </button>
@@ -117,14 +117,14 @@ const ResetPasswordModal = ({ onClose }) => {
 /* 🔹 Reusable input field for light theme */
 const InputField = ({ label, error, ...props }) => (
   <div>
-    <label className="block text-sm font-medium text-gray-700 mb-1">
+    <label className="block text-sm font-medium text-gray-700  mb-1">
       {label}
     </label>
     <input
       {...props}
-      className={`w-full border rounded-lg p-2.5 bg-gray-50 text-gray-800
+      className={`w-full border rounded-lg p-2.5 bg-gray-50  text-gray-800 
         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition
-        ${error ? "border-red-500 bg-red-50" : "border-gray-300"}
+        ${error ? "border-red-500 bg-red-50 " : "border-gray-300 "}
       `}
     />
     {error && <p className="text-red-500 text-xs mt-1">{error}</p>}

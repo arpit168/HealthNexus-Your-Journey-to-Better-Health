@@ -95,7 +95,7 @@ export default function PDFDownloadButton({ reportData, onComplete }) {
                 <label className="block text-white font-semibold mb-3">
                   Page Size
                 </label>
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {["A4", "Letter", "A3"].map((size) => (
                     <button
                       key={size}
@@ -117,7 +117,7 @@ export default function PDFDownloadButton({ reportData, onComplete }) {
                 <label className="block text-white font-semibold mb-3">
                   Orientation
                 </label>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {["portrait", "landscape"].map((orient) => (
                     <button
                       key={orient}
@@ -141,7 +141,7 @@ export default function PDFDownloadButton({ reportData, onComplete }) {
                 <label className="block text-white font-semibold mb-3">
                   Quality
                 </label>
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {["draft", "standard", "high"].map((qual) => (
                     <button
                       key={qual}
@@ -222,7 +222,7 @@ export default function PDFDownloadButton({ reportData, onComplete }) {
                   className="w-5 h-5 rounded accent-blue-600"
                 />
                 <span className="text-gray-300">Add Premium Watermark</span>
-                <span className="text-xs text-gray-500">(Premium only)</span>
+                <span className="text-xs text-gray-500 ">(Premium only)</span>
               </label>
 
               {/* Preview */}
@@ -230,10 +230,10 @@ export default function PDFDownloadButton({ reportData, onComplete }) {
                 <p className="text-gray-400 text-sm font-semibold mb-2">
                   Download Preview
                 </p>
-                <p className="text-gray-300 text-sm">
+                <p className="text-gray-300 text-sm break-all">
                   📄 fitness_report_{new Date().toISOString().split("T")[0]}.pdf
                 </p>
-                <p className="text-gray-500 text-xs mt-2">
+                <p className="text-gray-500  text-xs mt-2">
                   Size:{" "}
                   {options.quality === "high"
                     ? "~5-8 MB"
@@ -245,7 +245,7 @@ export default function PDFDownloadButton({ reportData, onComplete }) {
             </div>
 
             {/* Footer */}
-            <div className="flex gap-3 p-6 border-t border-gray-700">
+            <div className="flex flex-col sm:flex-row gap-3 p-6 border-t border-gray-700">
               <button
                 onClick={() => setShowModal(false)}
                 disabled={success}

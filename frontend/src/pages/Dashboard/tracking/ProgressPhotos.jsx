@@ -64,18 +64,18 @@ const ProgressPhotos = ({ photos = [], onUpload, onDelete }) => {
   return (
     <div className="space-y-6">
       {/* Header with Actions */}
-      <div className="bg-white rounded-2xl shadow-lg p-6">
+      <div className="bg-white  rounded-2xl shadow-lg p-6">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <Camera className="w-6 h-6 text-purple-600" />
-            <h2 className="text-2xl font-bold text-gray-800">
+            <h2 className="text-2xl font-bold text-gray-800 ">
               Progress Photos
             </h2>
           </div>
           <div className="flex flex-wrap gap-3">
             <button
               onClick={() => setPrivacyMode(!privacyMode)}
-              className="flex items-center gap-2 px-4 py-2 bg-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-300 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-gray-200  text-gray-700  font-semibold rounded-lg hover:bg-gray-300 transition-colors"
             >
               {privacyMode ? (
                 <Lock className="w-4 h-4" />
@@ -106,15 +106,15 @@ const ProgressPhotos = ({ photos = [], onUpload, onDelete }) => {
       </div>
 
       {/* Comparison Mode Toggle */}
-      <div className="bg-white rounded-xl shadow-sm p-4">
+      <div className="bg-white  rounded-xl shadow-sm p-4">
         <div className="flex items-center justify-between">
-          <span className="font-semibold text-gray-700">Comparison Mode</span>
+          <span className="font-semibold text-gray-700 ">Comparison Mode</span>
           <button
             onClick={() => setComparisonMode(!comparisonMode)}
             className={`px-4 py-2 rounded-lg font-semibold transition-colors ${
               comparisonMode
                 ? "bg-purple-600 text-white"
-                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                : "bg-gray-200  text-gray-700  hover:bg-gray-300"
             }`}
           >
             {comparisonMode ? "Exit Comparison" : "Compare Photos"}
@@ -124,16 +124,16 @@ const ProgressPhotos = ({ photos = [], onUpload, onDelete }) => {
 
       {/* Comparison View */}
       {comparisonMode && (
-        <div className="bg-white rounded-2xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-800 mb-4">
+        <div className="bg-white  rounded-2xl shadow-lg p-6">
+          <h3 className="text-xl font-bold text-gray-800  mb-4">
             Before & After Comparison
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Before Photo */}
             <div>
-              <h4 className="font-semibold text-gray-700 mb-3">Before</h4>
+              <h4 className="font-semibold text-gray-700  mb-3">Before</h4>
               {comparePhotos.before ? (
-                <div className="relative rounded-lg overflow-hidden bg-gray-100 aspect-3/4">
+                <div className="relative rounded-lg overflow-hidden bg-gray-100  aspect-3/4">
                   <img
                     src={comparePhotos.before.url}
                     alt="Before"
@@ -156,7 +156,7 @@ const ProgressPhotos = ({ photos = [], onUpload, onDelete }) => {
                   </div>
                 </div>
               ) : (
-                <div className="border-2 border-dashed border-gray-300 rounded-lg aspect-3/4 flex items-center justify-center">
+                <div className="border-2 border-dashed border-gray-300  rounded-lg aspect-3/4 flex items-center justify-center">
                   <p className="text-gray-400">Select a before photo</p>
                 </div>
               )}
@@ -164,9 +164,9 @@ const ProgressPhotos = ({ photos = [], onUpload, onDelete }) => {
 
             {/* After Photo */}
             <div>
-              <h4 className="font-semibold text-gray-700 mb-3">After</h4>
+              <h4 className="font-semibold text-gray-700  mb-3">After</h4>
               {comparePhotos.after ? (
-                <div className="relative rounded-lg overflow-hidden bg-gray-100 aspect-3/4">
+                <div className="relative rounded-lg overflow-hidden bg-gray-100  aspect-3/4">
                   <img
                     src={comparePhotos.after.url}
                     alt="After"
@@ -189,7 +189,7 @@ const ProgressPhotos = ({ photos = [], onUpload, onDelete }) => {
                   </div>
                 </div>
               ) : (
-                <div className="border-2 border-dashed border-gray-300 rounded-lg aspect-3/4 flex items-center justify-center">
+                <div className="border-2 border-dashed border-gray-300  rounded-lg aspect-3/4 flex items-center justify-center">
                   <p className="text-gray-400">Select an after photo</p>
                 </div>
               )}
@@ -200,17 +200,17 @@ const ProgressPhotos = ({ photos = [], onUpload, onDelete }) => {
 
       {/* Timeline Slider */}
       {sortedPhotos.length > 0 && (
-        <div className="bg-white rounded-2xl shadow-lg p-6">
+        <div className="bg-white  rounded-2xl shadow-lg p-6">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-xl font-bold text-gray-800">Timeline</h3>
-            <span className="text-sm text-gray-600">
+            <h3 className="text-xl font-bold text-gray-800 ">Timeline</h3>
+            <span className="text-sm text-gray-600 ">
               Photo {timelineIndex + 1} of {sortedPhotos.length}
             </span>
           </div>
 
           {/* Main Photo Display */}
           <div className="relative">
-            <div className="relative rounded-lg overflow-hidden bg-gray-100 aspect-3/4 max-w-md mx-auto">
+            <div className="relative rounded-lg overflow-hidden bg-gray-100  aspect-3/4 max-w-md mx-auto">
               <img
                 src={sortedPhotos[timelineIndex]?.url || "/placeholder.jpg"}
                 alt={`Progress ${timelineIndex + 1}`}
@@ -233,16 +233,16 @@ const ProgressPhotos = ({ photos = [], onUpload, onDelete }) => {
             <button
               onClick={prevPhoto}
               disabled={timelineIndex === 0}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 p-3 bg-white/90 rounded-full shadow-lg hover:bg-white disabled:opacity-50 disabled:cursor-not-allowed"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 p-3 bg-white/90 rounded-full shadow-lg hover:bg-white  disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <ChevronLeft className="w-6 h-6 text-gray-800" />
+              <ChevronLeft className="w-6 h-6 text-gray-800 " />
             </button>
             <button
               onClick={nextPhoto}
               disabled={timelineIndex === sortedPhotos.length - 1}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 p-3 bg-white/90 rounded-full shadow-lg hover:bg-white disabled:opacity-50 disabled:cursor-not-allowed"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 p-3 bg-white/90 rounded-full shadow-lg hover:bg-white  disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <ChevronRight className="w-6 h-6 text-gray-800" />
+              <ChevronRight className="w-6 h-6 text-gray-800 " />
             </button>
           </div>
 
@@ -264,13 +264,13 @@ const ProgressPhotos = ({ photos = [], onUpload, onDelete }) => {
       )}
 
       {/* Photo Grid */}
-      <div className="bg-white rounded-2xl shadow-lg p-6">
-        <h3 className="text-xl font-bold text-gray-800 mb-4">All Photos</h3>
+      <div className="bg-white  rounded-2xl shadow-lg p-6">
+        <h3 className="text-xl font-bold text-gray-800  mb-4">All Photos</h3>
         {sortedPhotos.length > 0 ? (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {sortedPhotos.map((photo, index) => (
               <div key={photo.id || index} className="relative group">
-                <div className="relative rounded-lg overflow-hidden bg-gray-100 aspect-square">
+                <div className="relative rounded-lg overflow-hidden bg-gray-100  aspect-square">
                   <img
                     src={photo.url || "/placeholder.jpg"}
                     alt={`Progress ${index + 1}`}
@@ -321,12 +321,12 @@ const ProgressPhotos = ({ photos = [], onUpload, onDelete }) => {
             ))}
           </div>
         ) : (
-          <div className="bg-purple-50 rounded-2xl border-2 border-dashed border-purple-300 p-12 text-center">
+          <div className="bg-purple-50  rounded-2xl border-2 border-dashed border-purple-300 p-12 text-center">
             <Camera className="w-16 h-16 text-purple-400 mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-gray-800 mb-2">
+            <h3 className="text-xl font-bold text-gray-800  mb-2">
               No Photos Yet
             </h3>
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-600  mb-4">
               Start documenting your transformation! Upload or take progress
               photos.
             </p>
@@ -335,7 +335,7 @@ const ProgressPhotos = ({ photos = [], onUpload, onDelete }) => {
       </div>
 
       {/* Privacy Notice */}
-      <div className="bg-blue-50 rounded-xl border border-blue-200 p-4">
+      <div className="bg-blue-50  rounded-xl border border-blue-200 p-4">
         <div className="flex items-start gap-3">
           <Lock className="w-5 h-5 text-blue-600 mt-0.5" />
           <div>

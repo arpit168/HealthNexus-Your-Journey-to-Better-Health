@@ -98,11 +98,11 @@ const Loader = ({
         <h2 className="text-3xl font-bold bg-linear-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent animate-pulse">
           HealthNexus
         </h2>
-        <p className="text-gray-500 text-sm mt-1">Your Health Companion</p>
+        <p className="text-gray-500  text-sm mt-1">Your Health Companion</p>
       </div>
 
       {/* Progress Bar */}
-      <div className="w-64 h-2 bg-gray-200 rounded-full overflow-hidden">
+      <div className="w-64 h-2 bg-gray-200  rounded-full overflow-hidden">
         <div
           className="h-full bg-linear-to-r from-blue-500 to-indigo-600 rounded-full transition-all duration-300 ease-out"
           style={{ width: `${progress}%` }}
@@ -110,7 +110,7 @@ const Loader = ({
       </div>
 
       {/* Loading Text */}
-      <div className="flex items-center space-x-2 text-gray-600">
+      <div className="flex items-center space-x-2 text-gray-600 ">
         <svg
           className="w-4 h-4 animate-spin"
           fill="none"
@@ -130,7 +130,7 @@ const Loader = ({
       {/* Health Tips Carousel */}
       <div className="max-w-xs text-center">
         <p className="text-xs text-gray-400 mb-1">💡 Health Tip</p>
-        <p className="text-sm text-gray-600 animate-[fadeIn_0.5s_ease-in-out]">
+        <p className="text-sm text-gray-600  animate-[fadeIn_0.5s_ease-in-out]">
           {healthTips[tipIndex]}
         </p>
       </div>
@@ -184,7 +184,7 @@ export const MinimalLoader = ({ size = "md", color = "blue" }) => {
     <div className="flex flex-col items-center justify-center space-y-3">
       <div className="relative">
         <div
-          className={`${sizeClasses[size]} border-4 border-gray-200 rounded-full`}
+          className={`${sizeClasses[size]} border-4 border-gray-200  rounded-full`}
         />
         <div
           className={`absolute top-0 left-0 ${sizeClasses[size]} border-4 ${colorClasses[color]} border-t-transparent rounded-full animate-spin`}
@@ -204,7 +204,7 @@ export const MinimalLoader = ({ size = "md", color = "blue" }) => {
             d="M13 10V3L4 14h7v7l9-11h-7z"
           />
         </svg>
-        <span className="text-sm text-gray-600">HealthNexus</span>
+        <span className="text-sm text-gray-600 ">HealthNexus</span>
       </div>
     </div>
   );
@@ -231,7 +231,7 @@ export const PageLoader = () => (
       </div>
 
       {/* Main content */}
-      <div className="bg-white rounded-3xl shadow-2xl p-10 flex flex-col items-center space-y-6 border border-gray-100">
+      <div className="bg-white  rounded-3xl shadow-2xl p-10 flex flex-col items-center space-y-6 border border-gray-100 ">
         {/* Pulse animation */}
         <div className="relative">
           <div className="absolute inset-0 bg-blue-400 rounded-full animate-ping opacity-20" />
@@ -252,7 +252,7 @@ export const PageLoader = () => (
           </div>
         </div>
 
-        <h2 className="text-2xl font-bold text-gray-800">HealthNexus</h2>
+        <h2 className="text-2xl font-bold text-gray-800 ">HealthNexus</h2>
 
         {/* Medical cross animation */}
         <div className="flex space-x-1">
@@ -277,8 +277,8 @@ export const DashboardSkeleton = () => (
   <div className="space-y-6">
     {/* Header Skeleton */}
     <div className="flex items-center justify-between animate-pulse">
-      <div className="h-8 bg-gray-200 rounded w-48" />
-      <div className="h-10 w-10 bg-gray-200 rounded-full" />
+      <div className="h-8 bg-gray-200  rounded w-48" />
+      <div className="h-10 w-10 bg-gray-200  rounded-full" />
     </div>
 
     {/* Stats Grid Skeleton */}
@@ -286,23 +286,23 @@ export const DashboardSkeleton = () => (
       {[1, 2, 3].map((i) => (
         <div
           key={i}
-          className="bg-white p-4 rounded-xl shadow-sm animate-pulse"
+          className="bg-white  p-4 rounded-xl shadow-sm animate-pulse"
         >
           <div className="flex items-center justify-between">
             <div className="space-y-2">
-              <div className="h-4 bg-gray-200 rounded w-20" />
-              <div className="h-6 bg-gray-200 rounded w-16" />
+              <div className="h-4 bg-gray-200  rounded w-20" />
+              <div className="h-6 bg-gray-200  rounded w-16" />
             </div>
-            <div className="w-10 h-10 bg-gray-200 rounded-lg" />
+            <div className="w-10 h-10 bg-gray-200  rounded-lg" />
           </div>
         </div>
       ))}
     </div>
 
     {/* Chart Skeleton */}
-    <div className="bg-white p-6 rounded-xl shadow-sm animate-pulse">
-      <div className="h-4 bg-gray-200 rounded w-32 mb-4" />
-      <div className="h-48 bg-gray-200 rounded" />
+    <div className="bg-white  p-6 rounded-xl shadow-sm animate-pulse">
+      <div className="h-4 bg-gray-200  rounded w-32 mb-4" />
+      <div className="h-48 bg-gray-200  rounded" />
     </div>
   </div>
 );

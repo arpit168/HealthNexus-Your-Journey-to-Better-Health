@@ -132,21 +132,21 @@ const MomentumScore = () => {
       <div
         className={`bg-linear-to-br from-${status.color}-50 to-${status.color}-100 rounded-xl p-6 border-2 border-${status.color}-200`}
       >
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
-            <h3 className="text-xl font-bold text-gray-800 mb-2">
+            <h3 className="text-lg md:text-xl font-bold text-gray-800  mb-2">
               {status.emoji} Current Momentum Score
             </h3>
-            <p className="text-5xl font-bold text-gray-900">{currentScore}</p>
+            <p className="text-4xl md:text-5xl font-bold text-gray-900 ">{currentScore}</p>
             <p
-              className={`text-lg font-semibold text-${status.color}-700 mt-2`}
+              className={`text-base md:text-lg font-semibold text-${status.color}-700 mt-2`}
             >
               {status.level}
             </p>
-            <p className="text-gray-600 mt-1">{status.description}</p>
+            <p className="text-gray-600  mt-1 text-sm md:text-base">{status.description}</p>
           </div>
-          <div className="text-right">
-            <div className="flex items-center gap-2 mb-2">
+          <div className="md:text-right w-full md:w-auto">
+            <div className="flex items-center md:justify-end gap-2 mb-2">
               {stats.trend > 0 ? (
                 <>
                   <TrendingUp className="text-green-600" size={24} />
@@ -161,26 +161,26 @@ const MomentumScore = () => {
                 </>
               ) : (
                 <>
-                  <Minus className="text-gray-600" size={24} />
-                  <span className="text-gray-600 font-bold">0</span>
+                  <Minus className="text-gray-600 " size={24} />
+                  <span className="text-gray-600  font-bold">0</span>
                 </>
               )}
             </div>
-            <p className="text-sm text-gray-600">vs. start of period</p>
+            <p className="text-sm text-gray-600 ">vs. start of period</p>
           </div>
         </div>
       </div>
 
       {/* Time Range Selector */}
-      <div className="flex gap-2">
+      <div className="flex flex-wrap md:flex-nowrap gap-2">
         {["7days", "30days", "90days"].map((range) => (
           <button
             key={range}
             onClick={() => setTimeRange(range)}
-            className={`px-4 py-2 rounded-lg font-medium transition-all ${
+            className={`flex-1 md:flex-none min-w-[100px] px-4 py-2 rounded-lg font-medium transition-all ${
               timeRange === range
                 ? "bg-green-600 text-white"
-                : "bg-white text-gray-700 hover:bg-gray-100"
+                : "bg-white  text-gray-700  hover:bg-gray-100 "
             }`}
           >
             {range === "7days"
@@ -193,8 +193,8 @@ const MomentumScore = () => {
       </div>
 
       {/* Momentum Trend Chart */}
-      <div className="bg-white rounded-xl shadow-md p-6">
-        <h4 className="font-bold text-gray-800 mb-4">
+      <div className="bg-white  rounded-xl shadow-md p-6">
+        <h4 className="font-bold text-gray-800  mb-4">
           📊 Momentum Trend Over Time
         </h4>
         <ResponsiveContainer width="100%" height={300}>
@@ -254,57 +254,57 @@ const MomentumScore = () => {
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="bg-white rounded-xl shadow-md p-6">
+        <div className="bg-white  rounded-xl shadow-md p-6">
           <div className="flex items-center gap-3 mb-2">
             <div className="p-2 bg-green-100 rounded-lg">
               <TrendingUp className="text-green-600" size={24} />
             </div>
             <div>
-              <p className="text-2xl font-bold text-gray-800">
+              <p className="text-2xl font-bold text-gray-800 ">
                 {stats.average}
               </p>
-              <p className="text-sm text-gray-600">Average Score</p>
+              <p className="text-sm text-gray-600 ">Average Score</p>
             </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-6">
+        <div className="bg-white  rounded-xl shadow-md p-6">
           <div className="flex items-center gap-3 mb-2">
             <div className="p-2 bg-blue-100 rounded-lg">
               <Calendar className="text-blue-600" size={24} />
             </div>
             <div>
-              <p className="text-2xl font-bold text-gray-800">{stats.streak}</p>
-              <p className="text-sm text-gray-600">Day Streak</p>
+              <p className="text-2xl font-bold text-gray-800 ">{stats.streak}</p>
+              <p className="text-sm text-gray-600 ">Day Streak</p>
             </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-6">
+        <div className="bg-white  rounded-xl shadow-md p-6">
           <div className="flex items-center gap-3 mb-2">
             <div className="p-2 bg-purple-100 rounded-lg">
               <Award className="text-purple-600" size={24} />
             </div>
             <div>
-              <p className="text-2xl font-bold text-gray-800">
+              <p className="text-2xl font-bold text-gray-800 ">
                 {stats.totalWorkouts}
               </p>
-              <p className="text-sm text-gray-600">Workouts Done</p>
+              <p className="text-sm text-gray-600 ">Workouts Done</p>
             </div>
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-md p-6">
+        <div className="bg-white  rounded-xl shadow-md p-6">
           <div className="flex items-center gap-3 mb-2">
             <div className={`p-2 bg-${status.color}-100 rounded-lg`}>
               <TrendingUp className={`text-${status.color}-600`} size={24} />
             </div>
             <div>
-              <p className="text-2xl font-bold text-gray-800">
+              <p className="text-2xl font-bold text-gray-800 ">
                 {stats.trend > 0 ? "+" : ""}
                 {stats.trend}
               </p>
-              <p className="text-sm text-gray-600">Trend Change</p>
+              <p className="text-sm text-gray-600 ">Trend Change</p>
             </div>
           </div>
         </div>
@@ -344,9 +344,9 @@ const MomentumScore = () => {
       </div>
 
       {/* Personalized Recommendation */}
-      <div className="bg-white rounded-xl shadow-md p-6 border-l-4 border-green-500">
-        <h4 className="font-bold text-gray-800 mb-2">💡 Your Next Steps</h4>
-        <p className="text-gray-700">
+      <div className="bg-white  rounded-xl shadow-md p-6 border-l-4 border-green-500">
+        <h4 className="font-bold text-gray-800  mb-2">💡 Your Next Steps</h4>
+        <p className="text-gray-700 ">
           {currentScore >= 80 &&
             "You're crushing it! Maintain this momentum by keeping your routine consistent. Consider setting a new challenge to keep things exciting."}
           {currentScore >= 60 &&
