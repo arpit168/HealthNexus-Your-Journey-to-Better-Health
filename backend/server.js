@@ -23,6 +23,7 @@ const app = express();
 
 const allowedOrigins = [
   "http://localhost:5173",
+  "https://health-nexus-your-journey-to-better.vercel.app/",
   ...(process.env.FRONTEND_URL ? [process.env.FRONTEND_URL] : []),
 ];
 
