@@ -1,9 +1,13 @@
 import axios from "axios";
 
 // In development, Vite proxy routes API calls to the backend, so baseURL is "".
-// In production, set VITE_API_URL to your deployed backend URL (e.g., https://api.yourdomain.com).
+// In production, we use the deployed Render backend URL.
+const baseURL = import.meta.env.PROD 
+  ? "https://healthnexus-your-journey-to-better.onrender.com/api" 
+  : (import.meta.env.VITE_API_URL || "/api");
+
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "/api",
+  baseURL,
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",
