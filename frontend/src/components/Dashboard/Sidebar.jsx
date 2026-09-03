@@ -26,6 +26,7 @@ const Sidebar = () => {
       icon: FiUser,
       path: "/profile",
       color: "text-pink-600",
+      hideOnMobile: true,
     },
     {
       id: 1,
@@ -33,6 +34,7 @@ const Sidebar = () => {
       icon: FiTrendingUp,
       path: "/tracking",
       color: "text-purple-600",
+      hideOnMobile: true,
     },
     {
       id: 2,
@@ -40,6 +42,7 @@ const Sidebar = () => {
       icon: FiBarChart2,
       path: "/analytics",
       color: "text-blue-600",
+      hideOnMobile: true,
     },
     {
       id: 2.5,
@@ -54,6 +57,7 @@ const Sidebar = () => {
       icon: FiMessageSquare,
       path: "/chat",
       color: "text-purple-600",
+      hideOnMobile: true,
     },
     {
       id: 4,
@@ -133,11 +137,11 @@ const Sidebar = () => {
               <button
                 key={item.id}
                 onClick={() => handleNavigation(item.path)}
-                className={`w-full flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 group ${
+                className={`w-full items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 group ${
                   active
                     ? "bg-linear-to-r from-blue-600 to-indigo-600 text-white shadow-lg"
                     : "text-gray-700 hover:bg-gray-100"
-                }`}
+                } ${item.hideOnMobile ? "hidden lg:flex" : "flex"}`}
               >
                 <Icon
                   className={`w-5 h-5 ${

@@ -23,7 +23,6 @@ const app = express();
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://vermillion-griffin-998a4f.netlify.app",
   ...(process.env.FRONTEND_URL ? [process.env.FRONTEND_URL] : []),
 ];
 
