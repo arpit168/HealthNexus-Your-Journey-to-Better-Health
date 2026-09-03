@@ -137,13 +137,17 @@ const MomentumScore = () => {
             <h3 className="text-lg md:text-xl font-bold text-gray-800  mb-2">
               {status.emoji} Current Momentum Score
             </h3>
-            <p className="text-4xl md:text-5xl font-bold text-gray-900 ">{currentScore}</p>
+            <p className="text-4xl md:text-5xl font-bold text-gray-900 ">
+              {currentScore}
+            </p>
             <p
               className={`text-base md:text-lg font-semibold text-${status.color}-700 mt-2`}
             >
               {status.level}
             </p>
-            <p className="text-gray-600  mt-1 text-sm md:text-base">{status.description}</p>
+            <p className="text-gray-600  mt-1 text-sm md:text-base">
+              {status.description}
+            </p>
           </div>
           <div className="md:text-right w-full md:w-auto">
             <div className="flex items-center md:justify-end gap-2 mb-2">
@@ -274,7 +278,9 @@ const MomentumScore = () => {
               <Calendar className="text-blue-600" size={24} />
             </div>
             <div>
-              <p className="text-2xl font-bold text-gray-800 ">{stats.streak}</p>
+              <p className="text-2xl font-bold text-gray-800 ">
+                {stats.streak}
+              </p>
               <p className="text-sm text-gray-600 ">Day Streak</p>
             </div>
           </div>

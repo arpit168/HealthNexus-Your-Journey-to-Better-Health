@@ -5,11 +5,14 @@ import User from "../models/userModel.js";
 export const Protect = async (req, res, next) => {
   try {
     let token;
-    
+
     // Check Authorization header first
-    if (req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
+    if (
+      req.headers.authorization &&
+      req.headers.authorization.startsWith("Bearer")
+    ) {
       token = req.headers.authorization.split(" ")[1];
-    } 
+    }
     // Fallback to cookie
     else if (req.cookies.accessToken || req.cookies.refreshToken) {
       token = req.cookies.accessToken || req.cookies.refreshToken;

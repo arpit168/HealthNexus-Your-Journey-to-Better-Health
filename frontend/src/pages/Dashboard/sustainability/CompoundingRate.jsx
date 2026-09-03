@@ -135,20 +135,26 @@ const CompoundingRate = () => {
             <h3 className="text-lg md:text-xl font-bold text-gray-800  mb-2">
               {status.emoji} Total Compounding Gain
             </h3>
-            <p className="text-4xl md:text-5xl font-bold text-gray-900 ">+{stats.total}%</p>
+            <p className="text-4xl md:text-5xl font-bold text-gray-900 ">
+              +{stats.total}%
+            </p>
             <p
               className={`text-base md:text-lg font-semibold text-${status.color}-700 mt-2`}
             >
               {status.level}
             </p>
-            <p className="text-gray-600  mt-1 text-sm md:text-base">{status.description}</p>
+            <p className="text-gray-600  mt-1 text-sm md:text-base">
+              {status.description}
+            </p>
           </div>
           <div className="md:text-right w-full md:w-auto text-left">
             <div className="mb-0 md:mb-4">
               <p className="text-2xl md:text-3xl font-bold text-green-600">
                 +{stats.perDay}%
               </p>
-              <p className="text-xs md:text-sm text-gray-600 ">Average Daily Improvement</p>
+              <p className="text-xs md:text-sm text-gray-600 ">
+                Average Daily Improvement
+              </p>
             </div>
           </div>
         </div>

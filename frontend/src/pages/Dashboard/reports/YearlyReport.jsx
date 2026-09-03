@@ -87,7 +87,9 @@ export default function YearlyReport() {
               className="bg-black/40 backdrop-blur-sm p-6 rounded-xl text-center border border-yellow-500/20 hover:border-yellow-400/40 transition-all transform hover:scale-105 hover:shadow-xl hover:shadow-yellow-500/20 duration-300"
             >
               <p className="text-yellow-300 text-4xl font-extrabold mb-2">✨</p>
-              <p className="text-white font-bold text-lg md:text-xl">{achievement}</p>
+              <p className="text-white font-bold text-lg md:text-xl">
+                {achievement}
+              </p>
             </div>
           ))}
         </div>
@@ -140,7 +142,9 @@ export default function YearlyReport() {
               <p className="text-2xl md:text-4xl font-extrabold text-white mt-2 md:mt-3">
                 {score}%
               </p>
-              <p className="text-gray-400 text-[10px] md:text-xs mt-1 md:mt-2">Avg Performance</p>
+              <p className="text-gray-400 text-[10px] md:text-xs mt-1 md:mt-2">
+                Avg Performance
+              </p>
             </div>
           ))}
         </div>

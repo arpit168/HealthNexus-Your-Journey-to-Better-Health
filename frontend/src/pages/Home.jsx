@@ -24,7 +24,9 @@ import {
 } from "react-icons/fi";
 import { useAuth } from "../context/AuthContext";
 import ResponsiveSlider from "../components/Common/ResponsiveSlider";
-import ResponsiveCard, { CardContent } from "../components/Common/ResponsiveCard";
+import ResponsiveCard, {
+  CardContent,
+} from "../components/Common/ResponsiveCard";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -182,7 +184,9 @@ const Home = () => {
                     onClick={() => navigate("/profile")}
                     className="group relative flex-1 min-w-[200px] px-8 py-4 bg-white  text-gray-700  rounded-xl font-semibold border-2 border-gray-200  hover:border-emerald-500 hover:text-emerald-600 transform hover:-translate-y-1 transition-all duration-300 overflow-hidden"
                   >
-                    <span className="relative z-10 flex items-center justify-center whitespace-nowrap">View Profile</span>
+                    <span className="relative z-10 flex items-center justify-center whitespace-nowrap">
+                      View Profile
+                    </span>
                     <div className="absolute inset-0 bg-linear-to-r from-gray-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </button>
                 </div>
@@ -202,7 +206,9 @@ const Home = () => {
                     onClick={() => navigate("/login")}
                     className="group relative flex-1 min-w-[200px] px-8 py-4 bg-white  text-gray-700  rounded-xl font-semibold border-2 border-gray-200  hover:border-emerald-500 hover:text-emerald-600 transform hover:-translate-y-1 transition-all duration-300 overflow-hidden"
                   >
-                    <span className="relative z-10 flex items-center justify-center whitespace-nowrap">Sign In</span>
+                    <span className="relative z-10 flex items-center justify-center whitespace-nowrap">
+                      Sign In
+                    </span>
                     <div className="absolute inset-0 bg-linear-to-r from-gray-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </button>
                 </div>
@@ -380,21 +386,21 @@ const Home = () => {
                     <div
                       className={`absolute inset-0 bg-linear-to-br ${feature.linear} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-500`}
                     ></div>
-  
+
                     <div
                       className={`w-14 h-14 bg-linear-to-br ${feature.linear} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
                     >
                       <div className="text-white">{feature.icon}</div>
                     </div>
-  
+
                     <h3 className="text-lg font-semibold text-gray-900  mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-emerald-600 group-hover:to-blue-600 transition-all duration-300">
                       {feature.title}
                     </h3>
-  
+
                     <p className="text-sm text-gray-600  leading-relaxed">
                       {feature.description}
                     </p>
-  
+
                     <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <FiArrowRight className="w-5 h-5 text-emerald-500" />
                     </div>

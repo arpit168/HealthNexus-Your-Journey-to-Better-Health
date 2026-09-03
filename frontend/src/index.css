@@ -20,13 +20,15 @@ body::-webkit-scrollbar {
 }
 
 @layer base {
-  html, body {
+  html,
+  body {
     overflow-x: hidden;
     width: 100%;
     -webkit-text-size-adjust: 100%;
   }
 
-  img, video {
+  img,
+  video {
     max-width: 100%;
     height: auto;
   }
@@ -34,9 +36,9 @@ body::-webkit-scrollbar {
 
 /* Hide scrollbar for swipers */
 .scrollbar-hide::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

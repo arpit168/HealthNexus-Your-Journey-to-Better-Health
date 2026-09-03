@@ -89,7 +89,9 @@ const WorkoutLogger = ({ exercise, onSubmit, initialData }) => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: index * 0.05 }}
             className={`bg-white  rounded-lg p-4 ${
-              set.completed ? "ring-2 ring-green-500" : "border border-gray-200 "
+              set.completed
+                ? "ring-2 ring-green-500"
+                : "border border-gray-200 "
             }`}
           >
             <div className="grid grid-cols-12 gap-3 items-center">
@@ -129,7 +131,9 @@ const WorkoutLogger = ({ exercise, onSubmit, initialData }) => {
 
               {/* Reps Input */}
               <div className="col-span-3">
-                <label className="block text-xs text-gray-600  mb-1">Reps</label>
+                <label className="block text-xs text-gray-600  mb-1">
+                  Reps
+                </label>
                 <input
                   type="number"
                   value={set.reps}

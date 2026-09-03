@@ -1228,7 +1228,6 @@ const Settings = () => {
                     </select>
                   </div>
                 </div>
-
               </div>
             </>
           )}

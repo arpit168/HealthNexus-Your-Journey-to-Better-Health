@@ -199,20 +199,26 @@ const MicroAdjustmentCount = () => {
             <h3 className="text-lg md:text-xl font-bold text-gray-800  mb-2">
               {status.emoji} Total Micro-Adjustments
             </h3>
-            <p className="text-4xl md:text-5xl font-bold text-gray-900 ">{stats.total}</p>
+            <p className="text-4xl md:text-5xl font-bold text-gray-900 ">
+              {stats.total}
+            </p>
             <p
               className={`text-base md:text-lg font-semibold text-${status.color}-700 mt-2`}
             >
               {status.level}
             </p>
-            <p className="text-gray-600  mt-1 text-sm md:text-base">{status.description}</p>
+            <p className="text-gray-600  mt-1 text-sm md:text-base">
+              {status.description}
+            </p>
           </div>
           <div className="md:text-right w-full md:w-auto flex flex-row md:flex-col justify-between md:justify-start">
             <div className="mb-0 md:mb-2 text-left md:text-right">
               <p className="text-2xl md:text-3xl font-bold text-blue-600">
                 {stats.weeklyAvg}
               </p>
-              <p className="text-xs md:text-sm text-gray-600 ">Per Day (7-day avg)</p>
+              <p className="text-xs md:text-sm text-gray-600 ">
+                Per Day (7-day avg)
+              </p>
             </div>
             <div className="text-right">
               <p className="text-xl md:text-2xl font-bold text-green-600">

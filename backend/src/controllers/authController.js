@@ -116,7 +116,7 @@ export const refresh = async (req, res) => {
     const newRefreshToken = jwt.sign(
       { id: user._id },
       process.env.REFRESH_SECRET,
-      { expiresIn: "7d" }
+      { expiresIn: "7d" },
     );
 
     res.cookie("refreshToken", newRefreshToken, refreshCookieOptions);

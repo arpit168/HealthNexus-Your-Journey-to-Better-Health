@@ -377,7 +377,9 @@ const Profile = () => {
                         </div>
                         <p className="text-2xl font-bold text-gray-800 ">
                           {userData?.healthData?.vitals?.height || "N/A"}
-                          <span className="text-sm text-gray-600  ml-1">cm</span>
+                          <span className="text-sm text-gray-600  ml-1">
+                            cm
+                          </span>
                         </p>
                       </div>
 
@@ -388,7 +390,9 @@ const Profile = () => {
                         </div>
                         <p className="text-2xl font-bold text-gray-800 ">
                           {userData?.healthData?.vitals?.currentWeight || "N/A"}
-                          <span className="text-sm text-gray-600  ml-1">kg</span>
+                          <span className="text-sm text-gray-600  ml-1">
+                            kg
+                          </span>
                         </p>
                       </div>
 
@@ -399,7 +403,9 @@ const Profile = () => {
                         </div>
                         <p className="text-2xl font-bold text-gray-800 ">
                           {userData?.healthData?.vitals?.goalWeight || "N/A"}
-                          <span className="text-sm text-gray-600  ml-1">kg</span>
+                          <span className="text-sm text-gray-600  ml-1">
+                            kg
+                          </span>
                         </p>
                       </div>
 

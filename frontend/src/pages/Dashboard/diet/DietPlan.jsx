@@ -217,7 +217,9 @@ const DietPlan = ({ plan, dayOffset = 0, onSwap }) => {
       <div className="bg-white  rounded-xl p-5 border border-gray-200 ">
         <div className="flex items-center gap-2 mb-3">
           <ShoppingBag className="w-5 h-5 text-emerald-600" />
-          <h3 className="text-lg font-semibold text-gray-800 ">Shopping List</h3>
+          <h3 className="text-lg font-semibold text-gray-800 ">
+            Shopping List
+          </h3>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-sm text-gray-600 ">
           {currentPlan.shoppingList.map((item) => (

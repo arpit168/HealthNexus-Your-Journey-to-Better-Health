@@ -196,7 +196,9 @@ const AdherenceLog = ({ logs = [], onSubmit, date = new Date() }) => {
                 className="w-5 h-5 text-purple-600 rounded focus:ring-purple-500"
               />
               <div className="flex-1">
-                <p className="font-semibold text-gray-800 ">Workout Completed</p>
+                <p className="font-semibold text-gray-800 ">
+                  Workout Completed
+                </p>
                 <p className="text-sm text-gray-600 ">
                   Did you complete your workout today?
                 </p>
@@ -226,7 +228,9 @@ const AdherenceLog = ({ logs = [], onSubmit, date = new Date() }) => {
                 className="w-5 h-5 text-purple-600 rounded focus:ring-purple-500"
               />
               <div className="flex-1">
-                <p className="font-semibold text-gray-800 ">Water Intake Goal</p>
+                <p className="font-semibold text-gray-800 ">
+                  Water Intake Goal
+                </p>
                 <p className="text-sm text-gray-600 ">
                   Did you meet your water intake goal?
                 </p>
