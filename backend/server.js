@@ -26,7 +26,7 @@ const allowedOrigins = process.env.CORS_ORIGINS
   : [
       "http://localhost:5173",
       "https://health-nexus-your-journey-to-better.vercel.app",
-      "https://health-nexus-your-journey-to-better.vercel.app/api",
+      "https://health-nexus-your-journey-to-better.vercel.app",
       "https://health-nexus-your-journey-to-better-health-lhdll1p57.vercel.app",
       "https://health-nexus-your-journey-to-better-health-lhdll1p57.vercel.app/",
       ...(process.env.FRONTEND_URL ? [process.env.FRONTEND_URL] : []),
