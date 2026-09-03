@@ -468,7 +468,9 @@ const WorkoutPlan = ({ plan, weekOffset = 0, onUpdate }) => {
         </div>
         <div className="bg-linear-to-br from-purple-50 to-purple-100 rounded-lg p-4">
           <p className="text-sm text-gray-600  mb-1">Level</p>
-          <p className="text-lg font-bold text-gray-800 ">{workoutPlan.level}</p>
+          <p className="text-lg font-bold text-gray-800 ">
+            {workoutPlan.level}
+          </p>
         </div>
         <div className="bg-linear-to-br from-green-50 to-green-100 rounded-lg p-4 col-span-2 md:col-span-1">
           <p className="text-sm text-gray-600  mb-1">Completion</p>

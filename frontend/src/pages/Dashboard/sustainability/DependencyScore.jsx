@@ -208,20 +208,26 @@ const DependencyScore = () => {
             >
               {status.level}
             </p>
-            <p className="text-gray-600  mt-1 text-sm md:text-base">{status.description}</p>
+            <p className="text-gray-600  mt-1 text-sm md:text-base">
+              {status.description}
+            </p>
           </div>
           <div className="md:text-right w-full md:w-auto flex flex-row md:flex-col justify-between md:justify-start">
             <div className="mb-0 md:mb-3 text-left md:text-right">
               <p className="text-2xl md:text-3xl font-bold text-green-600">
                 {stats.selfDecisions}
               </p>
-              <p className="text-xs md:text-sm text-gray-600 ">Self-Directed Decisions</p>
+              <p className="text-xs md:text-sm text-gray-600 ">
+                Self-Directed Decisions
+              </p>
             </div>
             <div className="text-right">
               <p className="text-xl md:text-2xl font-bold text-blue-600">
                 {stats.appChecks}
               </p>
-              <p className="text-xs md:text-sm text-gray-600 ">App Check-ins (30d)</p>
+              <p className="text-xs md:text-sm text-gray-600 ">
+                App Check-ins (30d)
+              </p>
             </div>
           </div>
         </div>

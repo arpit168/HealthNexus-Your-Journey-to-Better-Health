@@ -215,26 +215,34 @@ const LifestyleIntegrationScore = () => {
             <h3 className="text-lg md:text-xl font-bold text-gray-800  mb-2">
               {status.emoji} Lifestyle Integration Score
             </h3>
-            <p className="text-4xl md:text-5xl font-bold text-gray-900 ">{overallScore}</p>
+            <p className="text-4xl md:text-5xl font-bold text-gray-900 ">
+              {overallScore}
+            </p>
             <p
               className={`text-base md:text-lg font-semibold text-${status.color}-700 mt-2`}
             >
               {status.level}
             </p>
-            <p className="text-gray-600  mt-1 text-sm md:text-base">{status.description}</p>
+            <p className="text-gray-600  mt-1 text-sm md:text-base">
+              {status.description}
+            </p>
           </div>
           <div className="md:text-right w-full md:w-auto flex flex-row md:flex-col justify-between md:justify-start">
             <div className="mb-0 md:mb-3 text-left md:text-right">
               <p className="text-2xl md:text-3xl font-bold text-blue-600">
                 {stats.avgMinutes}
               </p>
-              <p className="text-xs md:text-sm text-gray-600 ">Daily Fitness Minutes</p>
+              <p className="text-xs md:text-sm text-gray-600 ">
+                Daily Fitness Minutes
+              </p>
             </div>
             <div className="text-right">
               <p className="text-xl md:text-2xl font-bold text-green-600">
                 {100 - stats.avgStress}%
               </p>
-              <p className="text-xs md:text-sm text-gray-600 ">Life Satisfaction</p>
+              <p className="text-xs md:text-sm text-gray-600 ">
+                Life Satisfaction
+              </p>
             </div>
           </div>
         </div>
@@ -312,7 +320,9 @@ const LifestyleIntegrationScore = () => {
                     <Icon size={24} style={{ color: area.color }} />
                   </div>
                 </div>
-                <p className="text-2xl font-bold text-gray-800 ">{area.score}</p>
+                <p className="text-2xl font-bold text-gray-800 ">
+                  {area.score}
+                </p>
                 <p className="text-xs text-gray-600 ">{area.area}</p>
                 <div className="mt-2 w-full bg-gray-200  rounded-full h-2">
                   <div

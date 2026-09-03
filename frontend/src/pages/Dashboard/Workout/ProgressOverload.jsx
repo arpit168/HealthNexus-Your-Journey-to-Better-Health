@@ -322,7 +322,9 @@ const ProgressOverload = ({ workoutData = [], onAdjust, suggestions = [] }) => {
                     suggestion.adjustmentType,
                   )} bg-opacity-10 rounded-lg p-3`}
                 >
-                  <p className="text-xs text-gray-600  mb-1">Suggested Volume</p>
+                  <p className="text-xs text-gray-600  mb-1">
+                    Suggested Volume
+                  </p>
                   <p className="text-xl font-bold text-gray-800 ">
                     {suggestion.suggestedVolume} kg
                   </p>

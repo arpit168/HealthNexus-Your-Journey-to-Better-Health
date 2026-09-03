@@ -66,8 +66,7 @@ const MobileBottomNav = () => {
 
   const isActive = (path) => {
     return (
-      location.pathname === path ||
-      location.pathname.startsWith(`${path}/`)
+      location.pathname === path || location.pathname.startsWith(`${path}/`)
     );
   };
 

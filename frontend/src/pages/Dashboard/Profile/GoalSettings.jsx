@@ -285,7 +285,9 @@ const GoalSettings = ({
       {/* HEADER */}
 
       <div>
-        <h2 className="text-2xl font-bold text-gray-800  mb-2">Goal Settings</h2>
+        <h2 className="text-2xl font-bold text-gray-800  mb-2">
+          Goal Settings
+        </h2>
 
         <p className="text-gray-600  text-sm">Define your fitness goals</p>
       </div>

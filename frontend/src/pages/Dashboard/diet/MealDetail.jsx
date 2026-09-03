@@ -77,7 +77,10 @@ const MealDetail = ({ meal, onCook, scale = 1 }) => {
             </h4>
             <ul className="grid grid-cols-2 gap-2 text-sm text-gray-600 ">
               {ingredients.map((ingredient) => (
-                <li key={ingredient.name} className="bg-gray-50  rounded-lg p-2">
+                <li
+                  key={ingredient.name}
+                  className="bg-gray-50  rounded-lg p-2"
+                >
                   {ingredient.name} · {ingredient.quantity}
                 </li>
               ))}

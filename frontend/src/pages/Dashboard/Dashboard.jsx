@@ -23,7 +23,9 @@ import DashboardLayout from "../../components/Dashboard/DashboardLayout";
 import { getUserData } from "../../Services/authService";
 import profileService from "../../Services/profileService";
 import ResponsiveSlider from "../../components/Common/ResponsiveSlider";
-import ResponsiveCard, { CardContent } from "../../components/Common/ResponsiveCard";
+import ResponsiveCard, {
+  CardContent,
+} from "../../components/Common/ResponsiveCard";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -163,122 +165,122 @@ const Dashboard = () => {
           <div className="mb-8">
             <ResponsiveSlider>
               {/* Habit Score Card */}
-            <div className="bg-white  rounded-2xl shadow-lg p-6 border border-gray-100  hover:shadow-xl transition-all duration-300 hover:scale-105 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:100ms]">
-              <div className="flex items-start justify-between mb-4">
-                <div className="bg-yellow-100 rounded-xl p-3">
-                  <FiStar className="w-6 h-6 text-yellow-600" />
+              <div className="bg-white  rounded-2xl shadow-lg p-6 border border-gray-100  hover:shadow-xl transition-all duration-300 hover:scale-105 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:100ms]">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="bg-yellow-100 rounded-xl p-3">
+                    <FiStar className="w-6 h-6 text-yellow-600" />
+                  </div>
+                  <span className="text-sm font-semibold text-yellow-600">
+                    +5
+                  </span>
                 </div>
-                <span className="text-sm font-semibold text-yellow-600">
-                  +5
-                </span>
+                <h3 className="text-gray-600  text-sm font-semibold mb-2">
+                  Habit Score
+                </h3>
+                <div className="mb-3">
+                  <p className="text-3xl font-bold text-gray-900 ">
+                    {mockData.habitScore}
+                  </p>
+                  <p className="text-xs text-gray-500 ">out of 100</p>
+                </div>
+                <div className="w-full bg-gray-200  rounded-full h-2">
+                  <div
+                    className="bg-yellow-500 h-2 rounded-full transition-all duration-500"
+                    style={{ width: `${mockData.habitScore}%` }}
+                  />
+                </div>
               </div>
-              <h3 className="text-gray-600  text-sm font-semibold mb-2">
-                Habit Score
-              </h3>
-              <div className="mb-3">
-                <p className="text-3xl font-bold text-gray-900 ">
-                  {mockData.habitScore}
-                </p>
-                <p className="text-xs text-gray-500 ">out of 100</p>
-              </div>
-              <div className="w-full bg-gray-200  rounded-full h-2">
-                <div
-                  className="bg-yellow-500 h-2 rounded-full transition-all duration-500"
-                  style={{ width: `${mockData.habitScore}%` }}
-                />
-              </div>
-            </div>
 
-            {/* Current Weight Card */}
-            <div className="bg-white  rounded-2xl shadow-lg p-6 border border-gray-100  hover:shadow-xl transition-all duration-300 hover:scale-105 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:200ms]">
-              <div className="flex items-start justify-between mb-4">
-                <div className="bg-blue-100 rounded-xl p-3">
-                  <FiTrendingDown className="w-6 h-6 text-blue-600" />
+              {/* Current Weight Card */}
+              <div className="bg-white  rounded-2xl shadow-lg p-6 border border-gray-100  hover:shadow-xl transition-all duration-300 hover:scale-105 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:200ms]">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="bg-blue-100 rounded-xl p-3">
+                    <FiTrendingDown className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <span
+                    className={`text-sm font-semibold ${mockData.weightChange < 0 ? "text-green-600" : "text-red-600"}`}
+                  >
+                    {mockData.weightChange < 0 ? "↓" : "↑"}{" "}
+                    {Math.abs(mockData.weightChange)} kg
+                  </span>
                 </div>
-                <span
-                  className={`text-sm font-semibold ${mockData.weightChange < 0 ? "text-green-600" : "text-red-600"}`}
-                >
-                  {mockData.weightChange < 0 ? "↓" : "↑"}{" "}
-                  {Math.abs(mockData.weightChange)} kg
-                </span>
-              </div>
-              <h3 className="text-gray-600  text-sm font-semibold mb-2">
-                Current Weight
-              </h3>
-              <div className="mb-3">
-                <p className="text-3xl font-bold text-gray-900 ">
-                  {userData?.healthData?.vitals?.weight ||
-                    mockData.currentWeight}
+                <h3 className="text-gray-600  text-sm font-semibold mb-2">
+                  Current Weight
+                </h3>
+                <div className="mb-3">
+                  <p className="text-3xl font-bold text-gray-900 ">
+                    {userData?.healthData?.vitals?.weight ||
+                      mockData.currentWeight}
+                  </p>
+                  <p className="text-xs text-gray-500 ">kg</p>
+                </div>
+                <p className="text-xs text-green-600 font-semibold">
+                  From start: {mockData.weightChange} kg
                 </p>
-                <p className="text-xs text-gray-500 ">kg</p>
               </div>
-              <p className="text-xs text-green-600 font-semibold">
-                From start: {mockData.weightChange} kg
-              </p>
-            </div>
 
-            {/* Calories Card */}
-            <div className="bg-white  rounded-2xl shadow-lg p-6 border border-gray-100  hover:shadow-xl transition-all duration-300 hover:scale-105 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:300ms]">
-              <div className="flex items-start justify-between mb-4">
-                <div className="bg-red-100 rounded-xl p-3">
-                  <FiZap className="w-6 h-6 text-red-600" />
+              {/* Calories Card */}
+              <div className="bg-white  rounded-2xl shadow-lg p-6 border border-gray-100  hover:shadow-xl transition-all duration-300 hover:scale-105 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:300ms]">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="bg-red-100 rounded-xl p-3">
+                    <FiZap className="w-6 h-6 text-red-600" />
+                  </div>
+                  <span className="text-sm font-semibold text-red-600">
+                    {Math.round(
+                      (mockData.calories / mockData.caloriesTarget) * 100,
+                    )}
+                    %
+                  </span>
                 </div>
-                <span className="text-sm font-semibold text-red-600">
-                  {Math.round(
-                    (mockData.calories / mockData.caloriesTarget) * 100,
-                  )}
-                  %
-                </span>
+                <h3 className="text-gray-600  text-sm font-semibold mb-2">
+                  Calories
+                </h3>
+                <div className="mb-3">
+                  <p className="text-3xl font-bold text-gray-900 ">
+                    {mockData.calories}
+                  </p>
+                  <p className="text-xs text-gray-500 ">
+                    of {mockData.caloriesTarget} kcal
+                  </p>
+                </div>
+                <div className="w-full bg-gray-200  rounded-full h-2">
+                  <div
+                    className="bg-red-500 h-2 rounded-full transition-all duration-500"
+                    style={{
+                      width: `${Math.min((mockData.calories / mockData.caloriesTarget) * 100, 100)}%`,
+                    }}
+                  />
+                </div>
               </div>
-              <h3 className="text-gray-600  text-sm font-semibold mb-2">
-                Calories
-              </h3>
-              <div className="mb-3">
-                <p className="text-3xl font-bold text-gray-900 ">
-                  {mockData.calories}
-                </p>
-                <p className="text-xs text-gray-500 ">
-                  of {mockData.caloriesTarget} kcal
-                </p>
-              </div>
-              <div className="w-full bg-gray-200  rounded-full h-2">
-                <div
-                  className="bg-red-500 h-2 rounded-full transition-all duration-500"
-                  style={{
-                    width: `${Math.min((mockData.calories / mockData.caloriesTarget) * 100, 100)}%`,
-                  }}
-                />
-              </div>
-            </div>
 
-            {/* Workout Card */}
-            <div className="bg-white  rounded-2xl shadow-lg p-6 border border-gray-100  hover:shadow-xl transition-all duration-300 hover:scale-105 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:400ms]">
-              <div className="flex items-start justify-between mb-4">
-                <div className="bg-purple-100 rounded-xl p-3">
-                  <GiWeightLiftingUp className="w-6 h-6 text-purple-600" />
+              {/* Workout Card */}
+              <div className="bg-white  rounded-2xl shadow-lg p-6 border border-gray-100  hover:shadow-xl transition-all duration-300 hover:scale-105 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:400ms]">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="bg-purple-100 rounded-xl p-3">
+                    <GiWeightLiftingUp className="w-6 h-6 text-purple-600" />
+                  </div>
+                  <span className="text-sm font-semibold text-purple-600">
+                    Today
+                  </span>
                 </div>
-                <span className="text-sm font-semibold text-purple-600">
-                  Today
-                </span>
+                <h3 className="text-gray-600  text-sm font-semibold mb-2">
+                  Workout
+                </h3>
+                <div className="mb-3">
+                  <p className="text-lg font-bold text-gray-900 ">
+                    {mockData.workoutFocus}
+                  </p>
+                  <p className="text-xs text-gray-500 ">
+                    {mockData.exercisesToday} exercises
+                  </p>
+                </div>
+                <div className="flex items-center gap-1 text-purple-600 text-xs font-semibold">
+                  <FiCheck className="w-3 h-3" />
+                  <span>In Progress</span>
+                </div>
               </div>
-              <h3 className="text-gray-600  text-sm font-semibold mb-2">
-                Workout
-              </h3>
-              <div className="mb-3">
-                <p className="text-lg font-bold text-gray-900 ">
-                  {mockData.workoutFocus}
-                </p>
-                <p className="text-xs text-gray-500 ">
-                  {mockData.exercisesToday} exercises
-                </p>
-              </div>
-              <div className="flex items-center gap-1 text-purple-600 text-xs font-semibold">
-                <FiCheck className="w-3 h-3" />
-                <span>In Progress</span>
-              </div>
-            </div>
-          </ResponsiveSlider>
-        </div>
+            </ResponsiveSlider>
+          </div>
 
           {/* SECTION 3: HEALTH METRICS (New Section from API Data) */}
           {userData?.healthData?.vitals && (
@@ -650,45 +652,45 @@ const Dashboard = () => {
           <div className="mb-8 animate-[fadeInUp_0.6s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:800ms]">
             <ResponsiveSlider>
               {[
-              {
-                label: "Log Workout",
-                icon: GiWeightLiftingUp,
-                color: "from-blue-500 to-indigo-500",
-                action: "/workout",
-              },
-              {
-                label: "Log Meal",
-                icon: IoRestaurant,
-                color: "from-green-500 to-emerald-500",
-                action: "/diet",
-              },
-              {
-                label: "Update Weight",
-                icon: FiTrendingDown,
-                color: "from-purple-500 to-pink-500",
-                action: "/progress",
-              },
-              {
-                label: "Ask AI",
-                icon: FiMessageSquare,
-                color: "from-orange-500 to-red-500",
-                action: "/chat",
-              },
-            ].map((action, index) => {
-              const Icon = action.icon;
-              return (
-                <button
-                  key={action.label}
-                  onClick={() => navigate(action.action)}
-                  className={`w-full h-full bg-linear-to-r ${action.color} text-white font-semibold py-6 rounded-2xl hover:shadow-xl transition-all duration-300 hover:scale-105 flex flex-col items-center justify-center gap-3 group`}
-                  style={{ minHeight: '120px' }}
-                >
-                  <Icon className="w-8 h-8 group-hover:scale-125 transition-transform duration-300" />
-                  <span>{action.label}</span>
-                  <FiArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1" />
-                </button>
-              );
-            })}
+                {
+                  label: "Log Workout",
+                  icon: GiWeightLiftingUp,
+                  color: "from-blue-500 to-indigo-500",
+                  action: "/workout",
+                },
+                {
+                  label: "Log Meal",
+                  icon: IoRestaurant,
+                  color: "from-green-500 to-emerald-500",
+                  action: "/diet",
+                },
+                {
+                  label: "Update Weight",
+                  icon: FiTrendingDown,
+                  color: "from-purple-500 to-pink-500",
+                  action: "/progress",
+                },
+                {
+                  label: "Ask AI",
+                  icon: FiMessageSquare,
+                  color: "from-orange-500 to-red-500",
+                  action: "/chat",
+                },
+              ].map((action, index) => {
+                const Icon = action.icon;
+                return (
+                  <button
+                    key={action.label}
+                    onClick={() => navigate(action.action)}
+                    className={`w-full h-full bg-linear-to-r ${action.color} text-white font-semibold py-6 rounded-2xl hover:shadow-xl transition-all duration-300 hover:scale-105 flex flex-col items-center justify-center gap-3 group`}
+                    style={{ minHeight: "120px" }}
+                  >
+                    <Icon className="w-8 h-8 group-hover:scale-125 transition-transform duration-300" />
+                    <span>{action.label}</span>
+                    <FiArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all group-hover:translate-x-1" />
+                  </button>
+                );
+              })}
             </ResponsiveSlider>
           </div>
         </div>

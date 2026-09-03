@@ -1,4 +1,3 @@
-```jsx
 /* eslint-disable react-refresh/only-export-components */
 
 import {
@@ -77,10 +76,7 @@ export const AuthProvider = ({ children }) => {
 
           // Support refresh-token rotation.
           if (res.data.refreshToken) {
-            localStorage.setItem(
-              "refreshToken",
-              res.data.refreshToken
-            );
+            localStorage.setItem("refreshToken", res.data.refreshToken);
           }
 
           if (import.meta.env.DEV) {
@@ -107,19 +103,14 @@ export const AuthProvider = ({ children }) => {
 
         if (status === 401) {
           if (import.meta.env.DEV) {
-            console.log(
-              "ℹ️ No active session found (expected on first load)"
-            );
+            console.log("ℹ️ No active session found (expected on first load)");
           }
         } else if (err.code === "ECONNABORTED") {
           console.error("Refresh request timeout");
           setError("Connection timeout. Please check your network.");
         } else {
           if (import.meta.env.DEV) {
-            console.warn(
-              "Could not refresh session:",
-              err.message
-            );
+            console.warn("Could not refresh session:", err.message);
           }
         }
 
@@ -175,10 +166,7 @@ export const AuthProvider = ({ children }) => {
         window.__accessToken = newAccessToken;
 
         if (res.data.refreshToken) {
-          localStorage.setItem(
-            "refreshToken",
-            res.data.refreshToken
-          );
+          localStorage.setItem("refreshToken", res.data.refreshToken);
         }
 
         if (import.meta.env.DEV) {
@@ -194,25 +182,20 @@ export const AuthProvider = ({ children }) => {
       throw new Error("Invalid response from server");
     } catch (err) {
       const status = err.response?.status;
-      const message =
-        err.response?.data?.message || err.message;
+      const message = err.response?.data?.message || err.message;
 
       let userMessage = "Login failed";
 
       if (status === 401) {
         userMessage = "Invalid email or password";
       } else if (status === 400) {
-        userMessage =
-          message || "Please provide email and password";
+        userMessage = message || "Please provide email and password";
       } else if (status === 429) {
-        userMessage =
-          "Too many attempts. Please try again later";
+        userMessage = "Too many attempts. Please try again later";
       } else if (err.code === "ECONNABORTED") {
-        userMessage =
-          "Connection timeout. Please try again";
+        userMessage = "Connection timeout. Please try again";
       } else if (!err.response) {
-        userMessage =
-          "Network error. Please check your connection";
+        userMessage = "Network error. Please check your connection";
       }
 
       setError(userMessage);
@@ -239,10 +222,7 @@ export const AuthProvider = ({ children }) => {
       setError(null);
       setLoading(true);
 
-      const res = await axiosInstance.post(
-        "/auth/register",
-        userData
-      );
+      const res = await axiosInstance.post("/auth/register", userData);
 
       if (res.data) {
         if (import.meta.env.DEV) {
@@ -258,22 +238,18 @@ export const AuthProvider = ({ children }) => {
       throw new Error("Invalid response from server");
     } catch (err) {
       const status = err.response?.status;
-      const message =
-        err.response?.data?.message || err.message;
+      const message = err.response?.data?.message || err.message;
 
       let userMessage = "Registration failed";
 
       if (status === 400) {
-        userMessage =
-          message || "Invalid registration data";
+        userMessage = message || "Invalid registration data";
       } else if (status === 409) {
         userMessage = "Email already registered";
       } else if (err.code === "ECONNABORTED") {
-        userMessage =
-          "Connection timeout. Please try again";
+        userMessage = "Connection timeout. Please try again";
       } else if (!err.response) {
-        userMessage =
-          "Network error. Please check your connection";
+        userMessage = "Network error. Please check your connection";
       }
 
       setError(userMessage);
@@ -342,40 +318,39 @@ export const AuthProvider = ({ children }) => {
   // AXIOS RESPONSE INTERCEPTOR
   // Automatically refresh the access token after a 401 response.
   useEffect(() => {
-    const interceptor =
-      axiosInstance.interceptors.response.use(
-        (response) => response,
-        async (error) => {
-          const originalRequest = error.config;
+    const interceptor = axiosInstance.interceptors.response.use(
+      (response) => response,
+      async (error) => {
+        const originalRequest = error.config;
 
-          if (
-            error.response?.status === 401 &&
-            originalRequest &&
-            !originalRequest._retry &&
-            !originalRequest.url?.includes("/auth/refresh")
-          ) {
-            originalRequest._retry = true;
+        if (
+          error.response?.status === 401 &&
+          originalRequest &&
+          !originalRequest._retry &&
+          !originalRequest.url?.includes("/auth/refresh")
+        ) {
+          originalRequest._retry = true;
 
-            try {
-              const newToken = await refreshAuth(true);
+          try {
+            const newToken = await refreshAuth(true);
 
-              if (newToken) {
-                originalRequest.headers = {
-                  ...originalRequest.headers,
-                  Authorization: `Bearer ${newToken}`,
-                };
+            if (newToken) {
+              originalRequest.headers = {
+                ...originalRequest.headers,
+                Authorization: `Bearer ${newToken}`,
+              };
 
-                return axiosInstance(originalRequest);
-              }
-            } catch (refreshError) {
-              await logout();
-              return Promise.reject(refreshError);
+              return axiosInstance(originalRequest);
             }
+          } catch (refreshError) {
+            await logout();
+            return Promise.reject(refreshError);
           }
-
-          return Promise.reject(error);
         }
-      );
+
+        return Promise.reject(error);
+      },
+    );
 
     return () => {
       axiosInstance.interceptors.response.eject(interceptor);
@@ -397,20 +372,14 @@ export const AuthProvider = ({ children }) => {
     axios: axiosInstance,
   };
 
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
 
   if (context === undefined || context === null) {
-    throw new Error(
-      "useAuth must be used within an AuthProvider"
-    );
+    throw new Error("useAuth must be used within an AuthProvider");
   }
 
   return context;
@@ -421,11 +390,7 @@ export const withAuth = (Component) => {
     const { isAuthenticated, loading } = useAuth();
 
     if (loading) {
-      return (
-        <div className="auth-loading">
-          Loading...
-        </div>
-      );
+      return <div className="auth-loading">Loading...</div>;
     }
 
     if (!isAuthenticated) {
@@ -437,11 +402,7 @@ export const withAuth = (Component) => {
 };
 
 export const useProtectedAxios = () => {
-  const {
-    accessToken,
-    isAuthenticated,
-    logout,
-  } = useAuth();
+  const { accessToken, isAuthenticated, logout } = useAuth();
 
   const protectedAxios = useCallback(
     async (config) => {
@@ -467,11 +428,10 @@ export const useProtectedAxios = () => {
         throw error;
       }
     },
-    [accessToken, isAuthenticated, logout]
+    [accessToken, isAuthenticated, logout],
   );
 
   return protectedAxios;
 };
 
 export default AuthProvider;
-```
