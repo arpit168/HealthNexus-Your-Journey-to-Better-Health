@@ -11,18 +11,29 @@ const PhotoUpload = ({ currentPhoto, onPhotoUpdate, onPhotoRemove }) => {
 
   const startCamera = async () => {
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        toast.error("Camera access is blocked by your browser. This usually happens if you're not using HTTPS or localhost.");
+        return;
       }
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
       streamRef.current = stream;
       setShowCamera(true);
       setShowOptions(false);
     } catch (err) {
-      toast.error("Unable to access camera. Please check permissions.");
-      console.error(err);
+      if (err.name === "NotAllowedError" || err.name === "PermissionDeniedError") {
+        toast.error("Camera permission denied. Please allow camera access in your browser settings.");
+      } else {
+        toast.error("Unable to access camera. Please check permissions.");
+      }
+      console.error("Camera error:", err);
     }
   };
+
+  React.useEffect(() => {
+    if (showCamera && videoRef.current && streamRef.current) {
+      videoRef.current.srcObject = streamRef.current;
+    }
+  }, [showCamera]);
 
   const stopCamera = () => {
     if (streamRef.current) {
