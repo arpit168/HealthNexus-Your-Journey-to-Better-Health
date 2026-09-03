@@ -70,7 +70,7 @@ const MobileBottomNav = () => {
         isVisible ? "translate-y-0" : "translate-y-[150%]"
       }`}
     >
-      <div className="flex justify-around items-center p-2">
+      <div className="flex justify-around items-center p-1">
         {navItems.map((item) => {
           const Icon = item.icon;
           const active = isActive(item.path);
@@ -78,15 +78,15 @@ const MobileBottomNav = () => {
             <button
               key={item.id}
               onClick={() => navigate(item.path)}
-              className="flex flex-col items-center justify-center p-1 w-full space-y-1"
+              className="flex flex-col items-center justify-center py-1 w-full space-y-0.5"
             >
               <div
-                className={`p-2 rounded-xl transition-all duration-300 ${
+                className={`p-1.5 rounded-xl transition-all duration-300 ${
                   active ? "bg-indigo-50" : "bg-transparent"
                 }`}
               >
                 <Icon
-                  className={`w-6 h-6 ${
+                  className={`w-5 h-5 ${
                     active ? "text-indigo-600" : "text-gray-500"
                   }`}
                 />
