@@ -9,7 +9,7 @@ const DashboardLayout = ({ children }) => {
       <Sidebar />
 
       {/* Main Content Area */}
-      <main className="flex-1 lg:ml-64 w-full pb-24 lg:pb-0">{children}</main>
+      <main className="flex-1 lg:ml-64 pb-24 lg:pb-0 min-w-0 overflow-x-hidden">{children}</main>
 
       <MobileBottomNav />
     </div>
