@@ -38,7 +38,7 @@ export const UserRegister = async (req, res, next) => {
     }
 
     //Check for duplaicate user before registration
-    const existingUser = await User.findOne({ email });
+    const existingUser = await User.findOne({ email }).lean();
     if (existingUser) {
       const error = new Error("Email already registered");
       error.statusCode = 409;
@@ -100,7 +100,7 @@ export const refresh = async (req, res) => {
 
     const decoded = jwt.verify(token, process.env.REFRESH_SECRET);
 
-    const user = await User.findById(decoded.id).select("-password");
+    const user = await User.findById(decoded.id).select("-password").lean();
 
     if (!user) {
       return res.status(200).json({ message: "User not found" });
@@ -142,7 +142,7 @@ export const UserLogin = async (req, res, next) => {
       return next(error);
     }
 
-    const existingUser = await User.findOne({ email }).select("+password");
+    const existingUser = await User.findOne({ email }).select("+password").lean();
 
     if (!existingUser) {
       const error = new Error("Email not registered");
@@ -221,7 +221,7 @@ export const UserGenOTP = async (req, res, next) => {
     }
 
     //Check if user is registred or not
-    const existingUser = await User.findOne({ email });
+    const existingUser = await User.findOne({ email }).lean();
     if (!existingUser) {
       const error = new Error("Email not registered");
       error.statusCode = 401;
@@ -284,7 +284,7 @@ export const UserVerifyOtp = async (req, res, next) => {
 
     await existingUserOTP.deleteOne();
 
-    const existingUser = await User.findOne({ email });
+    const existingUser = await User.findOne({ email }).lean();
     if (!existingUser) {
       const error = new Error("Email not registered");
       error.statusCode = 401;

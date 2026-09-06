@@ -151,7 +151,7 @@ const getInitialAnalyticsData = () => ({
 export const getAnalyticsData = async (req, res, next) => {
   try {
     const userId = req.user._id;
-    let analytics = await Analytics.findOne({ userId });
+    let analytics = await Analytics.findOne({ userId }).lean();
 
     if (!analytics) {
       const initialData = getInitialAnalyticsData();
