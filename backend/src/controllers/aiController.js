@@ -51,7 +51,7 @@ export const generateResponse = async (req, res, next) => {
     }
 
     // Fetch user goals
-    const goal = await Goal.findOne({ userId: user._id });
+    const goal = await Goal.findOne({ userId: user._id }).lean();
 
     // We use the dynamically generated system prompt with DB context
     const systemPrompt = getSystemPrompt(user, goal);
@@ -106,7 +106,7 @@ export const streamResponse = async (req, res, next) => {
     }
 
     // Fetch user goals
-    const goal = await Goal.findOne({ userId: user._id });
+    const goal = await Goal.findOne({ userId: user._id }).lean();
 
     const systemPrompt = getSystemPrompt(user, goal);
 

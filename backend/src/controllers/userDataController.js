@@ -7,7 +7,7 @@ export const getUserProfile = async (req, res, next) => {
   try {
     const userId = req.user._id;
 
-    const user = await User.findById(userId).select("-password");
+    const user = await User.findById(userId).select("-password").lean();
 
     if (!user) {
       const error = new Error("User not found");
@@ -29,7 +29,7 @@ export const getUserHealthData = async (req, res, next) => {
   try {
     const userId = req.user._id;
 
-    const user = await User.findById(userId).select("healthData");
+    const user = await User.findById(userId).select("healthData").lean();
 
     if (!user) {
       const error = new Error("User not found");
@@ -52,7 +52,7 @@ export const getWorkoutHistory = async (req, res, next) => {
     const userId = req.user._id;
     const { limit = 50, skip = 0 } = req.query;
 
-    const user = await User.findById(userId);
+    const user = await User.findById(userId).select("workouts").lean();
 
     if (!user) {
       const error = new Error("User not found");
@@ -86,7 +86,7 @@ export const getMealHistory = async (req, res, next) => {
     const userId = req.user._id;
     const { limit = 50, skip = 0 } = req.query;
 
-    const user = await User.findById(userId);
+    const user = await User.findById(userId).select("meals").lean();
 
     if (!user) {
       const error = new Error("User not found");
@@ -120,7 +120,7 @@ export const getTrackingData = async (req, res, next) => {
     const userId = req.user._id;
     const { type = "all" } = req.query; // weight, measurements, photos, adherence
 
-    const user = await User.findById(userId);
+    const user = await User.findById(userId).select("weightTracking measurements progressPhotos adherenceLogs").lean();
 
     if (!user) {
       const error = new Error("User not found");
@@ -406,7 +406,7 @@ export const saveHealthData = async (req, res, next) => {
 
 export const getDietPlan = async (req, res, next) => {
   try {
-    const user = await User.findById(req.user._id);
+    const user = await User.findById(req.user._id).select("dietPlan").lean();
     if (!user) {
       const error = new Error("User not found");
       error.statusCode = 404;
@@ -436,7 +436,7 @@ export const saveDietPlan = async (req, res, next) => {
 
 export const getWorkoutPlan = async (req, res, next) => {
   try {
-    const user = await User.findById(req.user._id);
+    const user = await User.findById(req.user._id).select("workoutPlan").lean();
     if (!user) {
       const error = new Error("User not found");
       error.statusCode = 404;

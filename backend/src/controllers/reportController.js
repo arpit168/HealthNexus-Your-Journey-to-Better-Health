@@ -3,7 +3,7 @@ import Report from "../models/reportModel.js";
 export const getReportData = async (req, res, next) => {
   try {
     const userId = req.user._id;
-    let report = await Report.findOne({ userId });
+    let report = await Report.findOne({ userId }).lean();
 
     if (!report) {
       report = await Report.create({
