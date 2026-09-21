@@ -132,7 +132,7 @@ const Sidebar = () => {
       {/* Mobile Hamburger Button - positioned below navbar */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`lg:hidden fixed top-18 left-2 z-50 bg-white/50 p-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 ${
+        className={`lg:hidden fixed top-20 left-2 z-50 bg-white/50 p-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 ${
           isVisible ? "translate-x-0" : "-translate-x-[150%]"
         }`}
       >

@@ -22,6 +22,11 @@ export const dietService = {
     const response = await axiosInstance.post("/userData/meal", mealData);
     return response.data;
   },
+
+  saveTracking: async (trackingData) => {
+    const response = await axiosInstance.post("/userData/tracking", trackingData);
+    return response.data;
+  },
 };
 
 export default dietService;
