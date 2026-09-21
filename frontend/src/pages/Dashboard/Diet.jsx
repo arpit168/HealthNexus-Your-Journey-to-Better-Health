@@ -61,12 +61,18 @@ const Diet = () => {
   const handleLogMeal = async (logData) => {
     console.log("Logging meal:", logData);
     try {
+      if (logData.type === 'water') {
+        await dietService.saveTracking(logData);
+        toast.success("Water logged successfully!");
+        return;
+      }
+      
       await dietService.saveMeal(logData);
       setMealLogs((prev) => [...prev, logData]);
       toast.success("Meal logged successfully!");
     } catch (error) {
-      console.error("Failed to log meal", error);
-      toast.error("Failed to log meal");
+      console.error("Failed to log", error);
+      toast.error("Failed to log");
     }
   };
 

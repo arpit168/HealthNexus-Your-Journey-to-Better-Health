@@ -13,6 +13,7 @@ import {
   FiLogOut,
   FiCpu,
   FiGithub,
+  FiAward,
   FiTwitter,
   FiLinkedin,
   FiMenu,

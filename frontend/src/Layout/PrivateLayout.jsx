@@ -5,7 +5,9 @@ const PrivateLayout = () => {
   return (
     <>
       <Header />
-      <Outlet />
+      <div className="pt-[72px]">
+        <Outlet />
+      </div>
     </>
   );
 };

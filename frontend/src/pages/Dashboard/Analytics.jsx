@@ -788,7 +788,7 @@ const Analytics = () => {
           border-radius: 8px;
           margin-bottom: 1rem;
           min-width: 0; /* Fixes Recharts ResponsiveContainer flex overflow bug */
-          overflow: hidden;
+          overflow: visible;
         }
 
         .dual-chart-grid {
@@ -808,6 +808,7 @@ const Analytics = () => {
           grid-template-columns: repeat(7, 1fr);
           gap: 4px;
           margin-bottom: 1rem;
+          min-width: 400px;
         }
 
         .heatmap-cell {

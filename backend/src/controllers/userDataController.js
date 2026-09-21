@@ -311,10 +311,10 @@ export const saveTracking = async (req, res, next) => {
       return next(error);
     }
 
-    const validTypes = ["weight", "measurement", "photo", "adherence"];
+    const validTypes = ["weight", "measurement", "photo", "adherence", "water"];
     if (!validTypes.includes(type)) {
       const error = new Error(
-        "Invalid tracking type. Must be: weight, measurement, photo, or adherence",
+        "Invalid tracking type. Must be: weight, measurement, photo, adherence, or water",
       );
       error.statusCode = 400;
       return next(error);
@@ -352,6 +352,10 @@ export const saveTracking = async (req, res, next) => {
       case "adherence":
         if (!user.adherenceLogs) user.adherenceLogs = [];
         user.adherenceLogs.push(trackingEntry);
+        break;
+      case "water":
+        if (!user.waterTracking) user.waterTracking = [];
+        user.waterTracking.push(trackingEntry);
         break;
     }
 

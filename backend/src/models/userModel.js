@@ -147,6 +147,7 @@ const userSchema = new mongoose.Schema(
     measurements: { type: [mongoose.Schema.Types.Mixed], default: [] },
     progressPhotos: { type: [mongoose.Schema.Types.Mixed], default: [] },
     adherenceLogs: { type: [mongoose.Schema.Types.Mixed], default: [] },
+    waterTracking: { type: [mongoose.Schema.Types.Mixed], default: [] },
     dietPlan: { type: mongoose.Schema.Types.Mixed, default: {} },
     workoutPlan: { type: mongoose.Schema.Types.Mixed, default: {} },
   },

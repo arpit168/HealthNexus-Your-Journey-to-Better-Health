@@ -6,7 +6,9 @@ const PublicLayout = () => {
   return (
     <>
       <Header />
-      <Outlet />
+      <div className="pt-[72px]">
+        <Outlet />
+      </div>
       <Footer />
     </>
   );
